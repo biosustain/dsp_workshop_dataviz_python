@@ -1,4 +1,6 @@
-# Static website Template
+```{include} ./README.md
+:start-line: 0
+```
 
 This is a template for a static website using Sphinx and GitHub Pages.
 
@@ -7,13 +9,5 @@ This is a template for a static website using Sphinx and GitHub Pages.
 :hidden:
 
 about
-```
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-:caption: A topic
-
-folder_topic/article_topic
 ```
 
