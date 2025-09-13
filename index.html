@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Static website Template &#8212; Data Science Platform notes template  documentation</title>
+    <title>Data visualization in Python &#8212; Data Visualization with Python  documentation</title>
   
   
   
@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,6 +41,8 @@
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -136,7 +139,7 @@
   
   
   
-    <p class="title logo__title">Data Science Platform notes template  documentation</p>
+    <p class="title logo__title">Data Visualization with Python  documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item"><ul class="navbar-icon-links"
@@ -150,7 +153,7 @@
           
           
           
-          <a href="https://github.com/enryh/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/biosustain/dsp_workshop_dataviz_python" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -169,10 +172,6 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">A topic</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="folder_topic/article_topic.html">Headline of the article</a></li>
 </ul>
 
     </div>
@@ -216,7 +215,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/enryh/notes_template" target="_blank"
+<a href="https://github.com/biosustain/dsp_workshop_dataviz_python" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -313,7 +312,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -324,11 +325,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Static website Template</h1>
+    <h1>Data visualization in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infos">Infos</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -338,13 +347,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="static-website-template">
-<h1>Static website Template<a class="headerlink" href="#static-website-template" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-visualization-in-python">
+<h1>Data visualization in Python<a class="headerlink" href="#data-visualization-in-python" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Workshop material for 19th November 2025</p>
+</div></blockquote>
+<section id="infos">
+<h2>Infos<a class="headerlink" href="#infos" title="Link to this heading">#</a></h2>
 <p>This is a template for a static website using Sphinx and GitHub Pages.</p>
 <div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
-</div>
+</section>
 </section>
 
 
@@ -374,6 +387,21 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infos">Infos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -393,7 +421,7 @@ By Henry Webel
 
   <p class="copyright">
     
-      © Copyright 2024, DTU Biosustain, Informatics Platform, DSP.
+      © Copyright 2025, DTU Biosustain, Informatics Platform, DSP.
       <br/>
     
   </p>
