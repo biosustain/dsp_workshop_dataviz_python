@@ -19,7 +19,7 @@ df = pd.read_csv(dir_data / "proteins" / "proteins.csv", index_col=0).T
 df
 
 # %% [markdown]
-# ### Horizontal Bar Plot
+# ## Horizontal Bar Plot
 # - Using the `orient` parameter to switch to horizontal orientation.
 # - calculates the mean and standard deviation of the mean automatically
 
