@@ -8,7 +8,8 @@ This is a template for a static website using Sphinx and GitHub Pages.
 :hidden:
 :maxdepth: 2
 
-1_matplotlib
+1_1_matplotlib
+1_2_seaborn
 2_plotly
 ```
 
