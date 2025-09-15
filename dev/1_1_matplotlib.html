@@ -172,6 +172,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_2_seaborn.html">Seaborn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotly.html">Plotly Express</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_vuecore.html">VueCore</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
@@ -369,6 +370,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-line-plot">Basic Line Plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-styles">Available styles</a></li>
 </ul>
             </nav>
@@ -396,6 +398,9 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="basic-line-plot">
+<h2>Basic Line Plot<a class="headerlink" href="#basic-line-plot" title="Link to this heading">#</a></h2>
+<p>From Getting Started.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># Create a figure containing a single Axes.</span>
@@ -429,14 +434,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="c1"># ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter(&quot;{x:.0f}&quot;))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="c1"># ax.xaxis.set_major_locator(mpl.ticker.MaxNLocator(integer=True))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ce6f2c79babd53475b5434bbb1cf80f85359adb605f4197c98e02c0dd7687d92.png" src="_images/ce6f2c79babd53475b5434bbb1cf80f85359adb605f4197c98e02c0dd7687d92.png" />
+<img alt="_images/b8f662f1e414a8ba65f12cb441878c11fae9269b7c1877813d876bdfe767cfa8.png" src="_images/b8f662f1e414a8ba65f12cb441878c11fae9269b7c1877813d876bdfe767cfa8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -457,7 +461,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4ead058e7292bd49f92be68798b0b0c6190fd11cf4b2d15c293d9d8fbe744ff5.png" src="_images/4ead058e7292bd49f92be68798b0b0c6190fd11cf4b2d15c293d9d8fbe744ff5.png" />
+<img alt="_images/0d53bbe0537d60e3a1df822cee96860857182468f7ee9a4d13ee067b02fc4257.png" src="_images/0d53bbe0537d60e3a1df822cee96860857182468f7ee9a4d13ee067b02fc4257.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ## Proteomics data example</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -781,6 +792,7 @@ Name: DMSO_rep1, Length: 2269, dtype: float64
 <img alt="_images/d88116f26dd6fdb06aa7ae58aec31f39ca73f3d07bdfc26a37f92a1af579edbd.png" src="_images/d88116f26dd6fdb06aa7ae58aec31f39ca73f3d07bdfc26a37f92a1af579edbd.png" />
 </div>
 </div>
+</section>
 <section id="available-styles">
 <h2>Available styles<a class="headerlink" href="#available-styles" title="Link to this heading">#</a></h2>
 <p>Choose your preferred style with it’s defaults
@@ -851,6 +863,7 @@ Name: DMSO_rep1, Length: 2269, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-line-plot">Basic Line Plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-styles">Available styles</a></li>
 </ul>
   </nav></div>

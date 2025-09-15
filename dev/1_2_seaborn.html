@@ -172,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="1_1_matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Seaborn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotly.html">Plotly Express</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_vuecore.html">VueCore</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
@@ -369,7 +370,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-bar-plot">Horizontal Bar Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proteomics-data-example">Proteomics data example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-bar-plot">Horizontal Bar Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-plot">Customizing the Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-the-plot-as-in-ggplot2">Style the plot as in ggplot2</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -400,6 +406,8 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="proteomics-data-example">
+<h2>Proteomics data example<a class="headerlink" href="#proteomics-data-example" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_data</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
@@ -565,7 +573,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="horizontal-bar-plot">
-<h2>Horizontal Bar Plot<a class="headerlink" href="#horizontal-bar-plot" title="Link to this heading">#</a></h2>
+<h3>Horizontal Bar Plot<a class="headerlink" href="#horizontal-bar-plot" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Using the <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter to switch to horizontal orientation.</p></li>
 <li><p>calculates the mean and standard deviation of the mean automatically</p></li>
@@ -589,20 +597,33 @@ document.write(`
 <img alt="_images/4fc3dbb2db55c3bc3576e4a59659d6493ff943ba41b3fb0b220823e385bd7cce.png" src="_images/4fc3dbb2db55c3bc3576e4a59659d6493ff943ba41b3fb0b220823e385bd7cce.png" />
 </div>
 </div>
+</section>
+<section id="customizing-the-plot">
+<h3>Customizing the Plot<a class="headerlink" href="#customizing-the-plot" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You can customize the plot further using Matplotlib functions.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span>
+    <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2487/1855110908.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
-  _ = ax.set_xticklabels(ax.get_xticklabels(), rotation=45, horizontalalignment=&quot;right&quot;)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2356/3272659636.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  _ = ax.set_xticklabels(
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="style-the-plot-as-in-ggplot2">
+<h3>Style the plot as in ggplot2<a class="headerlink" href="#style-the-plot-as-in-ggplot2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">):</span>
@@ -614,6 +635,8 @@ document.write(`
 <img alt="_images/d31cc64dd5c09738eccc5def3c99535236344e67dc5acbe1b1626e9caeee72bc.png" src="_images/d31cc64dd5c09738eccc5def3c99535236344e67dc5acbe1b1626e9caeee72bc.png" />
 </div>
 </div>
+<p>The end.</p>
+</section>
 </section>
 </section>
 
@@ -662,7 +685,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-bar-plot">Horizontal Bar Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proteomics-data-example">Proteomics data example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-bar-plot">Horizontal Bar Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-plot">Customizing the Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-the-plot-as-in-ggplot2">Style the plot as in ggplot2</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
