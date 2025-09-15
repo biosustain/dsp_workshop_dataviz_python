@@ -7,12 +7,27 @@
 # %%
 import plotly.express as px
 
+# %% [markdown]
+# ## Line Plot
+# - A simple line plot using Plotly Express.
+# - the positional axis order is different from Matplotlib
+
 # %%
 fig = px.line([1, 2, 3, 4], [1, 4, 2, 3])
 fig
 
+# %% [markdown]
+# Just be explicit, which is always a good idea!
+
 # %%
 fig = px.line(x=[1, 2, 3, 4], y=[1, 4, 2, 3])
+
+# %% [markdown]
+# The plotly Figure object offers many methods to update the
+# [`Figure`](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html).
+# There is no
+# separate axes object. The underlying data can be seen as a dictionary containing
+# data and the layout to apply (as a json).
 
 # %%
 dir(fig)
@@ -26,6 +41,9 @@ from collections import Counter
 
 items = Counter([x.split("_")[0] for x in dir(fig) if x.split("_")[0]])
 items
+
+# %% [markdown]
+# ## Proteomics data example
 
 # %%
 import pathlib

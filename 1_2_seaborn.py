@@ -13,13 +13,16 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+# %% [markdown]
+# ## Proteomics data example
+
 # %%
 dir_data = pathlib.Path("data")
 df = pd.read_csv(dir_data / "proteins" / "proteins.csv", index_col=0).T
 df
 
 # %% [markdown]
-# ## Horizontal Bar Plot
+# ### Horizontal Bar Plot
 # - Using the `orient` parameter to switch to horizontal orientation.
 # - calculates the mean and standard deviation of the mean automatically
 
@@ -35,12 +38,24 @@ ax = sns.barplot(
     facecolor=(0, 0, 0, 0),
 )
 
+# %% [markdown]
+# ### Customizing the Plot
+# - You can customize the plot further using Matplotlib functions.
+
 # %%
-_ = ax.set_xticklabels(ax.get_xticklabels(), rotation=45, horizontalalignment="right")
+_ = ax.set_xticklabels(
+    ax.get_xticklabels(),
+    rotation=45,
+    horizontalalignment="right",
+)
 ax.get_figure().tight_layout()
+
+# %% [markdown]
+# ### Style the plot as in ggplot2
 
 # %%
 with plt.style.context("ggplot"):
     ax = sns.barplot(data=df)
 
-# %%
+# %% [markdown]
+# The end.

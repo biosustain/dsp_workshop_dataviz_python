@@ -8,6 +8,10 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 
+# %% [markdown]
+# ## Basic Line Plot
+# From Getting Started.
+
 # %%
 fig, ax = plt.subplots()  # Create a figure containing a single Axes.
 ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
@@ -27,9 +31,9 @@ plt.show()
 
 # %%
 ax.yaxis.set_major_locator(mpl.ticker.MaxNLocator(integer=True))
-# ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter("{x:.0f}"))
-ax.xaxis.set_major_locator(mpl.ticker.MaxNLocator(integer=True))
+# ax.xaxis.set_major_locator(mpl.ticker.MaxNLocator(integer=True))
 ax.get_figure()
+
 # %%
 mu, sigma = 115, 15
 x = mu + sigma * np.random.randn(10000)
@@ -43,6 +47,9 @@ ax.set_title("Aardvark lengths\n (not really)")
 ax.text(75, 0.025, r"$\mu=115,\ \sigma=15$")
 ax.axis([55, 175, 0, 0.03])
 ax.grid(True)
+
+# %%
+# ## Proteomics data example
 
 # %%
 import pathlib
