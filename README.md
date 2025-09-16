@@ -4,6 +4,7 @@
 
 ## Infos
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/biosustain/dsp_workshop_dataviz_python)
 
 ## Local build of website
 
