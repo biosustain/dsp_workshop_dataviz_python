@@ -1,8 +1,10 @@
 # Data visualization in Python
 
-> Workshop material for 19th November 2025
+Workshop material for 19th November 2025
 
 ## Infos
+
+Launch the app:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/biosustain/dsp_workshop_dataviz_python)
 
