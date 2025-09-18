@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches: 
+      - main
   workflow_dispatch:
 
 # This job installs dependencies, builds the website and pushes it to `gh-pages`
@@ -33,3 +36,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build
           # cname: website.com
+      - if: ${{ github.ref != 'refs/heads/main' }}
+        name: Save to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build
+          # hide dev version of website in subfolder
+          destination_dir: dev
