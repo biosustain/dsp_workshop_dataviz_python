@@ -1,5 +1,5 @@
 # %% [markdown]
-# # Figure 2A (Rong, Frey et. al. 2024)
+# # Figure 2a (Rong, Frey et. al. 2024)
 # ![Figure 2a](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-024-53381-4/MediaObjects/41467_2024_53381_Fig2_HTML.png?as=webp)
 # Caption: "Growth curve of the xylitol strain with (dark blue)
 # or without (light blue) the CRISPRi switch induced. (...) Error bars and shaded
