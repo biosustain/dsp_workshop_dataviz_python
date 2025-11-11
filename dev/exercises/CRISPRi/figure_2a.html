@@ -407,119 +407,29 @@ OD values (…) were measured using a Jenway 6705 UV/Vis spectrophotometer (…)
 </div>
 </div>
 </div>
+<p>For protability the data is directly included as a dictionary. See the commented
+out code how the data was obtained from the CSV file <a class="reference download internal" download="" href="../../_downloads/e4f6cf4553d445c726f15a5715d811b4/figure_2a.csv"><span class="xref download myst">figure_2a.csv</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;figure_2a.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fname = &quot;figure_2a.csv&quot;</span>
+<span class="c1"># data = pd.read_csv(fname)</span>
+<span class="c1"># data.to_dict(orient=&quot;list&quot;)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;time (h)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s2">&quot;rep1_uninduced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.046</span><span class="p">,</span> <span class="mf">0.194</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">1.64</span><span class="p">,</span> <span class="mf">2.62</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">4.08</span><span class="p">,</span> <span class="mf">4.17</span><span class="p">,</span> <span class="mf">3.88</span><span class="p">],</span>
+    <span class="s2">&quot;rep2_uninduced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.048</span><span class="p">,</span> <span class="mf">0.213</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">2.72</span><span class="p">,</span> <span class="mf">3.73</span><span class="p">,</span> <span class="mf">4.32</span><span class="p">,</span> <span class="mf">4.13</span><span class="p">,</span> <span class="mf">3.87</span><span class="p">],</span>
+    <span class="s2">&quot;rep3_uninduced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.234</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">1.91</span><span class="p">,</span> <span class="mf">2.81</span><span class="p">,</span> <span class="mf">3.92</span><span class="p">,</span> <span class="mf">4.36</span><span class="p">,</span> <span class="mf">4.23</span><span class="p">,</span> <span class="mf">3.95</span><span class="p">],</span>
+    <span class="s2">&quot;rep4_uninduced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.054</span><span class="p">,</span> <span class="mf">0.205</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="mf">1.72</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">3.88</span><span class="p">,</span> <span class="mf">4.24</span><span class="p">,</span> <span class="mf">4.18</span><span class="p">,</span> <span class="mf">4.01</span><span class="p">],</span>
+    <span class="s2">&quot;rep1_induced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.046</span><span class="p">,</span> <span class="mf">0.185</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.93</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+    <span class="s2">&quot;rep2_induced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.184</span><span class="p">,</span> <span class="mf">0.493</span><span class="p">,</span> <span class="mf">0.766</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">],</span>
+    <span class="s2">&quot;rep3_induced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.204</span><span class="p">,</span> <span class="mf">0.534</span><span class="p">,</span> <span class="mf">0.815</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.07</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">],</span>
+    <span class="s2">&quot;rep4_induced&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.046</span><span class="p">,</span> <span class="mf">0.192</span><span class="p">,</span> <span class="mf">0.537</span><span class="p">,</span> <span class="mf">0.825</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.17</span><span class="p">,</span> <span class="mf">1.16</span><span class="p">,</span> <span class="mf">1.13</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time (h)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;replicate&quot;</span><span class="p">)</span>
+<span class="c1"># data.head()</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;replicate&quot;</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>replicate</th>
-      <th>rep1_uninduced</th>
-      <th>rep2_uninduced</th>
-      <th>rep3_uninduced</th>
-      <th>rep4_uninduced</th>
-      <th>rep1_induced</th>
-      <th>rep2_induced</th>
-      <th>rep3_induced</th>
-      <th>rep4_induced</th>
-    </tr>
-    <tr>
-      <th>time (h)</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.046</td>
-      <td>0.048</td>
-      <td>0.060</td>
-      <td>0.054</td>
-      <td>0.046</td>
-      <td>0.055</td>
-      <td>0.050</td>
-      <td>0.046</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.194</td>
-      <td>0.213</td>
-      <td>0.234</td>
-      <td>0.205</td>
-      <td>0.185</td>
-      <td>0.184</td>
-      <td>0.204</td>
-      <td>0.192</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.740</td>
-      <td>0.820</td>
-      <td>0.850</td>
-      <td>0.840</td>
-      <td>0.500</td>
-      <td>0.493</td>
-      <td>0.534</td>
-      <td>0.537</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1.640</td>
-      <td>1.800</td>
-      <td>1.910</td>
-      <td>1.720</td>
-      <td>0.760</td>
-      <td>0.766</td>
-      <td>0.815</td>
-      <td>0.825</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2.620</td>
-      <td>2.720</td>
-      <td>2.810</td>
-      <td>2.700</td>
-      <td>0.970</td>
-      <td>0.990</td>
-      <td>1.060</td>
-      <td>1.100</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,7 +582,7 @@ Either use matplotlib or seaborn for a static plot.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4637465549de38c7287dccd98a98029d7f0d866d66d671c7bd547627737c7f93.png" src="../../_images/4637465549de38c7287dccd98a98029d7f0d866d66d671c7bd547627737c7f93.png" />
+<img alt="../../_images/6a3e0783b6be0f5284bf1b4aa49244e140266745792e874fda848fcb12386cf8.png" src="../../_images/6a3e0783b6be0f5284bf1b4aa49244e140266745792e874fda848fcb12386cf8.png" />
 </div>
 </div>
 <details>
