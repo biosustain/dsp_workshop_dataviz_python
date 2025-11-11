@@ -9,4 +9,4 @@ help any LLM to prompt you with hints if you get stuck.
 
 Try to manipulate the plot as much as you like.
 
-Every exercise can be opened in colab using the launch button on the top right.
+Every exercise can be opened in colab using the launch button on the top right: 🚀
