@@ -10,6 +10,7 @@
 
 ```{toctree}
 :hidden:
+:caption: Course Contents
 :maxdepth: 2
 
 1_1_matplotlib
@@ -17,6 +18,16 @@
 2_plotly
 3_vuecore
 ```
+
+```{toctree}
+:hidden:
+:caption: Exercises
+:maxdepth: 1
+
+exercises/README
+exercises/CRISPRi/figure_2a
+```
+
 
 
 ```{toctree}
