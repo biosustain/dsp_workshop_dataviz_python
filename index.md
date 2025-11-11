@@ -29,6 +29,14 @@ exercises/CRISPRi/figure_2a
 ```
 
 
+```{toctree}
+:hidden:
+:caption: Data
+:maxdepth: 1
+
+data/README
+exercises/CRISPRi/README
+```
 
 ```{toctree}
 :maxdepth: 2
