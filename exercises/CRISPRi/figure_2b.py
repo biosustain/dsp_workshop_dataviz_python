@@ -79,6 +79,7 @@ sns.barplot(
 
 
 # %% [markdown]
+# ## Claude Sonnet 4.5
 # Prompt: "Can you generate some example data and code to generate the following plot using Python?"
 # Context: adding a screenshot of Figure 2b from Rong, Frey et. al. 2024
 
