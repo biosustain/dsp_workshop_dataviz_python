@@ -17,6 +17,7 @@ The DSP is based on four pillars:
 
 – Support: our research fellows on Statistics, Programming, Data analytics, and Machine learning
 – Education: coorganizing Data club with DTU - Bioengineering and organizing Data Science workshops
+    - see all out training material on this overview page: [DSP Training material](https://biosustain.github.io/dsp_notes/trainings)
 – Innovation: introducing researchers to new computational biology methods and technologies  
 – Tooling: implementing open-sourced standard tools
 
