@@ -337,7 +337,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -353,6 +355,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -366,7 +376,30 @@ document.write(`
 <h1>PXD040621<a class="headerlink" href="#pxd040621" title="Link to this heading">#</a></h1>
 <p>Data was processed with quantms in the proteomics introduction course. We will use
 the protein tables quantified using directlfq and a simpler median based approach.</p>
-<p>https://github.com/biosustain/dsp_course_proteomics_intro/tree/main/data/PXD040621</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ebi.ac.uk/pride/archive/projects/PXD040621" rel="noreferrer" target="_blank">PXD040621</a> -
+broccoli-derived antioxidant sulforaphane in human gut -
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1756464623002451" rel="noreferrer" target="_blank">article</a></p></li>
+</ul>
+<p>This dataset contains the proteome profiling of a escherichia coli strain named
+EPEC E2349/69 which showed the biggest growth response to an broccoli-derived antioxidant
+called sulforaphane, which can be administered orally.</p>
+<p>four of them are treated with 10 μM sulforaphane. The aim is to compare the proteome between
+both conditions.</p>
+<p>Goals:</p>
+<ul class="simple">
+<li><p>identify the impact of sulforaphane on the human gut microbiome (in anaerobic conditions
+of the gut)</p></li>
+</ul>
+<section id="context">
+<h2>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h2>
+<p>This data is part of a bigger collection of E. coli projects. Thanks
+to Caroline Jachmann for the great work assembling a peptide atlas with post translational
+modifications for ecoli:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.uniprot.org/proteomes/UP000000625" rel="noreferrer" target="_blank">E. coli peptide atlas with phosphosites</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -404,6 +437,21 @@ the protein tables quantified using directlfq and a simpler median based approac
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
