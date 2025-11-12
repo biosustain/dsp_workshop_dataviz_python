@@ -22,10 +22,11 @@
 ```{toctree}
 :hidden:
 :caption: Exercises
+:glob:
 :maxdepth: 1
 
 exercises/README
-exercises/CRISPRi/figure_2a
+exercises/CRISPRi/figure_*
 ```
 
 
