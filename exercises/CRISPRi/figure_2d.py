@@ -17,7 +17,7 @@ from numpy import nan
 # For protability the data is directly included as a dictionary. See the commented
 # out code how the data was obtained from the CSV file [figure_2d.csv](figure_2d.csv).
 
-# %%
+# %% tags=["hide-input"]
 # fname = "figure_2d.csv"
 # data = (
 #     (pd.read_csv(fname, header=[0, 1], index_col=0))
@@ -193,3 +193,6 @@ data
 
 # %% [markdown]
 # You will need to operate on a multi-index DataFrame.
+
+# %%
+#
