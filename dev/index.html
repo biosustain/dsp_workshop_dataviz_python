@@ -195,8 +195,9 @@
 <li class="toctree-l1"><a class="reference internal" href="data/README.html">PXD040621</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/README.html">Rong, Frey et. al. (2024)</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Data Science Platform at DTU - Biosustain</a></li>
 </ul>
 
     </div>
@@ -360,8 +361,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infos">Infos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-material">How to use material</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespace">GitHub Codespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-or-elsewhere">Local or elsewhere</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -378,15 +384,35 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="data-visualization-in-python">
 <h1>Data visualization in Python<a class="headerlink" href="#data-visualization-in-python" title="Link to this heading">#</a></h1>
 <p>Workshop material for 19th November 2025</p>
-<section id="infos">
-<h2>Infos<a class="headerlink" href="#infos" title="Link to this heading">#</a></h2>
-<p>Launch the app:</p>
-<p><a class="reference external" href="https://codespaces.new/biosustain/dsp_workshop_dataviz_python" rel="noreferrer" target="_blank"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
-</section>
 <section id="slides">
 <h2>Slides<a class="headerlink" href="#slides" title="Link to this heading">#</a></h2>
 <iframe src="https://docs.google.com/presentation/d/14sb9tld4v0axzmsJvOz444sT-9LfJSUmfmMnp7jLZiQ/embed?slide=id.p#slide=id.p" frameborder="0" width="100%" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-<div class="toctree-wrapper compound">
+</section>
+<section id="how-to-use-material">
+<h2>How to use material<a class="headerlink" href="#how-to-use-material" title="Link to this heading">#</a></h2>
+<p>There are two main ways we intend to use the material provided as executable notebooks:
+Colab and GitHub Codespaces.</p>
+<section id="google-colab">
+<h3>Google Colab<a class="headerlink" href="#google-colab" title="Link to this heading">#</a></h3>
+<p>Every tutorial or exercise can be opened in colab using the launch button on
+the <strong>top right</strong>: 🚀 (grey rocket if available)</p>
+<p><img alt="Open in Colab" src="_images/open_in_colab.png" /></p>
+</section>
+<section id="github-codespace">
+<h3>GitHub Codespace<a class="headerlink" href="#github-codespace" title="Link to this heading">#</a></h3>
+<p>Launch the repository in a Codespace by clicking the button below:</p>
+<p><a class="reference external" href="https://codespaces.new/biosustain/dsp_workshop_dataviz_python" rel="noreferrer" target="_blank"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
+<p>Make sure you are logged into your GitHub account.</p>
+</section>
+<section id="local-or-elsewhere">
+<h3>Local or elsewhere<a class="headerlink" href="#local-or-elsewhere" title="Link to this heading">#</a></h3>
+<p>Get the repository and install the requirements from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/biosustain/dsp_workshop_dataviz_python.git
+<span class="nb">cd</span><span class="w"> </span>dsp_workshop_dataviz_python
+<span class="c1"># create an environment, e.g. using venv</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># on Windows use `venv\Scripts\activate`</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -394,6 +420,9 @@ document.write(`
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
 </section>
 </section>
 
@@ -433,8 +462,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infos">Infos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-material">How to use material</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespace">GitHub Codespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-or-elsewhere">Local or elsewhere</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
