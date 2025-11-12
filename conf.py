@@ -24,6 +24,7 @@ exclude_patterns = [
     "*.py",
     ".pytest_cache",
     "data/PXD041301/*",  # leave it out for now
+    ".github/*",
 ]
 
 #  https://myst-nb.readthedocs.io/en/latest/computation/execute.html
@@ -61,7 +62,7 @@ html_theme_options = {
     "github_url": "https://github.com/biosustain/dsp_workshop_dataviz_python",
     "repository_url": "https://github.com/biosustain/dsp_workshop_dataviz_python",
     # "repository_branch": "main",
-    # "home_page_in_toc": True,
+    "home_page_in_toc": True,
     # "path_to_docs": "docs",
     "show_navbar_depth": 1,
     # "use_edit_page_button": True,
