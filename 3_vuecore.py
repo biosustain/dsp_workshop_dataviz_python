@@ -4,6 +4,17 @@
 # - will be used to define plotting functions for certain analysis types in our
 #   core analysis library
 # - at the moment only support the plotly backend
+#
+#
+# Colab specific setup: 
+
+# %%
+import os
+
+IN_COLAB = "COLAB_GPU" in os.environ
+
+if IN_COLAB:
+    # ! pip install vuecore
 
 # %%
 import pathlib
@@ -15,9 +26,14 @@ from vuecore.plots.basic.histogram import create_histogram_plot
 # ## Proteomics data example
 
 # %%
+fname = dir_data / "proteins" / "proteins.csv"
+if IN_COLAB:
+    fname = "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python/refs/heads/main/data/proteins/proteins.csv"
+
+# %%
 dir_data = pathlib.Path("data")
 df = (
-    pd.read_csv(dir_data / "proteins" / "proteins.csv", index_col=0)
+    pd.read_csv(fname, index_col=0)
     .rename_axis("Protein_ID", axis=1)
     .stack()
     .reset_index(name="Intensity")
