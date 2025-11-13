@@ -30,7 +30,8 @@
 :maxdepth: 1
 
 exercises/README
-exercises/CRISPRi/figure_*
+exercises/CRISPRi/figure_2?
+exercises/CRISPRi/figure_2
 ```
 
 
