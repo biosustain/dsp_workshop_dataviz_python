@@ -4,7 +4,7 @@ Some example data extracted from Source Data for the article:
 
 Rong, Y., Frey, A., Özdemir, E. et al. CRISPRi-mediated metabolic switch enables
 concurrent aerobic and synthetic anaerobic fermentations in engineered consortium.
-Nat Commun 15, 8985 (2024). https://doi.org/10.1038/s41467-024-53381-4
+Nat Commun 15, 8985 (2024). [https://doi.org/10.1038/s41467-024-53381-4](https://doi.org/10.1038/s41467-024-53381-4)
 
 
 Direct data link: 

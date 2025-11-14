@@ -25,7 +25,7 @@ data = (
 )
 data.to_dict(orient="list")
 
-# %%
+# %% tags=["hide-input"]
 data = {
     ("time (h)", ""): {
         0: 0.0,
@@ -1072,4 +1072,8 @@ data = (
 data
 
 # %% [markdown]
+# ## Recreate Figure 2C
 # You will need to operate on a multi-index DataFrame.
+
+# %%
+#
