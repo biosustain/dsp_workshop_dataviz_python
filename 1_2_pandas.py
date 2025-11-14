@@ -22,15 +22,13 @@
 # We are not going in-depth - we are just showing some basic functionalities which are important for plotting.
 
 # %%
-import matplotlib.pyplot as plt
+from pathlib import Path
+
 import numpy as np
-import os
 import pandas as pd
-import pathlib
-import seaborn as sns
 
 # %%
-DATA_DIR = pathlib.Path().cwd() / "data/growth"
+DATA_DIR = Path("data/growth")
 
 # %% [markdown]
 # ## 1. DATA I/O (Input/Output)
@@ -45,7 +43,7 @@ DATA_DIR = pathlib.Path().cwd() / "data/growth"
 df = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
 
 # %% [markdown]
-# Inspect the first few lines.  
+# Inspect the first few lines.
 
 # %%
 df.head()
@@ -63,35 +61,34 @@ df
 # Write a dataframe to a .csv file. (We make a folder first to store our own output).
 
 # %%
-my_output_dir = DATA_DIR / "my_data"
-if not os.path.exists(my_output_dir):
-    os.mkdir(my_output_dir)
 
-df.to_csv(my_output_dir / "fake_data.csv")
+df.to_csv("fake_data.csv")
 
 # %% [markdown]
-# `pd.read_csv()` and `.to_csv()` are the general input/output functions (among some more). Meaning: they work for other common files too (.txt, .tsv) and some more domain-specific files that are however in a (somewhat) tabular format (e.g. .vcf).
-# In other words - as long as it looks like a table, you can read /write to it, regardless of the file extension.  
+# `pd.read_csv()` and `.to_csv()` are the general input/output functions (among some more).
+# Meaning: they work for other common files too (.txt, .tsv) and some more domain-specific
+# files that are however in a (somewhat) tabular format (e.g. .vcf).
+# In other words - as long as it looks like a table, you can read /write to it,
+# regardless of the file extension.
 #
-# To demonstrate, let us save it to a .tsv file. The difference is that it is **tab**-separated values instead of **comma**-separated values in a .csv file.
+# To demonstrate, let us save it to a .tsv file. The difference is that it is
+# **tab**-separated values instead of **comma**-separated values in a .csv file.
 
 # %%
-df.to_csv(my_output_dir / "fake_data.tsv", sep="\t")
+df.to_csv("fake_data.tsv", sep="\t")
 
 # %% [markdown]
 # It can make sense to imit the index column, as Pandas automatically creates one when you read it, even if it already exists. (Otherwise you specify e.g. `index_col=0` when reading it - try it out to see the difference).
 
 # %%
-df.to_csv(my_output_dir / "fake_data.tsv", sep="\t", index=False)
+df.to_csv("fake_data.tsv", sep="\t", index=False)
 
 # %% [markdown]
 # You can also read/write zipped file. Pandas will try to detect it automatically, but you can specify it yourself:
 
 # %%
-df.to_csv(my_output_dir / "fake_data.tsv.gz", sep="\t", index=False, compression="gzip")
+df.to_csv("fake_data.tsv.gz", sep="\t", index=False, compression="gzip")
 
-# %%
-#pd.read_csv(my_output_dir / "fake_data.tsv.gz", sep="\t", compression="gzip")
 
 # %% [markdown]
 # ## 2. Data Manuipulation
@@ -100,37 +97,46 @@ df.to_csv(my_output_dir / "fake_data.tsv.gz", sep="\t", index=False, compression
 # ### 2.1 Rename
 
 # %% [markdown]
-# The column names are written in a human-readable format, with spaces and brackets. It can be a good practice however to write them in a more programming-friendly way. We can easily do it by using a dictionary with the syntax  
+# The column names are written in a human-readable format, with spaces and brackets. 
+# It can be a good practice however to write them in a more programming-friendly way.
+# We can easily do it by using a dictionary with the syntax
 # `{<old-name>: <new-name>}`
 
 # %%
-df2 = df.rename(columns={
-    "SFN concentration (µM)": "sfn_conc_mumolar",
-    "time (h)": "time_h",
-    "Bacterial growth (OD600)": "bact_growth_od600"
-})
+df2 = df.rename(
+    columns={
+        "SFN concentration (µM)": "sfn_conc_mumolar",
+        "time (h)": "time_h",
+        "Bacterial growth (OD600)": "bact_growth_od600",
+    }
+)
 
 # %% [markdown]
 # We can do this - or many other operations - inplace for brevity.
 
 # %%
-df.rename(columns={
-    "SFN concentration (µM)": "sfn_conc_mumolar",
-    "time (h)": "time_h",
-    "Bacterial growth (OD600)": "bact_growth_od600"
-}, inplace=True)
+df.rename(
+    columns={
+        "SFN concentration (µM)": "sfn_conc_mumolar",
+        "time (h)": "time_h",
+        "Bacterial growth (OD600)": "bact_growth_od600",
+    },
+    inplace=True,
+)
 
 # %% [markdown]
 # ### 2.2 Filtering by Conditions
 
 # %% [markdown]
-# As we can see, we have data for aerobic and anaerobic conditions. If we are only interested in looking at e.g. the aerobic data, we can do it like this:
+# As we can see, we have data for aerobic and anaerobic conditions. If we are only
+# interested in looking at e.g. the aerobic data, we can do it like this:
 
 # %%
 df_aerobic = df[df["condition"] == "Aerobic"]
 
 # %% [markdown]
-# We can also filter by multile conditions. For example, get all anaerobic data from DMSO, where the OD600 is below a value of 0.4:
+# We can also filter by multile conditions. For example, get all anaerobic data from
+# DMSO, where the OD600 is below a value of 0.4:
 
 # %%
 df_multi_condition = df[
@@ -143,13 +149,16 @@ df_multi_condition = df[
 # ### 2.3 Adding Data By Conditions
 
 # %% [markdown]
-# Part of data transformation is adding in new variables based on other columns in the table. This can be also just for plotting. For example, we could wish to color our plot on whether our bacteria are in their stationary phase or not. Then, we would add a variable called `is_stationary()` that we use to subset parts of our data for plotting (we will show how later with seaborn). We use NumPy for this purpose with the syntax
+# Part of data transformation is adding in new variables based on other columns in the
+# table. This can be also just for plotting. For example, we could wish to color our 
+# plot on whether our bacteria are in their stationary phase or not. Then, we would add
+# a variable called `is_stationary()` that we use to subset parts of our data for 
+# plotting (we will show how later with seaborn). We use NumPy for this purpose with 
+# the syntax
 # `(<condition(s)>, <output-if-true>, <output-if-false>)`.
 
 # %%
-df["is_stationary"] = np.where(
-    df["bact_growth_od600"] >= 0.55, True, False
-)
+df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
 
 # %% [markdown]
 # ### 2.4 Aggregating Data
@@ -160,11 +169,9 @@ df["is_stationary"] = np.where(
 
 # %%
 df_rep_agg = (
-    df
-        .groupby(["time_h", "condition", "sfn_conc_mumolar"])
-        ["bact_growth_od600"]
-        .mean()
-        .reset_index()
+    df.groupby(["time_h", "condition", "sfn_conc_mumolar"])["bact_growth_od600"]
+    .mean()
+    .reset_index()
 )
 
 # %% [markdown]
@@ -175,13 +182,18 @@ df_rep_agg = (
 
 # %%
 df_multi_agg = (
-    df
-        .groupby(["time_h", "condition", "sfn_conc_mumolar"])
-        .agg({
+    df.groupby(["time_h", "condition", "sfn_conc_mumolar"])
+    .agg(
+        {
             "is_stationary": ["count"],
-            "bact_growth_od600": ["min", "mean", "max",]
-        })
-        .reset_index()
+            "bact_growth_od600": [
+                "min",
+                "mean",
+                "max",
+            ],
+        }
+    )
+    .reset_index()
 )
 
 # %% [markdown]
@@ -193,24 +205,22 @@ df_multi_agg = (
 # 2. Conditioning on that new column
 
 # %%
-df["stationary_od"] = (
-    df
-        .groupby(["condition", "sfn_conc_mumolar", "replicate"])
-        ["bact_growth_od600"]
-        .transform(lambda col: col.max() - 0.1)
-)
+df["stationary_od"] = df.groupby(["condition", "sfn_conc_mumolar", "replicate"])[
+    "bact_growth_od600"
+].transform(lambda col: col.max() - 0.1)
 df["is_stationary"] = np.where(
     df["bact_growth_od600"] >= df["stationary_od"], True, False
 )
 
 # %% [markdown]
-# That tolerance could also be calculated in a similar way, e.g. based on the standard deviation (we leave that as an exercise if you want to try it out yourself).
+# That tolerance could also be calculated in a similar way, e.g. based on the standard 
+# deviation (we leave that as an exercise if you want to try it out yourself).
+
+# %%
+# Your turn
 
 # %% [markdown]
+# There are many more useful transformations, but we end here by having shown some that
+# you could already use in more advanced plots.
 #
 
-# %% [markdown]
-# There are many more useful transformations, but we end here by having shown some that you could already use in more advanced plots.
-
-# %% [markdown]
-#
