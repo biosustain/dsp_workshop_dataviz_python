@@ -13,7 +13,7 @@
 # ---
 
 # %% [markdown]
-# # Pandas
+# # Pandas (for data to plot)
 
 # %% [markdown]
 # The standard data manipulation framework in Python (many others make use of at least part of its functionalities or are compatible with it)

@@ -14,6 +14,7 @@
 :maxdepth: 2
 
 1_1_matplotlib
+1_2_pandas
 1_2_seaborn
 2_plotly
 3_vuecore
