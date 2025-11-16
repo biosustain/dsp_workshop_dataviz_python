@@ -397,7 +397,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-i-o-input-output">1. DATA I/O (Input/Output)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1. Read Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to A File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
@@ -444,7 +444,7 @@ document.write(`
 <h2>1. DATA I/O (Input/Output)<a class="headerlink" href="#data-i-o-input-output" title="Link to this heading">#</a></h2>
 <section id="read-data">
 <h3>1. Read Data<a class="headerlink" href="#read-data" title="Link to this heading">#</a></h3>
-<p>Let us load in some fake data made to fit some plots from a Proteomics paper.</p>
+<p>Let us load in some fake data made to fit some growth data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;fake_growth_data.csv&quot;</span><span class="p">)</span>
@@ -530,7 +530,12 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>You could also omit .head() and it will automatically shorten the output based on your rendering settings.</p>
+<p>You could also omit .head() and it will automatically shorten the output based
+on your rendering settings.</p>
+<blockquote>
+<div><p>These settings are controlled by pandas display options, such as
+<code class="docutils literal notranslate"><span class="pre">pd.options.display.max_rows</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.options.display.max_columns</span></code>.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
@@ -659,8 +664,9 @@ document.write(`
 </div>
 </section>
 <section id="write-it-to-a-file">
-<h3>1.2 Write it to A File<a class="headerlink" href="#write-it-to-a-file" title="Link to this heading">#</a></h3>
-<p>Write a dataframe to a .csv file. (We make a folder first to store our own output).</p>
+<h3>1.2 Write it to a File<a class="headerlink" href="#write-it-to-a-file" title="Link to this heading">#</a></h3>
+<p>E.g. after some data manipulation you wish to save the data.</p>
+<p>Write a dataframe to a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.csv&quot;</span><span class="p">)</span>
@@ -669,12 +675,12 @@ document.write(`
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> are the general input/output functions (among some more).
-Meaning: they work for other common files too (.txt, .tsv) and some more domain-specific
-files that are however in a (somewhat) tabular format (e.g. .vcf).
+Meaning: they work for other common files too (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>) and some more domain-specific
+files that are however in a (somewhat) tabular format (e.g. <code class="docutils literal notranslate"><span class="pre">.vcf</span></code>).
 In other words - as long as it looks like a table, you can read /write to it,
 regardless of the file extension.</p>
-<p>To demonstrate, let us save it to a .tsv file. The difference is that it is
-<strong>tab</strong>-separated values instead of <strong>comma</strong>-separated values in a .csv file.</p>
+<p>To demonstrate, let us save it to a <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file. The difference is that it is
+<strong>tab</strong>-separated values instead of <strong>comma</strong>-separated values in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -682,15 +688,89 @@ regardless of the file extension.</p>
 </div>
 </div>
 </div>
-<p>It can make sense to imit the index column, as Pandas automatically creates one when you read it, even if it already exists. (Otherwise you specify e.g. <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> when reading it - try it out to see the difference).</p>
+<p>It can make sense to omit the index column, as Pandas automatically creates
+one when you read it, even if it already exists.
+(Otherwise you specify e.g. <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> when reading it - try it out to see the difference).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>SFN concentration (µM)</th>
+      <th>replicate</th>
+      <th>time (h)</th>
+      <th>Bacterial growth (OD600)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<p>You can also read/write zipped file. Pandas will try to detect it automatically, but you can specify it yourself:</p>
+<p>You can also read/write zipped file. Pandas will try to detect it automatically,
+but you can specify it yourself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv.gz&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
@@ -710,7 +790,7 @@ We can easily do it by using a dictionary with the syntax
 <code class="docutils literal notranslate"><span class="pre">{&lt;old-name&gt;:</span> <span class="pre">&lt;new-name&gt;}</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_col_renamed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;SFN concentration (µM)&quot;</span><span class="p">:</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">,</span>
         <span class="s2">&quot;time (h)&quot;</span><span class="p">:</span> <span class="s2">&quot;time_h&quot;</span><span class="p">,</span>
@@ -781,7 +861,10 @@ the syntax
 </section>
 <section id="aggregating-data">
 <h3>2.4 Aggregating Data<a class="headerlink" href="#aggregating-data" title="Link to this heading">#</a></h3>
-<p>Maybe we are more interested in the maximum or average OD or alike in our experiment. We could just use <code class="docutils literal notranslate"><span class="pre">.max()</span></code> for example but it would give us the maximum value across all variables. If however we wish to distinguish between different cases (like anaerobic/aerobic), then it makes sense to group our data first.
+<p>Maybe we are more interested in the maximum or average OD or alike in our experiment.
+We could just use <code class="docutils literal notranslate"><span class="pre">.max()</span></code> for example but it would give us the maximum value across
+all variables. If however we wish to distinguish between different cases
+(like anaerobic/aerobic), then it makes sense to group our data first.
 Here, we show how to aggregate across all replicates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,7 +877,9 @@ Here, we show how to aggregate across all replicates:</p>
 </div>
 </div>
 </div>
-<p>We put our command in brackets so we can write it out in multiple lines to show it better. We also reset the index at the end to transform the .Series object back into a .DataFrame object.</p>
+<p>We put our command in brackets so we can write it out in multiple lines to show it
+better. We also reset the index at the end to transform the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> object back into
+a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object.</p>
 <p>We can also aggregate multiple things at once:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,7 +904,8 @@ Here, we show how to aggregate across all replicates:</p>
 </section>
 <section id="adding-data-by-aggregation">
 <h3>2.5 Adding Data by Aggregation<a class="headerlink" href="#adding-data-by-aggregation" title="Link to this heading">#</a></h3>
-<p>Previosly, we just added the <code class="docutils literal notranslate"><span class="pre">is_stationary</span></code> variable based on a guess. We could also do it more programmatically. We do it here in two steps:</p>
+<p>Previously, we just added the <code class="docutils literal notranslate"><span class="pre">is_stationary</span></code> variable based on a guess. We could also
+do it more programmatically. We do it here in two steps:</p>
 <ol class="arabic simple">
 <li><p>Adding a column indicating the maximum OD600 for that condition-sfn-replicate, minus a tolerance</p></li>
 <li><p>Conditioning on that new column</p></li>
@@ -898,7 +984,7 @@ you could already use in more advanced plots.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-i-o-input-output">1. DATA I/O (Input/Output)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1. Read Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to A File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
