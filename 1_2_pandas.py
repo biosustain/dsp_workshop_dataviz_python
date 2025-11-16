@@ -37,7 +37,7 @@ DATA_DIR = Path("data/growth")
 # ### 1. Read Data
 
 # %% [markdown]
-# Let us load in some fake data made to fit some plots from a Proteomics paper.
+# Let us load in some fake data made to fit some growth data.
 
 # %%
 df = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
@@ -49,16 +49,21 @@ df = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
 df.head()
 
 # %% [markdown]
-# You could also omit .head() and it will automatically shorten the output based on your rendering settings.
+# You could also omit .head() and it will automatically shorten the output based
+# on your rendering settings.
+#
+# > These settings are controlled by pandas display options, such as
+# > `pd.options.display.max_rows` and `pd.options.display.max_columns`.
 
 # %%
 df
 
 # %% [markdown]
-# ### 1.2 Write it to A File
+# ### 1.2 Write it to a File
+# E.g. after some data manipulation you wish to save the data.
 
 # %% [markdown]
-# Write a dataframe to a .csv file. (We make a folder first to store our own output).
+# Write a dataframe to a `.csv` file.
 
 # %%
 
@@ -66,25 +71,29 @@ df.to_csv("fake_data.csv")
 
 # %% [markdown]
 # `pd.read_csv()` and `.to_csv()` are the general input/output functions (among some more).
-# Meaning: they work for other common files too (.txt, .tsv) and some more domain-specific
-# files that are however in a (somewhat) tabular format (e.g. .vcf).
+# Meaning: they work for other common files too (`.txt`, `.tsv`) and some more domain-specific
+# files that are however in a (somewhat) tabular format (e.g. `.vcf`).
 # In other words - as long as it looks like a table, you can read /write to it,
 # regardless of the file extension.
 #
-# To demonstrate, let us save it to a .tsv file. The difference is that it is
-# **tab**-separated values instead of **comma**-separated values in a .csv file.
+# To demonstrate, let us save it to a `.tsv` file. The difference is that it is
+# **tab**-separated values instead of **comma**-separated values in a `.csv` file.
 
 # %%
 df.to_csv("fake_data.tsv", sep="\t")
 
 # %% [markdown]
-# It can make sense to imit the index column, as Pandas automatically creates one when you read it, even if it already exists. (Otherwise you specify e.g. `index_col=0` when reading it - try it out to see the difference).
+# It can make sense to omit the index column, as Pandas automatically creates
+# one when you read it, even if it already exists.
+# (Otherwise you specify e.g. `index_col=0` when reading it - try it out to see the difference).
 
 # %%
 df.to_csv("fake_data.tsv", sep="\t", index=False)
+pd.read_csv("fake_data.tsv", sep="\t", index_col=None).head()
 
 # %% [markdown]
-# You can also read/write zipped file. Pandas will try to detect it automatically, but you can specify it yourself:
+# You can also read/write zipped file. Pandas will try to detect it automatically,
+# but you can specify it yourself:
 
 # %%
 df.to_csv("fake_data.tsv.gz", sep="\t", index=False, compression="gzip")
@@ -97,13 +106,13 @@ df.to_csv("fake_data.tsv.gz", sep="\t", index=False, compression="gzip")
 # ### 2.1 Rename
 
 # %% [markdown]
-# The column names are written in a human-readable format, with spaces and brackets. 
+# The column names are written in a human-readable format, with spaces and brackets.
 # It can be a good practice however to write them in a more programming-friendly way.
 # We can easily do it by using a dictionary with the syntax
 # `{<old-name>: <new-name>}`
 
 # %%
-df2 = df.rename(
+df_col_renamed = df.rename(
     columns={
         "SFN concentration (µM)": "sfn_conc_mumolar",
         "time (h)": "time_h",
@@ -150,10 +159,10 @@ df_multi_condition = df[
 
 # %% [markdown]
 # Part of data transformation is adding in new variables based on other columns in the
-# table. This can be also just for plotting. For example, we could wish to color our 
+# table. This can be also just for plotting. For example, we could wish to color our
 # plot on whether our bacteria are in their stationary phase or not. Then, we would add
-# a variable called `is_stationary()` that we use to subset parts of our data for 
-# plotting (we will show how later with seaborn). We use NumPy for this purpose with 
+# a variable called `is_stationary()` that we use to subset parts of our data for
+# plotting (we will show how later with seaborn). We use NumPy for this purpose with
 # the syntax
 # `(<condition(s)>, <output-if-true>, <output-if-false>)`.
 
@@ -164,7 +173,10 @@ df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
 # ### 2.4 Aggregating Data
 
 # %% [markdown]
-# Maybe we are more interested in the maximum or average OD or alike in our experiment. We could just use `.max()` for example but it would give us the maximum value across all variables. If however we wish to distinguish between different cases (like anaerobic/aerobic), then it makes sense to group our data first.
+# Maybe we are more interested in the maximum or average OD or alike in our experiment.
+# We could just use `.max()` for example but it would give us the maximum value across
+# all variables. If however we wish to distinguish between different cases 
+# (like anaerobic/aerobic), then it makes sense to group our data first.
 # Here, we show how to aggregate across all replicates:
 
 # %%
@@ -175,7 +187,9 @@ df_rep_agg = (
 )
 
 # %% [markdown]
-# We put our command in brackets so we can write it out in multiple lines to show it better. We also reset the index at the end to transform the .Series object back into a .DataFrame object.
+# We put our command in brackets so we can write it out in multiple lines to show it
+# better. We also reset the index at the end to transform the `pd.Series` object back into
+# a `pd.DataFrame` object.
 
 # %% [markdown]
 # We can also aggregate multiple things at once:
@@ -200,7 +214,8 @@ df_multi_agg = (
 # ### 2.5 Adding Data by Aggregation
 
 # %% [markdown]
-# Previosly, we just added the `is_stationary` variable based on a guess. We could also do it more programmatically. We do it here in two steps:
+# Previously, we just added the `is_stationary` variable based on a guess. We could also
+# do it more programmatically. We do it here in two steps:
 # 1. Adding a column indicating the maximum OD600 for that condition-sfn-replicate, minus a tolerance
 # 2. Conditioning on that new column
 
@@ -213,7 +228,7 @@ df["is_stationary"] = np.where(
 )
 
 # %% [markdown]
-# That tolerance could also be calculated in a similar way, e.g. based on the standard 
+# That tolerance could also be calculated in a similar way, e.g. based on the standard
 # deviation (we leave that as an exercise if you want to try it out yourself).
 
 # %%
@@ -223,4 +238,3 @@ df["is_stationary"] = np.where(
 # There are many more useful transformations, but we end here by having shown some that
 # you could already use in more advanced plots.
 #
-
