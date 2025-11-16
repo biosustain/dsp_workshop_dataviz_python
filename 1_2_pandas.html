@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pandas (for data to plot) &#8212; Data Visualization with Python  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_2_pandas';</script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Seaborn" href="1_2_seaborn.html" />
+    <link rel="prev" title="Matplotlib" href="1_1_matplotlib.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualization with Python  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/biosustain/dsp_workshop_dataviz_python" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Data visualization in Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_0_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas (for data to plot)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_plotly.html">Plotly Express</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_vuecore.html">VueCore</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="exercises/README.html">Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/figure_2a.html">Figure 2a (Rong, Frey et. al. 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/figure_2b.html">Figure 2b (Rong, Frey et. al. 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/figure_2c.html">Figure 2c (Rong, Frey et. al. 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/figure_2d.html">Figure 2d (Rong, Frey et. al. 2024)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data/README.html">PXD040621</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/CRISPRi/README.html">Rong, Frey et. al. (2024)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="about.html">Data Science Platform at DTU - Biosustain</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/biosustain/dsp_workshop_dataviz_python/blob/master/1_2_pandas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/biosustain/dsp_workshop_dataviz_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_2_pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas (for data to plot)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-i-o-input-output">1. DATA I/O (Input/Output)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1. Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename">2.1 Rename</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-conditions">2.2 Filtering by Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-conditions">2.3 Adding Data By Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-data">2.4 Aggregating Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-aggregation">2.5 Adding Data by Aggregation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-for-data-to-plot">
+<h1>Pandas (for data to plot)<a class="headerlink" href="#pandas-for-data-to-plot" title="Link to this heading">#</a></h1>
+<p>The standard data manipulation framework in Python (many others make use of at least part of its functionalities or are compatible with it)</p>
+<p>We are not going in-depth - we are just showing some basic functionalities which are important for plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data/growth&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="data-i-o-input-output">
+<h2>1. DATA I/O (Input/Output)<a class="headerlink" href="#data-i-o-input-output" title="Link to this heading">#</a></h2>
+<section id="read-data">
+<h3>1. Read Data<a class="headerlink" href="#read-data" title="Link to this heading">#</a></h3>
+<p>Let us load in some fake data made to fit some growth data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;fake_growth_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inspect the first few lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>SFN concentration (µM)</th>
+      <th>replicate</th>
+      <th>time (h)</th>
+      <th>Bacterial growth (OD600)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You could also omit .head() and it will automatically shorten the output based
+on your rendering settings.</p>
+<blockquote>
+<div><p>These settings are controlled by pandas display options, such as
+<code class="docutils literal notranslate"><span class="pre">pd.options.display.max_rows</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.options.display.max_columns</span></code>.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>SFN concentration (µM)</th>
+      <th>replicate</th>
+      <th>time (h)</th>
+      <th>Bacterial growth (OD600)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 5 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="write-it-to-a-file">
+<h3>1.2 Write it to a File<a class="headerlink" href="#write-it-to-a-file" title="Link to this heading">#</a></h3>
+<p>E.g. after some data manipulation you wish to save the data.</p>
+<p>Write a dataframe to a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> are the general input/output functions (among some more).
+Meaning: they work for other common files too (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>) and some more domain-specific
+files that are however in a (somewhat) tabular format (e.g. <code class="docutils literal notranslate"><span class="pre">.vcf</span></code>).
+In other words - as long as it looks like a table, you can read /write to it,
+regardless of the file extension.</p>
+<p>To demonstrate, let us save it to a <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file. The difference is that it is
+<strong>tab</strong>-separated values instead of <strong>comma</strong>-separated values in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It can make sense to omit the index column, as Pandas automatically creates
+one when you read it, even if it already exists.
+(Otherwise you specify e.g. <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> when reading it - try it out to see the difference).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>SFN concentration (µM)</th>
+      <th>replicate</th>
+      <th>time (h)</th>
+      <th>Bacterial growth (OD600)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can also read/write zipped file. Pandas will try to detect it automatically,
+but you can specify it yourself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv.gz&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-manuipulation">
+<h2>2. Data Manuipulation<a class="headerlink" href="#data-manuipulation" title="Link to this heading">#</a></h2>
+<section id="rename">
+<h3>2.1 Rename<a class="headerlink" href="#rename" title="Link to this heading">#</a></h3>
+<p>The column names are written in a human-readable format, with spaces and brackets.
+It can be a good practice however to write them in a more programming-friendly way.
+We can easily do it by using a dictionary with the syntax
+<code class="docutils literal notranslate"><span class="pre">{&lt;old-name&gt;:</span> <span class="pre">&lt;new-name&gt;}</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_col_renamed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;SFN concentration (µM)&quot;</span><span class="p">:</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time (h)&quot;</span><span class="p">:</span> <span class="s2">&quot;time_h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bacterial growth (OD600)&quot;</span><span class="p">:</span> <span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can do this - or many other operations - inplace for brevity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;SFN concentration (µM)&quot;</span><span class="p">:</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time (h)&quot;</span><span class="p">:</span> <span class="s2">&quot;time_h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bacterial growth (OD600)&quot;</span><span class="p">:</span> <span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-by-conditions">
+<h3>2.2 Filtering by Conditions<a class="headerlink" href="#filtering-by-conditions" title="Link to this heading">#</a></h3>
+<p>As we can see, we have data for aerobic and anaerobic conditions. If we are only
+interested in looking at e.g. the aerobic data, we can do it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_aerobic</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Aerobic&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also filter by multile conditions. For example, get all anaerobic data from
+DMSO, where the OD600 is below a value of 0.4:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_multi_condition</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;DMSO&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-data-by-conditions">
+<h3>2.3 Adding Data By Conditions<a class="headerlink" href="#adding-data-by-conditions" title="Link to this heading">#</a></h3>
+<p>Part of data transformation is adding in new variables based on other columns in the
+table. This can be also just for plotting. For example, we could wish to color our
+plot on whether our bacteria are in their stationary phase or not. Then, we would add
+a variable called <code class="docutils literal notranslate"><span class="pre">is_stationary()</span></code> that we use to subset parts of our data for
+plotting (we will show how later with seaborn). We use NumPy for this purpose with
+the syntax
+<code class="docutils literal notranslate"><span class="pre">(&lt;condition(s)&gt;,</span> <span class="pre">&lt;output-if-true&gt;,</span> <span class="pre">&lt;output-if-false&gt;)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_stationary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="aggregating-data">
+<h3>2.4 Aggregating Data<a class="headerlink" href="#aggregating-data" title="Link to this heading">#</a></h3>
+<p>Maybe we are more interested in the maximum or average OD or alike in our experiment.
+We could just use <code class="docutils literal notranslate"><span class="pre">.max()</span></code> for example but it would give us the maximum value across
+all variables. If however we wish to distinguish between different cases
+(like anaerobic/aerobic), then it makes sense to group our data first.
+Here, we show how to aggregate across all replicates:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rep_agg</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;time_h&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">])[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We put our command in brackets so we can write it out in multiple lines to show it
+better. We also reset the index at the end to transform the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> object back into
+a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object.</p>
+<p>We can also aggregate multiple things at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_multi_agg</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;time_h&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;is_stationary&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;min&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-data-by-aggregation">
+<h3>2.5 Adding Data by Aggregation<a class="headerlink" href="#adding-data-by-aggregation" title="Link to this heading">#</a></h3>
+<p>Previously, we just added the <code class="docutils literal notranslate"><span class="pre">is_stationary</span></code> variable based on a guess. We could also
+do it more programmatically. We do it here in two steps:</p>
+<ol class="arabic simple">
+<li><p>Adding a column indicating the maximum OD600 for that condition-sfn-replicate, minus a tolerance</p></li>
+<li><p>Conditioning on that new column</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;stationary_od&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">,</span> <span class="s2">&quot;replicate&quot;</span><span class="p">])[</span>
+    <span class="s2">&quot;bact_growth_od600&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_stationary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;stationary_od&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That tolerance could also be calculated in a similar way, e.g. based on the standard
+deviation (we leave that as an exercise if you want to try it out yourself).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your turn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many more useful transformations, but we end here by having shown some that
+you could already use in more advanced plots.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_1_matplotlib.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Matplotlib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_2_seaborn.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Seaborn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-i-o-input-output">1. DATA I/O (Input/Output)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1. Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename">2.1 Rename</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-conditions">2.2 Filtering by Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-conditions">2.3 Adding Data By Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-data">2.4 Aggregating Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-aggregation">2.5 Adding Data by Aggregation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Henry Webel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, DTU Biosustain, Informatics Platform, DSP.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
