@@ -477,14 +477,17 @@ Column and a half width: 5.35 inches
 <section id="typed-function-definitions">
 <h2>Typed Function Definitions<a class="headerlink" href="#typed-function-definitions" title="Link to this heading">#</a></h2>
 <p>You can also add type hints to the function definitions to specify the expected input and output types</p>
-<p>def inch_to_cm(inches: float) -&gt; float:
-“””Convert inches to centimeters.”””
-cm = inches * 2.54
-return cm</p>
-<p>def cm_to_inch(cm: float) -&gt; float:
-“””Convert centimeters to inches.”””
-inches = cm / 2.54
-return inches</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inch_to_cm</span><span class="p">(</span><span class="n">inches</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert inches to centimeters.&quot;&quot;&quot;</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">inches</span> <span class="o">*</span> <span class="mf">2.54</span>
+    <span class="k">return</span> <span class="n">cm</span>
+
+<span class="k">def</span> <span class="nf">cm_to_inch</span><span class="p">(</span><span class="n">cm</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert centimeters to inches.&quot;&quot;&quot;</span>
+    <span class="n">inches</span> <span class="o">=</span> <span class="n">cm</span> <span class="o">/</span> <span class="mf">2.54</span>
+    <span class="k">return</span> <span class="n">inches</span>
+</pre></div>
+</div>
 </section>
 </section>
 
