@@ -47,6 +47,7 @@ print(f"Column and a half width: {col_and_a_half_inch:.2f} inches")
 # ## Typed Function Definitions
 # You can also add type hints to the function definitions to specify the expected input and output types
 #
+# ```python
 # def inch_to_cm(inches: float) -> float:
 #     """Convert inches to centimeters."""
 #     cm = inches * 2.54
@@ -56,3 +57,6 @@ print(f"Column and a half width: {col_and_a_half_inch:.2f} inches")
 #     """Convert centimeters to inches."""
 #     inches = cm / 2.54
 #     return inches
+# ```
+
+# %%
