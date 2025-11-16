@@ -69,7 +69,7 @@ for cond in conditions:
                 noise = np.random.normal(0, noise_level)
                 final_od = max(0.01, base_od + noise) # OD can't be negative
                 
-                # Add initial OD at t=0
+                # Set initial OD at t=0
                 if t == 0:
                     final_od = max(0.01, 0.05 + noise)
 

@@ -100,7 +100,7 @@ df.to_csv("fake_data.tsv.gz", sep="\t", index=False, compression="gzip")
 
 
 # %% [markdown]
-# ## 2. Data Manuipulation
+# ## 2. Data Manipulation
 
 # %% [markdown]
 # ### 2.1 Rename
@@ -144,7 +144,7 @@ df.rename(
 df_aerobic = df[df["condition"] == "Aerobic"]
 
 # %% [markdown]
-# We can also filter by multile conditions. For example, get all anaerobic data from
+# We can also filter by multiple conditions. For example, get all anaerobic data from
 # DMSO, where the OD600 is below a value of 0.4:
 
 # %%
