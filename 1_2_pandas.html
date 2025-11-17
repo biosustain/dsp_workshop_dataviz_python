@@ -402,7 +402,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">2. Data Manipulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename">2.1 Rename</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-conditions">2.2 Filtering by Conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-conditions">2.3 Adding Data By Conditions</a></li>
@@ -427,17 +427,27 @@ document.write(`
 <p>We are not going in-depth - we are just showing some basic functionalities which are important for plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;COLAB_GPU&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data/growth&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;growth&quot;</span> <span class="o">/</span> <span class="s2">&quot;fake_growth_data.csv&quot;</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python&quot;</span>
+        <span class="s2">&quot;/refs/heads/main/data/growth/fake_growth_data.csv&quot;</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -449,7 +459,7 @@ document.write(`
 <p>Let us load in some fake data made to fit some growth data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;fake_growth_data.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -782,8 +792,8 @@ but you can specify it yourself:</p>
 </div>
 </section>
 </section>
-<section id="data-manuipulation">
-<h2>2. Data Manuipulation<a class="headerlink" href="#data-manuipulation" title="Link to this heading">#</a></h2>
+<section id="data-manipulation">
+<h2>2. Data Manipulation<a class="headerlink" href="#data-manipulation" title="Link to this heading">#</a></h2>
 <section id="rename">
 <h3>2.1 Rename<a class="headerlink" href="#rename" title="Link to this heading">#</a></h3>
 <p>The column names are written in a human-readable format, with spaces and brackets.
@@ -830,7 +840,7 @@ interested in looking at e.g. the aerobic data, we can do it like this:</p>
 </div>
 </div>
 </div>
-<p>We can also filter by multile conditions. For example, get all anaerobic data from
+<p>We can also filter by multiple conditions. For example, get all anaerobic data from
 DMSO, where the OD600 is below a value of 0.4:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +999,7 @@ you could already use in more advanced plots.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-it-to-a-file">1.2 Write it to a File</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manuipulation">2. Data Manuipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">2. Data Manipulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename">2.1 Rename</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-conditions">2.2 Filtering by Conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-by-conditions">2.3 Adding Data By Conditions</a></li>

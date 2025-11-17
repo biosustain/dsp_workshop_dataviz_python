@@ -488,24 +488,35 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/10ac9b7dc8e32534d971723a649c54f69887f5eb8df0b2cb4215f76a03070286.png" src="_images/10ac9b7dc8e32534d971723a649c54f69887f5eb8df0b2cb4215f76a03070286.png" />
+<img alt="_images/773dc5fee23565ef9ae16512e4fe5bd6a6acce8ac5c5187bf25d419259c5325b.png" src="_images/773dc5fee23565ef9ae16512e4fe5bd6a6acce8ac5c5187bf25d419259c5325b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ## Proteomics data example</span>
+<span class="c1"># - plotting a histogram via the pandas interface</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">dir_data</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_data</span> <span class="o">/</span> <span class="s2">&quot;proteins&quot;</span> <span class="o">/</span> <span class="s2">&quot;proteins.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;COLAB_GPU&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+
+
+<span class="n">fname</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;proteins&quot;</span> <span class="o">/</span> <span class="s2">&quot;proteins.csv&quot;</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python&quot;</span>
+        <span class="s2">&quot;/refs/heads/main/data/proteins/proteins.csv&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
