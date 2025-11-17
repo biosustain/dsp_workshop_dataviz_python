@@ -14,6 +14,13 @@
 
 # %% [markdown]
 # # Recreating the Figure from Rong, Frey et al. 2024 about CRISPRi
+# - create individual plotting functions
+# - combine them into one figure with subplots
+#
+# Exercise: try to adapt the figure to look nicely
+#
+# One could keep the notebook along the source data to recreate the figure during
+# future revisions of the manuscript.
 
 # %%
 import matplotlib.pyplot as plt
