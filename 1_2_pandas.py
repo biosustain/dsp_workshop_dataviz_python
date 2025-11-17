@@ -22,13 +22,23 @@
 # We are not going in-depth - we are just showing some basic functionalities which are important for plotting.
 
 # %%
+import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+IN_COLAB = "COLAB_GPU" in os.environ
+
 # %%
-DATA_DIR = Path("data/growth")
+DATA_DIR = Path("data")
+
+fname = Path("data") / "growth" / "fake_growth_data.csv"
+if IN_COLAB:
+        fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/growth/fake_growth_data.csv"
+    )
 
 # %% [markdown]
 # ## 1. DATA I/O (Input/Output)
@@ -40,7 +50,7 @@ DATA_DIR = Path("data/growth")
 # Let us load in some fake data made to fit some growth data.
 
 # %%
-df = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
+df = pd.read_csv(fname)
 
 # %% [markdown]
 # Inspect the first few lines.

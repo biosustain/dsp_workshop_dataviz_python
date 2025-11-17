@@ -6,7 +6,7 @@
 # - at the moment only support the plotly backend
 #
 #
-# Colab specific setup: 
+# Colab specific setup:
 
 # %%
 import os
@@ -20,10 +20,13 @@ if IN_COLAB:
 # Import libraries
 
 # %%
+import os
 import pathlib
 
 import pandas as pd
 from vuecore.plots.basic.histogram import create_histogram_plot
+
+IN_COLAB = "COLAB_GPU" in os.environ
 
 # %% [markdown]
 # ## Proteomics data example
@@ -34,9 +37,10 @@ from vuecore.plots.basic.histogram import create_histogram_plot
 dir_data = pathlib.Path("data")
 fname = dir_data / "proteins" / "proteins.csv"
 if IN_COLAB:
-    fname = "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python/refs/heads/main/data/proteins/proteins.csv"
-
-# %%
+    fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/proteins/proteins.csv"
+    )
 df = (
     pd.read_csv(fname, index_col=0)
     .rename_axis("Protein_ID", axis=1)
