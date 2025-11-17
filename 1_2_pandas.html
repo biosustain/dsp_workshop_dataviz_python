@@ -809,9 +809,129 @@ We can easily do it by using a dictionary with the syntax
         <span class="s2">&quot;Bacterial growth (OD600)&quot;</span><span class="p">:</span> <span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">)</span>
+<span class="n">df_col_renamed</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 5 columns</p>
+</div></div></div>
 </div>
 <p>We can do this - or many other operations - inplace for brevity.</p>
 <div class="cell docutils container">
@@ -824,9 +944,129 @@ We can easily do it by using a dictionary with the syntax
     <span class="p">},</span>
     <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 5 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="filtering-by-conditions">
@@ -836,9 +1076,129 @@ interested in looking at e.g. the aerobic data, we can do it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_aerobic</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Aerobic&quot;</span><span class="p">]</span>
+<span class="n">df_aerobic</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>234</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.051324</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.012470</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.116809</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.413621</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.710586</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 5 columns</p>
+</div></div></div>
 </div>
 <p>We can also filter by multiple conditions. For example, get all anaerobic data from
 DMSO, where the OD600 is below a value of 0.4:</p>
@@ -849,9 +1209,136 @@ DMSO, where the OD600 is below a value of 0.4:</p>
     <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;DMSO&quot;</span><span class="p">)</span>
     <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span>
 <span class="p">]</span>
+<span class="n">df_multi_condition</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.048281</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>0.023912</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>0.083990</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>6.0</td>
+      <td>0.268920</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.020199</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>0.038043</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>4.0</td>
+      <td>0.126597</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>6.0</td>
+      <td>0.367225</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="adding-data-by-conditions">
@@ -866,9 +1353,141 @@ the syntax
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_stationary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+      <th>is_stationary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 6 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="aggregating-data">
@@ -885,9 +1504,117 @@ Here, we show how to aggregate across all replicates:</p>
     <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="p">)</span>
+<span class="n">df_rep_agg</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time_h</th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>10</td>
+      <td>0.035428</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>15</td>
+      <td>0.069004</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>0.062911</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>20</td>
+      <td>0.046474</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>5</td>
+      <td>0.057184</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>0.616655</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>0.660576</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>0.597215</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>0.642585</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>0.655811</td>
+    </tr>
+  </tbody>
+</table>
+<p>156 rows × 4 columns</p>
+</div></div></div>
 </div>
 <p>We put our command in brackets so we can write it out in multiple lines to show it
 better. We also reset the index at the end to transform the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> object back into
@@ -909,9 +1636,161 @@ a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</spa
     <span class="p">)</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="p">)</span>
+<span class="n">df_multi_agg</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>time_h</th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>is_stationary</th>
+      <th colspan="3" halign="left">bact_growth_od600</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>min</th>
+      <th>mean</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>10</td>
+      <td>3</td>
+      <td>0.029107</td>
+      <td>0.035428</td>
+      <td>0.043397</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0.066276</td>
+      <td>0.069004</td>
+      <td>0.071293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>0.034301</td>
+      <td>0.062911</td>
+      <td>0.096214</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>0.023262</td>
+      <td>0.046474</td>
+      <td>0.074124</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Aerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0.051937</td>
+      <td>0.057184</td>
+      <td>0.061837</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0.602570</td>
+      <td>0.616655</td>
+      <td>0.624859</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>0.633187</td>
+      <td>0.660576</td>
+      <td>0.678301</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>0.572835</td>
+      <td>0.597215</td>
+      <td>0.617822</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0.584576</td>
+      <td>0.642585</td>
+      <td>0.689661</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>24.0</td>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>0.618712</td>
+      <td>0.655811</td>
+      <td>0.696756</td>
+    </tr>
+  </tbody>
+</table>
+<p>156 rows × 7 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="adding-data-by-aggregation">
@@ -930,9 +1809,153 @@ do it more programmatically. We do it here in two steps:</p>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_stationary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;stationary_od&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span>
 <span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+      <th>is_stationary</th>
+      <th>stationary_od</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+      <td>False</td>
+      <td>0.556991</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+      <td>False</td>
+      <td>0.556991</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+      <td>False</td>
+      <td>0.556991</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+      <td>False</td>
+      <td>0.556991</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+      <td>False</td>
+      <td>0.556991</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+      <td>True</td>
+      <td>0.856014</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+      <td>True</td>
+      <td>0.856014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+      <td>True</td>
+      <td>0.856014</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+      <td>True</td>
+      <td>0.856014</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+      <td>True</td>
+      <td>0.856014</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 7 columns</p>
+</div></div></div>
 </div>
 <p>That tolerance could also be calculated in a similar way, e.g. based on the standard
 deviation (we leave that as an exercise if you want to try it out yourself).</p>
