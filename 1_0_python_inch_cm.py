@@ -1,5 +1,5 @@
 # %% [markdown]
-# # Python Function Introduction and a Inch-Centimeter Converter
+# # Python Function Introduction and an Inch-Centimeter Converter
 # This example notebook is to illustrate how to create functions in Python.
 # We will create a simple function that converts inches to centimeters and vice versa,
 # a task you will sometimes need to do when reading journal instructions for figure 
