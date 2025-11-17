@@ -16,16 +16,14 @@ import seaborn as sns
 # For protability the data is directly included as a dictionary. See the commented
 # out code how the data was obtained from the CSV file [figure_2c.csv](figure_2c.csv).
 
-# %%
-fname = "figure_2c.csv"
-data = (
-    pd.read_csv(fname, header=[0, 1], index_col=0)
-    .rename_axis(columns=["condition", "measure"], index="time (h)")
-    .reset_index()
-)
-data.to_dict(orient="list")
-
 # %% tags=["hide-input"]
+# fname = "figure_2c.csv"
+# data = (
+#     pd.read_csv(fname, header=[0, 1], index_col=0)
+#     .rename_axis(columns=["condition", "measure"], index="time (h)")
+#     .reset_index()
+# )
+# data.to_dict(orient="list")
 data = {
     ("time (h)", ""): {
         0: 0.0,
