@@ -59,6 +59,22 @@ df
 x = df.iloc[:, 0]
 
 px.histogram(x)
+
+# %%
+px.histogram(df)
+
+# %% [markdown]
+# ## Set the default template to ggplot2
+# - Similar to seaborn's style settings
+# - Other templates: `'ggplot2'`, `'seaborn'`, `'simple_white'`, `'plotly'`,
+#   `'plotly_white'`, `'plotly_dark'`, `'presentation'`, `'xgridoff'`,
+#   `'ygridoff'`, `'gridon'`, `'none'`
+#
+# Check the [templates](https://plotly.com/python/templates/).
+
+# %%
+px.defaults.template = "ggplot2"
+
 # %%
 px.histogram(df)
 

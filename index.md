@@ -1,6 +1,6 @@
 ```{include} ./README.md
 :start-line: 0
-:end-line: 3
+:end-line: 18
 ```
 
 ## Slides
@@ -8,8 +8,8 @@
 <iframe src="https://docs.google.com/presentation/d/14sb9tld4v0axzmsJvOz444sT-9LfJSUmfmMnp7jLZiQ/embed?slide=id.p#slide=id.p" frameborder="0" width="100%" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ```{include} ./README.md
-:start-line: 4
-:end-line: 35
+:start-line: 18
+:end-line: 89
 ```
 
 ```{toctree}
@@ -17,7 +17,10 @@
 :caption: Course Contents
 :maxdepth: 2
 
+1_0_overview
+1_0_python_inch_cm
 1_1_matplotlib
+1_2_pandas
 1_2_seaborn
 2_plotly
 3_vuecore
