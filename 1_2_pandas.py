@@ -129,6 +129,7 @@ df_col_renamed = df.rename(
         "Bacterial growth (OD600)": "bact_growth_od600",
     }
 )
+df_col_renamed
 
 # %% [markdown]
 # We can do this - or many other operations - inplace for brevity.
@@ -142,6 +143,7 @@ df.rename(
     },
     inplace=True,
 )
+df
 
 # %% [markdown]
 # ### 2.2 Filtering by Conditions
@@ -152,6 +154,7 @@ df.rename(
 
 # %%
 df_aerobic = df[df["condition"] == "Aerobic"]
+df_aerobic
 
 # %% [markdown]
 # We can also filter by multiple conditions. For example, get all anaerobic data from
@@ -163,6 +166,7 @@ df_multi_condition = df[
     & (df["sfn_conc_mumolar"] == "DMSO")
     & (df["bact_growth_od600"] < 0.4)
 ]
+df_multi_condition
 
 # %% [markdown]
 # ### 2.3 Adding Data By Conditions
@@ -178,6 +182,7 @@ df_multi_condition = df[
 
 # %%
 df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
+df
 
 # %% [markdown]
 # ### 2.4 Aggregating Data
@@ -195,6 +200,7 @@ df_rep_agg = (
     .mean()
     .reset_index()
 )
+df_rep_agg
 
 # %% [markdown]
 # We put our command in brackets so we can write it out in multiple lines to show it
@@ -219,6 +225,7 @@ df_multi_agg = (
     )
     .reset_index()
 )
+df_multi_agg
 
 # %% [markdown]
 # ### 2.5 Adding Data by Aggregation
@@ -236,6 +243,7 @@ df["stationary_od"] = df.groupby(["condition", "sfn_conc_mumolar", "replicate"])
 df["is_stationary"] = np.where(
     df["bact_growth_od600"] >= df["stationary_od"], True, False
 )
+df
 
 # %% [markdown]
 # That tolerance could also be calculated in a similar way, e.g. based on the standard
