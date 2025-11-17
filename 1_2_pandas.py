@@ -35,7 +35,7 @@ DATA_DIR = Path("data")
 
 fname = Path("data") / "growth" / "fake_growth_data.csv"
 if IN_COLAB:
-        fname = (
+    fname = (
         "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
         "/refs/heads/main/data/growth/fake_growth_data.csv"
     )
@@ -185,7 +185,7 @@ df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
 # %% [markdown]
 # Maybe we are more interested in the maximum or average OD or alike in our experiment.
 # We could just use `.max()` for example but it would give us the maximum value across
-# all variables. If however we wish to distinguish between different cases 
+# all variables. If however we wish to distinguish between different cases
 # (like anaerobic/aerobic), then it makes sense to group our data first.
 # Here, we show how to aggregate across all replicates:
 

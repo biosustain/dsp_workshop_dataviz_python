@@ -63,12 +63,12 @@ IN_COLAB = "COLAB_GPU" in os.environ
 
 fname = pathlib.Path("data") / "proteins" / "proteins.csv"
 if IN_COLAB:
-        fname = (
+    fname = (
         "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
         "/refs/heads/main/data/proteins/proteins.csv"
     )
 
-df = pd.read_csv(fname , index_col=0)
+df = pd.read_csv(fname, index_col=0)
 df
 
 # %%
