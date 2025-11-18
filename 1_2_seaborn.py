@@ -10,11 +10,15 @@
 import os
 import pathlib
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
 IN_COLAB = "COLAB_GPU" in os.environ
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 # %% [markdown]
 # ## Proteomics data example
