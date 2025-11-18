@@ -1,5 +1,5 @@
 # %% [markdown]
-# # Seaborn
+# # Seaborn (intro with proteomics data)
 # - A statistical data visualization library based on Matplotlib.
 # - Provides a high-level interface for drawing attractive statistical graphics.
 # - [website](https://seaborn.pydata.org/)

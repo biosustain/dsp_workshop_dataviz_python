@@ -21,7 +21,7 @@
 1_0_python_inch_cm
 1_1_matplotlib
 1_2_pandas
-1_3_seaborn
+1_*_seaborn
 2_plotly
 3_vuecore
 ```
