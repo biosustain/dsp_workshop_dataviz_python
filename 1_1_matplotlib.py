@@ -4,7 +4,6 @@
 # - Built on NumPy arrays and designed to work with the broader SciPy stack.
 #
 # Inspiration for plots and overviews
-# - # Material
 # - [python-graph-gallery.com/](https://python-graph-gallery.com/)
 # - [Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)
 
@@ -178,10 +177,10 @@ with plt.style.context("ggplot"):
 
 # %%
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(7.4, 4))
-axes = axes.flatten() # in case of more than one dimension (saftey snippet for you)
+axes = axes.flatten() # in case of more than one dimension (safety snippet for you)
 ax = axes[0]
 n, bins, patches = ax.hist(x, bins=30, alpha=0.7, color="C0")
 ax = axes[1]
-# Add a scecond plto here
+# Add a second plot here
 
 # %%
