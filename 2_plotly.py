@@ -83,6 +83,35 @@ px.histogram(df)
 px.defaults.template = "ggplot2"
 
 # %%
-px.histogram(df)
+fig = px.histogram(df)
+fig
 
+# %% [markdown]
+# ## Save a static image
+# - either directly from the interactive figure using the :camera:
+#   icon (first from the left)
+# - or programmatically as shown below setting width and height in dots per inch (DPI)
+
+# %%
+# Plotly's write_image uses pixels for width and height.
+# To specify inches or centimeters, convert to pixels using the DPI (dots per inch).
+# Example: 1 inch = 2.54 cm; pixels = inches * dpi
+
+dpi = 150  # you can change this value as needed
+
+# For 6 inches x 4 inches
+width_in = 6
+height_in = 4
+fig.write_image(
+    "proteomics_histogram_plotly.png",
+    width=width_in * dpi,
+    height=height_in * dpi,
+    scale=1,
+)
+fig.write_image(
+    "proteomics_histogram_plotly.pdf",
+    width=width_in * dpi,
+    height=height_in * dpi,
+    scale=1,
+)
 # %%
