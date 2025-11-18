@@ -23,7 +23,6 @@
         "ms-toolsai.jupyter",
         "ms-python.python",
         "mechatroner.rainbow-csv",
-        "tomoki1207.pdf"
       ],
       // Use Python from conda
       "settings": {},
