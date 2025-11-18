@@ -24,7 +24,7 @@
 
 # %% [markdown]
 # Uses the data from [PXD04621](data/README.md) - using simulated data which looks
-# similar to the original data 
+# similar to the original data
 # ([Marshall et. al. 2023)](https://www.sciencedirect.com/science/article/pii/S1756464623002451)).
 # ![figure_2](https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg)
 
@@ -42,6 +42,7 @@
 import os
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import numpy as np
@@ -49,6 +50,9 @@ import pandas as pd
 import seaborn as sns
 from matplotlib.ticker import MultipleLocator
 from sklearn.metrics import auc
+
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
 
 IN_COLAB = "COLAB_GPU" in os.environ
 
