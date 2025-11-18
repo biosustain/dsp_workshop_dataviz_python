@@ -501,9 +501,129 @@ Note that if you select certain variable values in the seaborn plots (more below
     <span class="p">},</span>
     <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.943037</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.956014</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.945902</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.908015</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.917409</td>
+    </tr>
+  </tbody>
+</table>
+<p>468 rows × 5 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="aggregate-data">
@@ -526,9 +646,291 @@ We will make use of this to group our dataframe by condition, SFN, and replicate
     <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;20&quot;</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;2.5&quot;</span><span class="p">,</span> <span class="s2">&quot;DMSO&quot;</span><span class="p">],</span>
     <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="n">data_auc</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aerobic</td>
+      <td>10</td>
+      <td>1</td>
+      <td>15.892124</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aerobic</td>
+      <td>10</td>
+      <td>2</td>
+      <td>14.402242</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Aerobic</td>
+      <td>10</td>
+      <td>3</td>
+      <td>14.591945</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Aerobic</td>
+      <td>15</td>
+      <td>1</td>
+      <td>14.721956</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Aerobic</td>
+      <td>15</td>
+      <td>2</td>
+      <td>14.039924</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Aerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>15.098103</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>15.371124</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>2</td>
+      <td>15.423618</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Aerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.617128</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Aerobic</td>
+      <td>20</td>
+      <td>1</td>
+      <td>14.146884</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Aerobic</td>
+      <td>20</td>
+      <td>2</td>
+      <td>14.241481</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Aerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>13.301619</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Aerobic</td>
+      <td>5</td>
+      <td>1</td>
+      <td>15.566072</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Aerobic</td>
+      <td>5</td>
+      <td>2</td>
+      <td>15.702163</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Aerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>14.901057</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>15.272082</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>16.626115</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Aerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>16.458908</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>1</td>
+      <td>10.672873</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>2</td>
+      <td>11.045061</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>3</td>
+      <td>10.647736</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>1</td>
+      <td>11.455019</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>2</td>
+      <td>10.900159</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>10.822812</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>11.155263</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>2</td>
+      <td>12.023849</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>12.145294</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>1</td>
+      <td>10.904484</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>2</td>
+      <td>10.797638</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>10.957279</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>1</td>
+      <td>11.605402</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>2</td>
+      <td>10.994844</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>11.579194</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>11.561642</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>11.005136</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>12.269569</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We also set the SFN column in the aggregated dataframe to be categorical, meaning there are defined categories (in a defined order if we wish so). There some useful properties for this, e.g. counting the categories in some subgroups even if some categories are missing.
 However, here we mainly use it do define a set order of our SFN variables.</p>
@@ -542,9 +944,129 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anaer</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">]</span>
+<span class="n">df_anaer</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.685375</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.685542</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.656055</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.684899</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.670242</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 5 columns</p>
+</div></div></div>
 </div>
 <p>Now, making the plot is quite simple. Seaborn expects the data in a <code class="docutils literal notranslate"><span class="pre">.DataFrame</span></code> format, and we can use <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to specify what data relation we want to plot (note that for some plots like histograms, we do not need to specify <code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
 <div class="cell docutils container">
@@ -558,7 +1080,7 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6737ec8690c3df953086c08cb1bd9fdb37e11bf3c723b6421c60bd14937866ed.png" src="_images/6737ec8690c3df953086c08cb1bd9fdb37e11bf3c723b6421c60bd14937866ed.png" />
+<img alt="_images/5c86f2de5cb972f4ebd21ff7e809286416bd05cc31feb67074ce293f909fe295.png" src="_images/5c86f2de5cb972f4ebd21ff7e809286416bd05cc31feb67074ce293f909fe295.png" />
 </div>
 </div>
 <p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
@@ -631,9 +1153,165 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_auc_anaer</span> <span class="o">=</span> <span class="n">data_auc</span><span class="p">[</span><span class="n">data_auc</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">]</span>
+<span class="n">df_auc_anaer</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>1</td>
+      <td>10.672873</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>2</td>
+      <td>11.045061</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>3</td>
+      <td>10.647736</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>1</td>
+      <td>11.455019</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>2</td>
+      <td>10.900159</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>10.822812</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>11.155263</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>2</td>
+      <td>12.023849</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>12.145294</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>1</td>
+      <td>10.904484</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>2</td>
+      <td>10.797638</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>10.957279</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>1</td>
+      <td>11.605402</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>2</td>
+      <td>10.994844</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>11.579194</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>11.561642</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>11.005136</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>12.269569</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>After having shown two plots for continuous data, let us move on to categorical plots where we plot the aggregated dataframe with the area under the curve.</p>
 <div class="cell docutils container">
@@ -647,7 +1325,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" src="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" />
+<img alt="_images/40467ae343edd9e47330716b49c6e1d8477d8aadc558c34414bf1729263ee263.png" src="_images/40467ae343edd9e47330716b49c6e1d8477d8aadc558c34414bf1729263ee263.png" />
 </div>
 </div>
 <p>A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is order in the categories sequence we defined earlier.</p>
@@ -704,6 +1382,133 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 <section id="advanced-plotting">
 <h2>2. Advanced Plotting<a class="headerlink" href="#advanced-plotting" title="Link to this heading">#</a></h2>
 <p>We will focus again on the left upper plot for now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anaer</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">]</span>
+<span class="n">df_anaer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>time_h</th>
+      <th>bact_growth_od600</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.053628</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.034735</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.137467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.300051</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>0.533996</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>16.0</td>
+      <td>0.685375</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>18.0</td>
+      <td>0.685542</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>20.0</td>
+      <td>0.656055</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>0.684899</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>24.0</td>
+      <td>0.670242</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 5 columns</p>
+</div></div></div>
+</div>
 <section id="more-lineplot-arguments">
 <h3>2.1 More Lineplot Arguments<a class="headerlink" href="#more-lineplot-arguments" title="Link to this heading">#</a></h3>
 <p>As a first step, we will show all arguments needed in the <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> function.
@@ -1599,6 +2404,169 @@ We make use of the fact that the legend handles/markers are essentially the same
 </section>
 <section id="categorical-plot-with-significance-indicators">
 <h3>2.4 Categorical Plot with Significance Indicators<a class="headerlink" href="#categorical-plot-with-significance-indicators" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_auc_anaer</span> <span class="o">=</span> <span class="n">data_auc</span><span class="p">[</span><span class="n">data_auc</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">]</span>
+<span class="n">df_auc_anaer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>sfn_conc_mumolar</th>
+      <th>replicate</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>1</td>
+      <td>10.672873</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>2</td>
+      <td>11.045061</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Anaerobic</td>
+      <td>10</td>
+      <td>3</td>
+      <td>10.647736</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>1</td>
+      <td>11.455019</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>2</td>
+      <td>10.900159</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Anaerobic</td>
+      <td>15</td>
+      <td>3</td>
+      <td>10.822812</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>11.155263</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>2</td>
+      <td>12.023849</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Anaerobic</td>
+      <td>2.5</td>
+      <td>3</td>
+      <td>12.145294</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>1</td>
+      <td>10.904484</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>2</td>
+      <td>10.797638</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Anaerobic</td>
+      <td>20</td>
+      <td>3</td>
+      <td>10.957279</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>1</td>
+      <td>11.605402</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>2</td>
+      <td>10.994844</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Anaerobic</td>
+      <td>5</td>
+      <td>3</td>
+      <td>11.579194</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>1</td>
+      <td>11.561642</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>2</td>
+      <td>11.005136</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Anaerobic</td>
+      <td>DMSO</td>
+      <td>3</td>
+      <td>12.269569</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>We now turn our attention to the plot on the upper right, using the aggregated data. We skip most steps here as they are similar. We only note that we are using a stripplot to visualize categorical data with dots and also a pointplot to show some errorbars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1666,7 +2634,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/27a12269bfbf7441ad8cc5cc978a206ea27c35247d146d5d12bdac9bf61f3a3b.png" src="_images/27a12269bfbf7441ad8cc5cc978a206ea27c35247d146d5d12bdac9bf61f3a3b.png" />
+<img alt="_images/c3a4fc262848da125b16ee8010e0ac18c2984c583bcc025c6da964c6cd8ee596.png" src="_images/c3a4fc262848da125b16ee8010e0ac18c2984c583bcc025c6da964c6cd8ee596.png" />
 </div>
 </div>
 <p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
@@ -1775,7 +2743,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bf17ef196754da9326b9c4ee17095e915792c1ee868d48691a0c781a86c1c07f.png" src="_images/bf17ef196754da9326b9c4ee17095e915792c1ee868d48691a0c781a86c1c07f.png" />
+<img alt="_images/ca029016a754c1bd16b7f85e762567c8b38cd451fd997163888954d488d2946a.png" src="_images/ca029016a754c1bd16b7f85e762567c8b38cd451fd997163888954d488d2946a.png" />
 </div>
 </div>
 </section>
@@ -1941,7 +2909,7 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/84b89383657e840007b409fd42449b9661aa567bbe46b4e00753c1b7ddc04859.png" src="_images/84b89383657e840007b409fd42449b9661aa567bbe46b4e00753c1b7ddc04859.png" />
+<img alt="_images/ff6ec138d254aa4dc0124e0d91a9a7913152b5e9b9116ae88736420c6501dae4.png" src="_images/ff6ec138d254aa4dc0124e0d91a9a7913152b5e9b9116ae88736420c6501dae4.png" />
 </div>
 </div>
 <p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
@@ -2024,7 +2992,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/15ef5441c5212d19fd624f208e0c0308be1e9a3024fe84c71815bd7eef17fbb8.png" src="_images/15ef5441c5212d19fd624f208e0c0308be1e9a3024fe84c71815bd7eef17fbb8.png" />
+<img alt="_images/85298b33b19d30c11adf2d1ce0936bbd1334dd18bb5a3aff8172aa2fbbe0a8e6.png" src="_images/85298b33b19d30c11adf2d1ce0936bbd1334dd18bb5a3aff8172aa2fbbe0a8e6.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
@@ -2078,7 +3046,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4c26fef39b0ed5176d429ab3282563795e8c0b6a2d17307a19f5b1402a7c373.png" src="_images/b4c26fef39b0ed5176d429ab3282563795e8c0b6a2d17307a19f5b1402a7c373.png" />
+<img alt="_images/240bb4f635d7497b33e55f81f7099968a6355b80148291aa5c67aeb229451e27.png" src="_images/240bb4f635d7497b33e55f81f7099968a6355b80148291aa5c67aeb229451e27.png" />
 </div>
 </div>
 </section>
