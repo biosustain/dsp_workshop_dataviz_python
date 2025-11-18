@@ -40,7 +40,7 @@
 
 # %%
 import os
-import pathlib
+from pathlib import Path
 
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
@@ -50,8 +50,20 @@ import seaborn as sns
 from matplotlib.ticker import MultipleLocator
 from sklearn.metrics import auc
 
+IN_COLAB = "COLAB_GPU" in os.environ
+
 # %%
-DATA_DIR = pathlib.Path().cwd() / "data/growth"
+IN_COLAB = True
+
+# %%
+DATA_DIR = Path("data")
+
+fname = Path("data") / "growth" / "fake_growth_data.csv"
+if IN_COLAB:
+    fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/growth/fake_growth_data.csv"
+    )
 SFN_COLORS = {
     "DMSO": "#4C72B0",
     "20": "#C44E52",
@@ -70,7 +82,7 @@ SFN_COLORS = {
 # ### 0.2 Load the Data
 
 # %%
-data = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
+data = pd.read_csv(fname)
 data.rename(
     columns={
         "SFN concentration (µM)": "sfn_conc_mumolar",
