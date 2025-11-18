@@ -1096,7 +1096,7 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3c4713645dbd48eb8add799f2c72a839b783b672bfc514d260439fc97d846c94.png" src="_images/3c4713645dbd48eb8add799f2c72a839b783b672bfc514d260439fc97d846c94.png" />
+<img alt="_images/9afdfea473aa632360f95b7d1e82e3d25bdd1ae33e6d2ba4b3d84cf65eda8e40.png" src="_images/9afdfea473aa632360f95b7d1e82e3d25bdd1ae33e6d2ba4b3d84cf65eda8e40.png" />
 </div>
 </div>
 <p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
@@ -1344,7 +1344,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 <img alt="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" src="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" />
 </div>
 </div>
-<p>A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is order in the categories sequence we defined earlier.</p>
+<p>A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is ordered in the categories sequence we defined earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1356,7 +1356,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6243bc808f59ab01d3d5119af918d493c5e9cf39be9a091e99d6c225c3c8b183.png" src="_images/6243bc808f59ab01d3d5119af918d493c5e9cf39be9a091e99d6c225c3c8b183.png" />
+<img alt="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" src="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" />
 </div>
 </div>
 <p>We can switch <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to change the orientation of the barplot if we wish.</p>
@@ -1392,7 +1392,7 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 <img alt="_images/df7e53c1d642d782b8c630e1c70fecc019be944fa15ed5d3aabdb05a8e95b2f9.png" src="_images/df7e53c1d642d782b8c630e1c70fecc019be944fa15ed5d3aabdb05a8e95b2f9.png" />
 </div>
 </div>
-<p>There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of the to recreate the plot at the beginning of this notebook.</p>
+<p>There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of them to recreate the plot at the beginning of this notebook.</p>
 </section>
 </section>
 <section id="advanced-plotting">
@@ -1528,7 +1528,7 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 <section id="more-lineplot-arguments">
 <h3>2.1 More Lineplot Arguments<a class="headerlink" href="#more-lineplot-arguments" title="Link to this heading">#</a></h3>
 <p>As a first step, we will show all arguments needed in the <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> function.
-We can see that the plot has both lines as well as dots with some errorbars on it. By default, <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> draws a 95 % confidence interval as a shaded area. We can change that to use errorbars instead.</p>
+We can see that the plot has both lines as well as dots with some errorbars on it. By default, <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> draws a 95 % confidence interval as a shaded area. We can change that to use errorbars indicating standard deviation (<code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>) instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1636,7 +1636,7 @@ We also set the width of the marker edge to zero, but you can specify that as yo
 <section id="customizing-the-axes-labels-ticks-etc">
 <h3>2.2 Customizing the Axes - Labels, Ticks, Etc.<a class="headerlink" href="#customizing-the-axes-labels-ticks-etc" title="Link to this heading">#</a></h3>
 <p><strong>2.2.1 Plot Limits</strong></p>
-<p>By default, Matplotlib/Seaborn draws the plotting area based on the minumun and maximum of what was specified, inlcuding some margin. We can set this explicitely using <code class="docutils literal notranslate"><span class="pre">ax.set_xlim()</span></code> for the x-axis (and correspondingly for the y-axis).
+<p>By default, Matplotlib/Seaborn draws the plotting area based on the minimumun and maximum of what was specified, including some margin. We can set this explicitely using <code class="docutils literal notranslate"><span class="pre">ax.set_xlim()</span></code> for the x-axis (and correspondingly for the y-axis).
 We set the limits to what is shown in the figure</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2207,7 +2207,7 @@ Let’s also remove the frame around the legend.</p>
 <p>We can see that our legend markers are a bit too small. This might be a problem if we would further increase the size of the whole plot. Hence, it would make sense to specify their size too, right?
 However, this is less trivial to do than most other things shown so far. But, we will show one way to do it which should suffice for most cases.</p>
 <p>What we need to do is specify the <code class="docutils literal notranslate"><span class="pre">handles</span></code> of our legend. The legend has two primary attributes: handles and labels (i.e., the markers for the variables and their names).
-We make use of the fact that the legend handles/markers are essentially the same type of object as what is drawn in the main plot area. In the case of a lineplot, they are 2-dimensional lines, i.e. <code class="docutils literal notranslate"><span class="pre">Line2D</span></code> objects. We create thos in a list comprehension (essentially a loop) with empty data (emtpy lists) and specify a larger markersize and linewidth than <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> used.</p>
+We make use of the fact that the legend handles/markers are essentially the same type of object as what is drawn in the main plot area. In the case of a lineplot, they are 2-dimensional lines, i.e. <code class="docutils literal notranslate"><span class="pre">Line2D</span></code> objects. We create those in a list comprehension (essentially a loop) with empty data (emtpy lists) and specify a larger markersize and linewidth than <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2650,7 +2650,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0f421668861a0e3b8298b2f114bb39b21437a06cef1abb8053f7d10d6df45af0.png" src="_images/0f421668861a0e3b8298b2f114bb39b21437a06cef1abb8053f7d10d6df45af0.png" />
+<img alt="_images/baf48194c7c16a281e81bf2c2951123e6cd9785d40021aa30a195f749662a3a5.png" src="_images/baf48194c7c16a281e81bf2c2951123e6cd9785d40021aa30a195f749662a3a5.png" />
 </div>
 </div>
 <p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
@@ -2759,7 +2759,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/627fc3b0dab8859064b1959456f66c5441b688a89d27d1a2f2b32000a5de72ab.png" src="_images/627fc3b0dab8859064b1959456f66c5441b688a89d27d1a2f2b32000a5de72ab.png" />
+<img alt="_images/a6d4f99a668bd23a963987106eb6def7390e5b8d5c4ad044c3433f5e44a7aae1.png" src="_images/a6d4f99a668bd23a963987106eb6def7390e5b8d5c4ad044c3433f5e44a7aae1.png" />
 </div>
 </div>
 </section>
@@ -2925,7 +2925,7 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b5ced7afbcd3544ab7c80f5bb15d730021bd90b71579cf672c0a8c1f56fd8123.png" src="_images/b5ced7afbcd3544ab7c80f5bb15d730021bd90b71579cf672c0a8c1f56fd8123.png" />
+<img alt="_images/edc702e8c9901172527b932582182ff947c3e7cacb565156bbfd46a0e61f9cbb.png" src="_images/edc702e8c9901172527b932582182ff947c3e7cacb565156bbfd46a0e61f9cbb.png" />
 </div>
 </div>
 <p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
@@ -3008,7 +3008,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/21f5a42bd7214da1975efb027dc17ecc5146d588a281c6548148a1c4104b4dd4.png" src="_images/21f5a42bd7214da1975efb027dc17ecc5146d588a281c6548148a1c4104b4dd4.png" />
+<img alt="_images/d99d58a4ed76cccb4b4d32011417053f4df2e0da289dbdedd501caf1256fb83c.png" src="_images/d99d58a4ed76cccb4b4d32011417053f4df2e0da289dbdedd501caf1256fb83c.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
@@ -3063,7 +3063,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e8a7314b328e5a50e528d4099b8f81d124e08f42f7722e699c95efe5156fdc52.png" src="_images/e8a7314b328e5a50e528d4099b8f81d124e08f42f7722e699c95efe5156fdc52.png" />
+<img alt="_images/e2e5c2c3c53f9338a8f6bb7ab6377e80d04ec112606bda58f3c147a3f23d760d.png" src="_images/e2e5c2c3c53f9338a8f6bb7ab6377e80d04ec112606bda58f3c147a3f23d760d.png" />
 </div>
 </div>
 </section>
