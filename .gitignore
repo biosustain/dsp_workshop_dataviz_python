@@ -4,3 +4,13 @@ jupyter_execute
 # ignore all figures produced by the notebooks
 *.png
 *.pdf
+*.svg
+*.jpg
+*.jpeg
+*.eps
+*.tiff
+*.gif
+*.bmp
+
+# some data files
+fake_data.*
