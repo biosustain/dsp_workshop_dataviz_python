@@ -1,3 +1,6 @@
 _build
 jupyter_execute
 *.docx
+# ignore all figures produced by the notebooks
+*.png
+*.pdf
