@@ -23,6 +23,9 @@
 
 
 # %% [markdown]
+# Uses the data from [PXD04621](data/README.md) - using simulated data which looks
+# similar to the original data 
+# ([Marshall et. al. 2023](https://www.sciencedirect.com/science/article/pii/S1756464623002451))
 # ![figure_2](https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg)
 
 # %% [markdown]
