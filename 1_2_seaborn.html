@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/biosustain/dsp_workshop_dataviz_python/blob/master/1_2_seaborn.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/biosustain/dsp_workshop_dataviz_python/blob/main/1_2_seaborn.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -428,11 +428,15 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;COLAB_GPU&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;pdf.fonttype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ps.fonttype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 </pre></div>
 </div>
 </div>
@@ -651,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2420/3272659636.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2402/3272659636.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
   _ = ax.set_xticklabels(
 </pre></div>
 </div>
@@ -668,7 +672,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/556c5ae71dbd99d1ae1b6c796155a63c2e27c3fbec21431fa3b51c3636eb6272.png" src="_images/556c5ae71dbd99d1ae1b6c796155a63c2e27c3fbec21431fa3b51c3636eb6272.png" />
+<img alt="_images/f53d2804f95734f7e5b52955233be1368887b64f06477745255bbb57616df67c.png" src="_images/f53d2804f95734f7e5b52955233be1368887b64f06477745255bbb57616df67c.png" />
 </div>
 </div>
 <p>The end.</p>

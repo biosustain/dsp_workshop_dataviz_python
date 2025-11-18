@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/biosustain/dsp_workshop_dataviz_python/blob/master/1_3_seaborn.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/biosustain/dsp_workshop_dataviz_python/blob/main/1_3_seaborn.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -458,6 +458,7 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.lines</span> <span class="k">as</span> <span class="nn">mlines</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -465,6 +466,9 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">auc</span>
+
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;pdf.fonttype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ps.fonttype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;COLAB_GPU&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
 </pre></div>
@@ -1096,7 +1100,7 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/42b87ede9086bead8f97844920c48d3a9bfd4934dd31869dceb308d628b93d9f.png" src="_images/42b87ede9086bead8f97844920c48d3a9bfd4934dd31869dceb308d628b93d9f.png" />
+<img alt="_images/e29ab9788aa5824dc0e20a4f583194ffc92ebf510c2f5b000951ee2e5dd47961.png" src="_images/e29ab9788aa5824dc0e20a4f583194ffc92ebf510c2f5b000951ee2e5dd47961.png" />
 </div>
 </div>
 <p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
@@ -1356,7 +1360,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6243bc808f59ab01d3d5119af918d493c5e9cf39be9a091e99d6c225c3c8b183.png" src="_images/6243bc808f59ab01d3d5119af918d493c5e9cf39be9a091e99d6c225c3c8b183.png" />
+<img alt="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" src="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" />
 </div>
 </div>
 <p>We can switch <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to change the orientation of the barplot if we wish.</p>
@@ -2650,7 +2654,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0110c4c2f2fb154a230c9de01ba2dbb406432c4089fbd56663f4ac3f4d32cae0.png" src="_images/0110c4c2f2fb154a230c9de01ba2dbb406432c4089fbd56663f4ac3f4d32cae0.png" />
+<img alt="_images/58659c410285d341086c9e7679d48733d61abd2d58f27df223e242c9ab4485e5.png" src="_images/58659c410285d341086c9e7679d48733d61abd2d58f27df223e242c9ab4485e5.png" />
 </div>
 </div>
 <p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
@@ -2759,7 +2763,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9947ad4ce7df7a7f26603cb909c1b0d5a2da51d8b20a3769ad921e2e8a3c7870.png" src="_images/9947ad4ce7df7a7f26603cb909c1b0d5a2da51d8b20a3769ad921e2e8a3c7870.png" />
+<img alt="_images/8d6d2ae97f11ead95fc7805ffe59a8f0ce10c43861381b93589cfc5536d06d09.png" src="_images/8d6d2ae97f11ead95fc7805ffe59a8f0ce10c43861381b93589cfc5536d06d09.png" />
 </div>
 </div>
 </section>
@@ -2925,7 +2929,7 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb04b28a1d3b55f642404eec03a24a750883ccacd28b703dfff42371430e10f9.png" src="_images/cb04b28a1d3b55f642404eec03a24a750883ccacd28b703dfff42371430e10f9.png" />
+<img alt="_images/c393d91952e844a2d9124ec2d2865a5a80fac6a6e3be286dc9587788e440fd15.png" src="_images/c393d91952e844a2d9124ec2d2865a5a80fac6a6e3be286dc9587788e440fd15.png" />
 </div>
 </div>
 <p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
@@ -3008,7 +3012,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2d11487ca90f5f2ca492e12dd0d9b722c5638c3b207a2bc2739b7b56112db08a.png" src="_images/2d11487ca90f5f2ca492e12dd0d9b722c5638c3b207a2bc2739b7b56112db08a.png" />
+<img alt="_images/dc36828be7a3b63684161322530271b7ef2f33d7d3152ced2e60bdaa39c731ad.png" src="_images/dc36828be7a3b63684161322530271b7ef2f33d7d3152ced2e60bdaa39c731ad.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
@@ -3063,7 +3067,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/877611a747f88b9e20d8339d8c0a137aba7bbd37e50a5e4be974700a3a03d015.png" src="_images/877611a747f88b9e20d8339d8c0a137aba7bbd37e50a5e4be974700a3a03d015.png" />
+<img alt="_images/8e1b9b1db988a86b2eae5dc289665944220a0fb4fee5794142e7136c5ff31ad2.png" src="_images/8e1b9b1db988a86b2eae5dc289665944220a0fb4fee5794142e7136c5ff31ad2.png" />
 </div>
 </div>
 </section>
