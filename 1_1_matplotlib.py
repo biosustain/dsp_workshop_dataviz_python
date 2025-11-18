@@ -2,6 +2,11 @@
 # # Matplotlib
 # - A comprehensive library for creating static, animated, and interactive visualizations in Python.
 # - Built on NumPy arrays and designed to work with the broader SciPy stack.
+#
+# Inspiration for plots and overviews
+# - # Material
+# - [python-graph-gallery.com/](https://python-graph-gallery.com/)
+# - [Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)
 
 # %%
 import matplotlib as mpl
