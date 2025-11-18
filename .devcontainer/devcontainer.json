@@ -13,8 +13,8 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "pip3 install --user -r requirements.txt",
-//   "onCreateCommand": "bash .devcontainer/setup.sh",
+  // "postCreateCommand": "pip3 install --user -r requirements.txt && kaleido_get_chrome",
+  "onCreateCommand": "bash .devcontainer/setup.sh",
 
   // Configure tool-specific properties.
   "customizations": {
