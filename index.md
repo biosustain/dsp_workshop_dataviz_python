@@ -15,14 +15,14 @@
 ```{toctree}
 :hidden:
 :caption: Course Contents
-:glob:
 :maxdepth: 2
 
 1_0_overview
 1_0_python_inch_cm
 1_1_matplotlib
 1_2_pandas
-1_?_seaborn
+1_2_seaborn
+1_3_seaborn
 2_plotly
 3_vuecore
 ```
