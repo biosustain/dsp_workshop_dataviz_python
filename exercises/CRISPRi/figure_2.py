@@ -7,7 +7,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.17.2
 #   kernelspec:
-#     display_name: fmg
+#     display_name: Python 3
 #     language: python
 #     name: python3
 # ---
@@ -23,16 +23,32 @@
 # future revisions of the manuscript.
 
 # %%
+import os
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+
+IN_COLAB = "COLAB_GPU" in os.environ
+
 
 # %%
 A_DATA_FILE = "figure_2a.csv"
 B_DATA_FILE = "figure_2b.csv"
 C_DATA_FILE = "figure_2c.csv"
 D_DATA_FILE = "figure_2d.csv"
+
+URL_TEMPLATE = (
+    "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python/"
+    "refs/heads/main/exercises/CRISPRi/{filename}"
+)
+
+if IN_COLAB:
+    A_DATA_FILE = URL_TEMPLATE.format(filename="figure_2a.csv")
+    B_DATA_FILE = URL_TEMPLATE.format(filename="figure_2b.csv")
+    C_DATA_FILE = URL_TEMPLATE.format(filename="figure_2c.csv")
+    D_DATA_FILE = URL_TEMPLATE.format(filename="figure_2d.csv")
 
 CONDITION_LIST = ["induced", "uninduced"]
 C_VAR_LIST = ["10 mM glucose", "25 mM acetate", "10 mM glucose + 25 mM acetate"]
@@ -835,3 +851,4 @@ plt.show()
 # </details>
 
 # %%
+ 

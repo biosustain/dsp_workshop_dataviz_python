@@ -46,14 +46,21 @@ items
 # ## Proteomics data example
 
 # %%
+import os
 import pathlib
 
 import pandas as pd
 
-dir_data = pathlib.Path("data")
-df = pd.read_csv(dir_data / "proteins" / "proteins.csv", index_col=0).T
-df
+IN_COLAB = "COLAB_GPU" in os.environ
 
+fname = pathlib.Path("data") / "proteins" / "proteins.csv"
+if IN_COLAB:
+    fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/proteins/proteins.csv"
+    )
+df = pd.read_csv(fname, index_col=0).T
+df
 
 # %%
 x = df.iloc[:, 0]

@@ -22,13 +22,23 @@
 # We are not going in-depth - we are just showing some basic functionalities which are important for plotting.
 
 # %%
+import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+IN_COLAB = "COLAB_GPU" in os.environ
+
 # %%
-DATA_DIR = Path("data/growth")
+DATA_DIR = Path("data")
+
+fname = Path("data") / "growth" / "fake_growth_data.csv"
+if IN_COLAB:
+    fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/growth/fake_growth_data.csv"
+    )
 
 # %% [markdown]
 # ## 1. DATA I/O (Input/Output)
@@ -40,7 +50,7 @@ DATA_DIR = Path("data/growth")
 # Let us load in some fake data made to fit some growth data.
 
 # %%
-df = pd.read_csv(DATA_DIR / "fake_growth_data.csv")
+df = pd.read_csv(fname)
 
 # %% [markdown]
 # Inspect the first few lines.
@@ -119,6 +129,7 @@ df_col_renamed = df.rename(
         "Bacterial growth (OD600)": "bact_growth_od600",
     }
 )
+df_col_renamed
 
 # %% [markdown]
 # We can do this - or many other operations - inplace for brevity.
@@ -132,6 +143,7 @@ df.rename(
     },
     inplace=True,
 )
+df
 
 # %% [markdown]
 # ### 2.2 Filtering by Conditions
@@ -142,6 +154,7 @@ df.rename(
 
 # %%
 df_aerobic = df[df["condition"] == "Aerobic"]
+df_aerobic
 
 # %% [markdown]
 # We can also filter by multiple conditions. For example, get all anaerobic data from
@@ -153,6 +166,7 @@ df_multi_condition = df[
     & (df["sfn_conc_mumolar"] == "DMSO")
     & (df["bact_growth_od600"] < 0.4)
 ]
+df_multi_condition
 
 # %% [markdown]
 # ### 2.3 Adding Data By Conditions
@@ -168,6 +182,7 @@ df_multi_condition = df[
 
 # %%
 df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
+df
 
 # %% [markdown]
 # ### 2.4 Aggregating Data
@@ -175,7 +190,7 @@ df["is_stationary"] = np.where(df["bact_growth_od600"] >= 0.55, True, False)
 # %% [markdown]
 # Maybe we are more interested in the maximum or average OD or alike in our experiment.
 # We could just use `.max()` for example but it would give us the maximum value across
-# all variables. If however we wish to distinguish between different cases 
+# all variables. If however we wish to distinguish between different cases
 # (like anaerobic/aerobic), then it makes sense to group our data first.
 # Here, we show how to aggregate across all replicates:
 
@@ -185,6 +200,7 @@ df_rep_agg = (
     .mean()
     .reset_index()
 )
+df_rep_agg
 
 # %% [markdown]
 # We put our command in brackets so we can write it out in multiple lines to show it
@@ -209,6 +225,7 @@ df_multi_agg = (
     )
     .reset_index()
 )
+df_multi_agg
 
 # %% [markdown]
 # ### 2.5 Adding Data by Aggregation
@@ -226,6 +243,7 @@ df["stationary_od"] = df.groupby(["condition", "sfn_conc_mumolar", "replicate"])
 df["is_stationary"] = np.where(
     df["bact_growth_od600"] >= df["stationary_od"], True, False
 )
+df
 
 # %% [markdown]
 # That tolerance could also be calculated in a similar way, e.g. based on the standard

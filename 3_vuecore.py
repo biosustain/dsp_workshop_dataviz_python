@@ -4,20 +4,45 @@
 # - will be used to define plotting functions for certain analysis types in our
 #   core analysis library
 # - at the moment only support the plotly backend
+#
+#
+# Colab specific setup:
 
 # %%
+import os
+
+IN_COLAB = "COLAB_GPU" in os.environ
+
+if IN_COLAB:
+    # !pip install vuecore
+
+# %% [markdown]
+# Import libraries
+
+# %%
+import os
 import pathlib
 
 import pandas as pd
 from vuecore.plots.basic.histogram import create_histogram_plot
 
+IN_COLAB = "COLAB_GPU" in os.environ
+
 # %% [markdown]
 # ## Proteomics data example
+#
+# - load from repository if in colab
 
 # %%
 dir_data = pathlib.Path("data")
+fname = dir_data / "proteins" / "proteins.csv"
+if IN_COLAB:
+    fname = (
+        "https://raw.githubusercontent.com/biosustain/dsp_workshop_dataviz_python"
+        "/refs/heads/main/data/proteins/proteins.csv"
+    )
 df = (
-    pd.read_csv(dir_data / "proteins" / "proteins.csv", index_col=0)
+    pd.read_csv(fname, index_col=0)
     .rename_axis("Protein_ID", axis=1)
     .stack()
     .reset_index(name="Intensity")
