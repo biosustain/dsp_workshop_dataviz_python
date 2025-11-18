@@ -213,7 +213,7 @@ sns.barplot(data=df_auc_anaer, x="sfn_conc_mumolar", y="auc")
 plt.show()
 
 # %% [markdown]
-# A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is order in the categories sequence we defined earlier.
+# A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is ordered in the categories sequence we defined earlier.
 
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
@@ -248,7 +248,7 @@ ax.legend(loc="upper center", bbox_to_anchor=[0.5, 1.2], ncol=3)
 plt.show()
 
 # %% [markdown]
-# There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of the to recreate the plot at the beginning of this notebook.
+# There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of them to recreate the plot at the beginning of this notebook.
 
 # %% [markdown]
 # ## 2. Advanced Plotting
@@ -265,7 +265,7 @@ df_anaer
 
 # %% [markdown]
 # As a first step, we will show all arguments needed in the `.lineplot()` function.
-# We can see that the plot has both lines as well as dots with some errorbars on it. By default, `.lineplot()` draws a 95 % confidence interval as a shaded area. We can change that to use errorbars instead.
+# We can see that the plot has both lines as well as dots with some errorbars on it. By default, `.lineplot()` draws a 95 % confidence interval as a shaded area. We can change that to use errorbars indicating standard deviation (`"sd"`) instead.
 
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
@@ -357,7 +357,7 @@ plt.show()
 # **2.2.1 Plot Limits**
 
 # %% [markdown]
-# By default, Matplotlib/Seaborn draws the plotting area based on the minumun and maximum of what was specified, inlcuding some margin. We can set this explicitely using `ax.set_xlim()` for the x-axis (and correspondingly for the y-axis).
+# By default, Matplotlib/Seaborn draws the plotting area based on the minimumun and maximum of what was specified, including some margin. We can set this explicitely using `ax.set_xlim()` for the x-axis (and correspondingly for the y-axis).
 # We set the limits to what is shown in the figure
 
 # %%
@@ -883,7 +883,7 @@ plt.show()
 
 # %% [markdown]
 # What we need to do is specify the `handles` of our legend. The legend has two primary attributes: handles and labels (i.e., the markers for the variables and their names).
-# We make use of the fact that the legend handles/markers are essentially the same type of object as what is drawn in the main plot area. In the case of a lineplot, they are 2-dimensional lines, i.e. `Line2D` objects. We create thos in a list comprehension (essentially a loop) with empty data (emtpy lists) and specify a larger markersize and linewidth than `sns.lineplot()` used.
+# We make use of the fact that the legend handles/markers are essentially the same type of object as what is drawn in the main plot area. In the case of a lineplot, they are 2-dimensional lines, i.e. `Line2D` objects. We create those in a list comprehension (essentially a loop) with empty data (emtpy lists) and specify a larger markersize and linewidth than `sns.lineplot()` used.
 
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
@@ -1530,4 +1530,5 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
         )
         count += 1
 
+fig.savefig("brokkoli_full_plot.png", dpi=300, bbox_inches="tight")
 plt.show()
