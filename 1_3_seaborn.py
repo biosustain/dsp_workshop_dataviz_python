@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.17.2
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: fmg
 #     language: python
@@ -79,6 +79,7 @@ data.rename(
     },
     inplace=True,
 )
+data
 
 # %% [markdown]
 # ### 0.3 Aggregate Data
@@ -102,6 +103,7 @@ data_auc["sfn_conc_mumolar"] = pd.Categorical(
     categories=["20", "15", "10", "5", "2.5", "DMSO"],
     ordered=True,
 )
+data_auc
 
 # %% [markdown]
 # We also set the SFN column in the aggregated dataframe to be categorical, meaning there are defined categories (in a defined order if we wish so). There some useful properties for this, e.g. counting the categories in some subgroups even if some categories are missing.
@@ -118,6 +120,7 @@ data_auc["sfn_conc_mumolar"] = pd.Categorical(
 
 # %%
 df_anaer = data[data["condition"] == "Anaerobic"]
+df_anaer
 
 # %% [markdown]
 # Now, making the plot is quite simple. Seaborn expects the data in a `.DataFrame` format, and we can use `x` and `y` to specify what data relation we want to plot (note that for some plots like histograms, we do not need to specify `y`).
@@ -185,6 +188,7 @@ plt.show()
 
 # %%
 df_auc_anaer = data_auc[data_auc["condition"] == "Anaerobic"]
+df_auc_anaer
 
 # %% [markdown]
 # After having shown two plots for continuous data, let us move on to categorical plots where we plot the aggregated dataframe with the area under the curve.
@@ -239,6 +243,10 @@ plt.show()
 
 # %% [markdown]
 # We will focus again on the left upper plot for now.
+
+# %%
+df_anaer = data[data["condition"] == "Anaerobic"]
+df_anaer
 
 # %% [markdown]
 # ### 2.1 More Lineplot Arguments
@@ -1059,6 +1067,10 @@ plt.show()
 
 # %% [markdown]
 # ### 2.4 Categorical Plot with Significance Indicators
+
+# %%
+df_auc_anaer = data_auc[data_auc["condition"] == "Anaerobic"]
+df_auc_anaer
 
 # %% [markdown]
 # We now turn our attention to the plot on the upper right, using the aggregated data. We skip most steps here as they are similar. We only note that we are using a stripplot to visualize categorical data with dots and also a pointplot to show some errorbars.
