@@ -57,9 +57,6 @@ mpl.rcParams["ps.fonttype"] = 42
 IN_COLAB = "COLAB_GPU" in os.environ
 
 # %%
-IN_COLAB = True
-
-# %%
 DATA_DIR = Path("data")
 
 fname = Path("data") / "growth" / "fake_growth_data.csv"
