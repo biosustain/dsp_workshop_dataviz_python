@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['ps.fonttype'] = 42
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
 
 # %% [markdown]
 # ## Basic Line Plot
@@ -49,7 +49,13 @@ mu, sigma = 115, 15
 x = mu + sigma * np.random.randn(10000)
 fig, ax = plt.subplots(figsize=(5, 2.7), layout="constrained")
 # the histogram of the data
-n, bins, patches = ax.hist(x, 50, density=True, facecolor="C0", alpha=0.75)
+n, bins, patches = ax.hist(
+    x,
+    50,
+    density=True,
+    facecolor="C0",  # first color in color palette
+    alpha=0.75,
+)
 
 ax.set_xlabel("Length [cm]")
 ax.set_ylabel("Probability")
@@ -73,7 +79,7 @@ Y1 = 3 + np.cos(X)
 Y2 = 1 + np.cos(1 + X / 0.75) / 2
 Y3 = np.random.uniform(Y1, Y2, len(X))
 
-data = {'X': X, 'red_line': Y1, 'blue_line': Y2, 'circles': Y3}
+data = {"X": X, "red_line": Y1, "blue_line": Y2, "circles": Y3}
 data = pd.DataFrame(data)
 data.head()
 
@@ -95,19 +101,25 @@ ax.xaxis.set_minor_formatter("{x:.2f}")
 ax.set_xlim(0, 4)
 ax.set_ylim(0, 4)
 
-ax.tick_params(which='major', width=1.0, length=10, labelsize=14)
-ax.tick_params(which='minor', width=1.0, length=5, labelsize=10,
-               labelcolor='0.25')
+ax.tick_params(which="major", width=1.0, length=10, labelsize=14)
+ax.tick_params(which="minor", width=1.0, length=5, labelsize=10, labelcolor="0.25")
 
-ax.grid(linestyle="--", linewidth=0.5, color='.25', zorder=-10)
+ax.grid(linestyle="--", linewidth=0.5, color=".25", zorder=-10)
 
-ax.plot(X, Y1, c='C0', lw=2.5, label="Blue signal", zorder=10)
-ax.plot(X, Y2, c='C1', lw=2.5, label="Orange signal")
-ax.plot(X[::3], Y3[::3], linewidth=0, markersize=9,
-        marker='s', markerfacecolor='none', markeredgecolor='C4',
-        markeredgewidth=2.5)
+ax.plot(X, Y1, c="C0", lw=2.5, label="Blue signal", zorder=10)
+ax.plot(X, Y2, c="C1", lw=2.5, label="Orange signal")
+ax.plot(
+    X[::3],
+    Y3[::3],
+    linewidth=0,
+    markersize=9,
+    marker="s",
+    markerfacecolor="none",
+    markeredgecolor="C4",  # color 5 in color palette
+    markeredgewidth=2.5,
+)
 
-ax.set_title("Anatomy of a figure", fontsize=20, verticalalignment='bottom')
+ax.set_title("Anatomy of a figure", fontsize=20, verticalalignment="bottom")
 ax.set_xlabel("x Axis label", fontsize=14)
 ax.set_ylabel("y Axis label", fontsize=14)
 ax.legend(loc="upper right", fontsize=14)
@@ -180,7 +192,7 @@ with plt.style.context("ggplot"):
 
 # %%
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(7.4, 4))
-axes = axes.flatten() # in case of more than one dimension (safety snippet for you)
+axes = axes.flatten()  # in case of more than one dimension (safety snippet for you)
 ax = axes[0]
 n, bins, patches = ax.hist(x, bins=30, alpha=0.7, color="C0")
 ax = axes[1]
