@@ -23,7 +23,6 @@
 1_2_pandas
 1_2_seaborn
 1_3_seaborn
-1_4_matplotlib_config
 2_plotly
 3_vuecore
 ```

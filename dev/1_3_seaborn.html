@@ -48,7 +48,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matplotlib Configuration" href="1_4_matplotlib_config.html" />
+    <link rel="next" title="Plotly Express" href="2_plotly.html" />
     <link rel="prev" title="Seaborn (intro with proteomics data)" href="1_2_seaborn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,7 +184,6 @@
 <li class="toctree-l1"><a class="reference internal" href="1_2_pandas.html">Pandas (for data to plot)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_2_seaborn.html">Seaborn (intro with proteomics data)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Seaborn (example from the sulforaphane paper)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_matplotlib_config.html">Matplotlib Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotly.html">Plotly Express</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_vuecore.html">VueCore</a></li>
 </ul>
@@ -445,11 +444,8 @@ document.write(`
 <h2>Recreating the Figure from the sulforaphane Paper<a class="headerlink" href="#recreating-the-figure-from-the-sulforaphane-paper" title="Link to this heading">#</a></h2>
 <p>Uses the data from <a class="reference internal" href="data/README.html"><span class="std std-doc">PXD04621</span></a> - using simulated data which looks
 similar to the original data
-(<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1756464623002451" rel="noreferrer" target="_blank">Marshall et. al. 2023)</a>).</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="_downloads/ee89c9ca47fbbffaa8e2f8e61b8a2871/fake_growth_data.csv"><span class="xref download myst">fake_growth_data.csv</span></a></p></li>
-</ul>
-<p><img alt="figure_2" src="https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg" /></p>
+(<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1756464623002451" rel="noreferrer" target="_blank">Marshall et. al. 2023)</a>).
+<img alt="figure_2" src="https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg" /></p>
 <p>Take a look at this picture - do you think it is simple or complicated?
 It is not trivial to recreate it in Python - but don’t worry, we will guide through all steps and tricks on making an (almost) exact copy of that picture in this notebook (at least from our knowledge). Let’s get started.</p>
 </section>
@@ -465,6 +461,7 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.lines</span> <span class="k">as</span> <span class="nn">mlines</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
@@ -474,6 +471,13 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ps.fonttype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;COLAB_GPU&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1100,7 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c46760892e639ff8159331b225d62c610a9c90451608cd0ced4102159066f946.png" src="_images/c46760892e639ff8159331b225d62c610a9c90451608cd0ced4102159066f946.png" />
+<img alt="_images/b1e7de2833e08bfa29722ed2dfa0be41f55b1b00f6cc99bcfdfd837db90f27ad.png" src="_images/b1e7de2833e08bfa29722ed2dfa0be41f55b1b00f6cc99bcfdfd837db90f27ad.png" />
 </div>
 </div>
 <p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
@@ -2650,7 +2654,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/172ccafacaf4eef523c5722a2a2fd4355813034dfdb296436d4cf13b3c5910f3.png" src="_images/172ccafacaf4eef523c5722a2a2fd4355813034dfdb296436d4cf13b3c5910f3.png" />
+<img alt="_images/07165ebee7c03a87437deb7a5fa56ae8fa3636b17011b2fdab5df5816134d59d.png" src="_images/07165ebee7c03a87437deb7a5fa56ae8fa3636b17011b2fdab5df5816134d59d.png" />
 </div>
 </div>
 <p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
@@ -2759,7 +2763,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c3d8f885fe9efbf170c85c19f8dd83f339d4118bbb445023d14e86d611cfe842.png" src="_images/c3d8f885fe9efbf170c85c19f8dd83f339d4118bbb445023d14e86d611cfe842.png" />
+<img alt="_images/e2048b07404b6237680202632e0319fe117948e21691990f245bcb210f78331b.png" src="_images/e2048b07404b6237680202632e0319fe117948e21691990f245bcb210f78331b.png" />
 </div>
 </div>
 </section>
@@ -2925,7 +2929,7 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1f0847cdc5a63179c4f63cb5d48993b7aacf4d58a50bf354c49fc8b66804a3c.png" src="_images/b1f0847cdc5a63179c4f63cb5d48993b7aacf4d58a50bf354c49fc8b66804a3c.png" />
+<img alt="_images/ea8d6e74bb8f817b434bcc87a60dd62d043b04b8dffa5680065d73ab430d9fa7.png" src="_images/ea8d6e74bb8f817b434bcc87a60dd62d043b04b8dffa5680065d73ab430d9fa7.png" />
 </div>
 </div>
 <p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
@@ -3008,7 +3012,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/961ad61d67c0162a91162ad807ace212cb5f70648584f72dc3f9721eccc7c4af.png" src="_images/961ad61d67c0162a91162ad807ace212cb5f70648584f72dc3f9721eccc7c4af.png" />
+<img alt="_images/813e7e86c44ceb4cba62f3652983db7129a652ce99b1b99e4292b9bd12ba7fd3.png" src="_images/813e7e86c44ceb4cba62f3652983db7129a652ce99b1b99e4292b9bd12ba7fd3.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
@@ -3063,7 +3067,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e9c3c8520cb5f2880228e7f39d71304c5a6ea93412fede33ab196f8c8c622406.png" src="_images/e9c3c8520cb5f2880228e7f39d71304c5a6ea93412fede33ab196f8c8c622406.png" />
+<img alt="_images/6b854a1de2e0df3647c35029dd33b6d51c6862d5361423f62fad67da204f1955.png" src="_images/6b854a1de2e0df3647c35029dd33b6d51c6862d5361423f62fad67da204f1955.png" />
 </div>
 </div>
 </section>
@@ -3091,11 +3095,11 @@ Note that for these arguments, the start is at the lower left corner. We show be
       </div>
     </a>
     <a class="right-next"
-       href="1_4_matplotlib_config.html"
+       href="2_plotly.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Matplotlib Configuration</p>
+        <p class="prev-next-title">Plotly Express</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

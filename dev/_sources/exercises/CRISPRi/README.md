@@ -9,10 +9,3 @@ Nat Commun 15, 8985 (2024). [https://doi.org/10.1038/s41467-024-53381-4](https:/
 
 Direct data link: 
 [Source data](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-53381-4/MediaObjects/41467_2024_53381_MOESM6_ESM.xlsx)
-
-## Files used in notebooks
-
-- [figure_2a.csv](figure_2a.csv)
-- [figure_2b.csv](figure_2b.csv)
-- [figure_2c.csv](figure_2c.csv)
-- [figure_2d.csv](figure_2d.csv)
