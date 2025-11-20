@@ -5,7 +5,13 @@
 # - [website](https://plotly.com/python/plotly-express/)
 
 # %%
+import os
 import plotly.express as px
+
+IN_COLAB = "COLAB_GPU" in os.environ
+
+if IN_COLAB:
+    # !pip install kaleido
 
 # %% [markdown]
 # ## Line Plot
