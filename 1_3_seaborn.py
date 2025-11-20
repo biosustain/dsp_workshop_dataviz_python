@@ -20,15 +20,13 @@
 
 # %% [markdown]
 # ## Recreating the Figure from the sulforaphane Paper
-
-
-# %% [markdown]
 # Uses the data from [PXD04621](data/README.md) - using simulated data which looks
 # similar to the original data
 # ([Marshall et. al. 2023)](https://www.sciencedirect.com/science/article/pii/S1756464623002451)).
+# - [fake_growth_data.csv](data/growth/fake_growth_data.csv)
+#
 # ![figure_2](https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg)
-
-# %% [markdown]
+#
 # Take a look at this picture - do you think it is simple or complicated?
 # It is not trivial to recreate it in Python - but don't worry, we will guide through all steps and tricks on making an (almost) exact copy of that picture in this notebook (at least from our knowledge). Let's get started.
 
@@ -45,7 +43,6 @@ from pathlib import Path
 import matplotlib as mpl
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib.ticker import MultipleLocator
