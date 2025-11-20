@@ -25,3 +25,9 @@ to Caroline Jachmann for the great work assembling a peptide atlas with post tra
 modifications for ecoli:
 
 - [E. coli peptide atlas with phosphosites](https://www.uniprot.org/proteomes/UP000000625)
+
+## Files used in notebooks
+
+and hosted in the repository of the course.
+
+- [data/proteins/proteins.csv](proteins/proteins.csv)
