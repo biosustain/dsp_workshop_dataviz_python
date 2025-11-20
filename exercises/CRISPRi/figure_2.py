@@ -34,6 +34,11 @@ import seaborn as sns
 mpl.rcParams['pdf.fonttype'] = 42
 mpl.rcParams['ps.fonttype'] = 42
 
+# global font size (can be set via environment variable FONT_SIZE)
+FONT_SIZE = 9
+mpl.rcParams['font.size'] = FONT_SIZE
+mpl.rcParams["figure.figsize"] = (3.5, 3)
+
 IN_COLAB = "COLAB_GPU" in os.environ
 
 
@@ -81,7 +86,7 @@ a_data["condition"] = pd.Categorical(
 # ### 1.2 Plot the Dat
 
 # %%
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots()
 
 # main plot
 p = sns.lineplot(
@@ -103,9 +108,9 @@ ax.set_xlim(0, 30)
 ax.set_ylim(0, 5)
 
 # define frequency and size of ticks and their labels
-ax.set_xticks(range(5, 31, 5), range(5, 31, 5), fontsize=15)
+ax.set_xticks(range(5, 31, 5), range(5, 31, 5), fontsize=FONT_SIZE)
 ax.xaxis.set_tick_params(width=2, length=10)
-ax.set_yticks(range(1, 6, 1), [1, 2, 3, 4, ""], fontsize=15)
+ax.set_yticks(range(1, 6, 1), [1, 2, 3, 4, ""], fontsize=FONT_SIZE)
 ax.yaxis.set_tick_params(width=2, length=10)
 
 # adjust the "frame" of the plot
@@ -121,7 +126,7 @@ ax.legend(
     loc="upper left",
     bbox_to_anchor=[0.01, 1.2],
     frameon=False,
-    fontsize=15,
+    fontsize=FONT_SIZE,
 )
 
 # make an annotation with arrow to point to timepoint at 1 hour
@@ -129,7 +134,7 @@ ax.annotate(
     "1",
     (1, 0.5),
     xytext=(1, 1.5),
-    fontsize=12,
+    fontsize=FONT_SIZE,
     xycoords="data",
     horizontalalignment="center",
     verticalalignment="center",
@@ -142,8 +147,8 @@ ax.annotate(
 )
 
 # set the axis labels
-ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %% [markdown]
@@ -175,7 +180,7 @@ b_data = pd.concat(data_list)
 # ### 2.2 Plot The Data
 
 # %%
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots()
 
 TOTAL_WIDTH = 0.8
 bp = sns.barplot(
@@ -206,8 +211,8 @@ sns.stripplot(
 ax.set_ylim(0, 3.2)
 
 # define frequency and size of ticks and their labels
-ax.xaxis.set_tick_params(width=2, length=10, labelsize=15)
-ax.set_yticks(range(1, 4, 1), [1, 2, ""], fontsize=15)
+ax.xaxis.set_tick_params(width=2, length=10, labelsize=FONT_SIZE)
+ax.set_yticks(range(1, 4, 1), [1, 2, ""], fontsize=FONT_SIZE)
 ax.yaxis.set_tick_params(width=2, length=10)
 
 # adjust the "frame" of the plot
@@ -226,15 +231,15 @@ ax.legend(
     loc="upper left",
     bbox_to_anchor=[0.01, 1.2],
     frameon=False,
-    fontsize=15,
+    fontsize=FONT_SIZE,
 )
 
 # set the axis labels
-ax.set_xlabel("Time Interval (h)", labelpad=10, fontdict={"size": 15})
+ax.set_xlabel("Time Interval (h)", labelpad=10, fontdict={"size": FONT_SIZE})
 ax.set_ylabel(
     "Yield $\\left( \\text{mol } \\text{mol}^{-1} \\right)$",
     labelpad=20,
-    fontdict={"size": 15},
+    fontdict={"size": FONT_SIZE},
 )
 
 # indicate statistical significances
@@ -255,7 +260,7 @@ for bar_idx, y_start in zip([0, 2], [2.5, 2.7]):
         "*",
         horizontalalignment="center",
         verticalalignment="bottom",
-        fontsize=15,
+        fontsize=FONT_SIZE,
     )
 
 
@@ -284,7 +289,7 @@ c_data["od_upper"] = c_data["od600"] + c_data["stdev"]
 # ### 3.2 Plot The Data
 
 # %%
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots()
 
 # main plot
 p = sns.lineplot(
@@ -338,10 +343,10 @@ ax.set_xlim(0, 25)
 ax.set_ylim(0, 0.8)
 
 # define frequency and size of ticks and their labels
-ax.set_xticks(range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=15)
+ax.set_xticks(range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=FONT_SIZE)
 ax.xaxis.set_tick_params(width=2, length=10)
 y_tick_labels = np.round(np.linspace(0.1, 0.8, 8), 1)
-ax.set_yticks(y_tick_labels, y_tick_labels.tolist()[:-1] + [""], fontsize=15)
+ax.set_yticks(y_tick_labels, y_tick_labels.tolist()[:-1] + [""], fontsize=FONT_SIZE)
 ax.yaxis.set_tick_params(width=2, length=10)
 
 # adjust the "frame" of the plot
@@ -357,12 +362,12 @@ ax.legend(
     loc="upper left",
     bbox_to_anchor=[0.01, 1.2],
     frameon=False,
-    fontsize=15,
+    fontsize=FONT_SIZE,
 )
 
 # set the axis labels
-ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %% [markdown]
@@ -389,7 +394,7 @@ d_data["variable"] = pd.Categorical(
 # ### 4.2 Plot The Data
 
 # %%
-fig, ax1 = plt.subplots(figsize=(8, 5))
+fig, ax1 = plt.subplots()
 
 # first of variables with millimolar unit
 p1 = sns.lineplot(
@@ -431,11 +436,11 @@ p2 = sns.lineplot(
 ax2.set_ylim(0, 130)
 
 # define frequency and size of ticks and their labels
-ax1.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=15)
+ax1.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=FONT_SIZE)
 ax1.xaxis.set_tick_params(width=2, length=10)
-ax1.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=15)
+ax1.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=FONT_SIZE)
 ax1.yaxis.set_tick_params(width=2, length=10)
-ax2.set_yticks(range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=15)
+ax2.set_yticks(range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=FONT_SIZE)
 ax2.yaxis.set_tick_params(width=2, length=10)
 
 # adjust the "frame" of the plot
@@ -455,7 +460,7 @@ ax1.legend(
     loc="upper left",
     bbox_to_anchor=[0.01, 1.2],
     frameon=False,
-    fontsize=15,
+    fontsize=FONT_SIZE,
 )
 
 # make an annotation with arrow to point to timepoint at 1 hour
@@ -463,7 +468,7 @@ ax2.annotate(
     "2",
     (2, 10),
     xytext=(2, 30),
-    fontsize=12,
+    fontsize=FONT_SIZE,
     xycoords="data",
     horizontalalignment="center",
     verticalalignment="center",
@@ -476,9 +481,9 @@ ax2.annotate(
 )
 
 # set the axis labels
-ax1.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-ax2.set_ylabel("Concentration (mM)", labelpad=20, fontdict={"size": 15})
-ax1.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+ax1.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+ax2.set_ylabel("Concentration (mM)", labelpad=20, fontdict={"size": FONT_SIZE})
+ax1.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %% [markdown]
@@ -513,9 +518,9 @@ def figure_a(a_data: pd.DataFrame, ax: plt.Axes):
     ax.set_ylim(0, 5)
 
     # define frequency and size of ticks and their labels
-    ax.set_xticks(range(5, 31, 5), range(5, 31, 5), fontsize=15)
+    ax.set_xticks(range(5, 31, 5), range(5, 31, 5), fontsize=FONT_SIZE)
     ax.xaxis.set_tick_params(width=2, length=10)
-    ax.set_yticks(range(1, 6, 1), [1, 2, 3, 4, ""], fontsize=15)
+    ax.set_yticks(range(1, 6, 1), [1, 2, 3, 4, ""], fontsize=FONT_SIZE)
     ax.yaxis.set_tick_params(width=2, length=10)
 
     # adjust the "frame" of the plot
@@ -531,7 +536,7 @@ def figure_a(a_data: pd.DataFrame, ax: plt.Axes):
         loc="upper left",
         bbox_to_anchor=[0.01, 1.2],
         frameon=False,
-        fontsize=15,
+        fontsize=FONT_SIZE,
     )
 
     # make an annotation with arrow to point to timepoint at 1 hour
@@ -539,7 +544,7 @@ def figure_a(a_data: pd.DataFrame, ax: plt.Axes):
         "1",
         (1, 0.5),
         xytext=(1, 1.5),
-        fontsize=12,
+        fontsize=FONT_SIZE,
         xycoords="data",
         horizontalalignment="center",
         verticalalignment="center",
@@ -552,8 +557,8 @@ def figure_a(a_data: pd.DataFrame, ax: plt.Axes):
     )
 
     # set the axis labels
-    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %%
@@ -587,8 +592,8 @@ def figure_b(b_data: pd.DataFrame, ax: plt.Axes):
     ax.set_ylim(0, 3.2)
 
     # define frequency and size of ticks and their labels
-    ax.xaxis.set_tick_params(width=2, length=10, labelsize=15)
-    ax.set_yticks(range(1, 4, 1), [1, 2, ""], fontsize=15)
+    ax.xaxis.set_tick_params(width=2, length=10, labelsize=FONT_SIZE)
+    ax.set_yticks(range(1, 4, 1), [1, 2, ""], fontsize=FONT_SIZE)
     ax.yaxis.set_tick_params(width=2, length=10)
 
     # adjust the "frame" of the plot
@@ -607,15 +612,15 @@ def figure_b(b_data: pd.DataFrame, ax: plt.Axes):
         loc="upper left",
         bbox_to_anchor=[0.01, 1.2],
         frameon=False,
-        fontsize=15,
+        fontsize=FONT_SIZE,
     )
 
     # set the axis labels
-    ax.set_xlabel("Time Interval (h)", labelpad=10, fontdict={"size": 15})
+    ax.set_xlabel("Time Interval (h)", labelpad=10, fontdict={"size": FONT_SIZE})
     ax.set_ylabel(
         "Yield $\\left( \\text{mol } \\text{mol}^{-1} \\right)$",
         labelpad=20,
-        fontdict={"size": 15},
+        fontdict={"size": FONT_SIZE},
     )
 
     # indicate statistical significances
@@ -636,7 +641,7 @@ def figure_b(b_data: pd.DataFrame, ax: plt.Axes):
             "*",
             horizontalalignment="center",
             verticalalignment="bottom",
-            fontsize=15,
+            fontsize=FONT_SIZE,
         )
 
 
@@ -694,10 +699,10 @@ def figure_c(c_data: pd.DataFrame, ax: plt.Axes):
     ax.set_ylim(0, 0.8)
 
     # define frequency and size of ticks and their labels
-    ax.set_xticks(range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=15)
+    ax.set_xticks(range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=FONT_SIZE)
     ax.xaxis.set_tick_params(width=2, length=10)
     y_tick_labels = np.round(np.linspace(0.1, 0.8, 8), 1)
-    ax.set_yticks(y_tick_labels, y_tick_labels.tolist()[:-1] + [""], fontsize=15)
+    ax.set_yticks(y_tick_labels, y_tick_labels.tolist()[:-1] + [""], fontsize=FONT_SIZE)
     ax.yaxis.set_tick_params(width=2, length=10)
 
     # adjust the "frame" of the plot
@@ -713,12 +718,12 @@ def figure_c(c_data: pd.DataFrame, ax: plt.Axes):
         loc="upper left",
         bbox_to_anchor=[0.01, 1.2],
         frameon=False,
-        fontsize=15,
+        fontsize=FONT_SIZE,
     )
 
     # set the axis labels
-    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %%
@@ -763,12 +768,12 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
     ax2.set_ylim(0, 130)
 
     # define frequency and size of ticks and their labels
-    ax.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=15)
+    ax.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=FONT_SIZE)
     ax.xaxis.set_tick_params(width=2, length=10)
-    ax.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=15)
+    ax.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=FONT_SIZE)
     ax.yaxis.set_tick_params(width=2, length=10)
     ax2.set_yticks(
-        range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=15
+        range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=FONT_SIZE
     )
     ax2.yaxis.set_tick_params(width=2, length=10)
 
@@ -778,18 +783,18 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
         ax2.spines[pos].set_linewidth(lw)
 
     # set the legend
-    _handles1, _ = p1.get_legend_handles_labels()
-    _handles2, _ = p2.get_legend_handles_labels()
+    handles1, labels1 = p1.get_legend_handles_labels()
+    handles2, labels2 = p2.get_legend_handles_labels()
     ax2.legend_.remove()
     ax.legend(
-        _handles2 + [_handles1[-1]],
+        handles2 + [handles1[-1]],
         ["Acetate", "IBA", "Glucose", "$\\text{OD}_{600}$"],
-        ncol=4,
+        ncol=2,
         title=None,
         loc="upper left",
         bbox_to_anchor=[0.01, 1.2],
         frameon=False,
-        fontsize=8,
+        fontsize=FONT_SIZE,
     )
 
     # make an annotation with arrow to point to timepoint at 1 hour
@@ -797,7 +802,7 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
         "2",
         (2, 10),
         xytext=(2, 30),
-        fontsize=12,
+        fontsize=FONT_SIZE,
         xycoords="data",
         horizontalalignment="center",
         verticalalignment="center",
@@ -810,9 +815,9 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
     )
 
     # set the axis labels
-    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": 15})
-    ax2.set_ylabel("Concentration (mM)", labelpad=20, fontdict={"size": 15})
-    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": 15})
+    ax.set_xlabel("Time (h)", labelpad=10, fontdict={"size": FONT_SIZE})
+    ax2.set_ylabel("Concentration (mM)", labelpad=20, fontdict={"size": FONT_SIZE})
+    ax.set_ylabel("$\\text{OD}_{600}$", labelpad=20, fontdict={"size": FONT_SIZE})
 
 
 # %% [markdown]
@@ -824,8 +829,7 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
 # %%
 fig = plt.figure(
     figsize=(7.2, 9.7),
-    # layout="constrained",
-    # dpi=300,
+    constrained_layout=False,
 )
 
 gs = fig.add_gridspec(2, 2)
@@ -839,7 +843,7 @@ for i, (label, _df, plot_fun) in enumerate(
 ):
     ax = fig.add_subplot(gs[i])
     plot_fun(_df, ax)
-    ax.set_title(label, fontsize=20, x=-0.05, y=1.1)
+    ax.set_title(label, fontsize=FONT_SIZE, x=-0.05, y=1.1)
 
 plt.subplots_adjust(hspace=0.5)
 plt.show()
@@ -852,6 +856,31 @@ plt.show()
 # <summary>Click to see some hints</summary>
 # 1. Adjust the individual plots to roughly the correct size
 # 2. Adapt the default font sizes for axes labels, ticks, legends, and titles
+#
+# You might want to look into using relative size w.r.t to the default font size, e.g.,
+# ```python
+# FONT_SIZE = 9
+# mpl.rcParams['font.size'] = FONT_SIZE
+# mpl.rcParams['fig.labelsize'] = FONT_SIZE
+# mpl.font_manager.font_scalings
+# ```
+# which gives you the following scaling factors:
+# ```python
+# {
+#  'xx-small': 0.579,
+#  'x-small':  0.694,
+#  'small':    0.833,
+#  'medium':   1.0,
+#  'large':    1.2,
+#  'x-large':  1.44,
+#  'xx-large': 1.728,
+#   None:      1.0
+# }
+# ```
+# meaning that setting to `fontsize=None` or `fontsize='medium'` result in using `FONT_SIZE`, i.e. 9 points.
+# If you prefer exact point sizes in integer, you can also do this manually, e.g. using
+# `fontsize=FONT_SIZE - 1` for tick labels, `fontsize=FONT_SIZE + 1` for axis labels, 
+# and `fontsize=FONT_SIZE + 5` for titles (you need to play with it).
 # </details>
 
 # %%
