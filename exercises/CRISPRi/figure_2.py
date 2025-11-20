@@ -41,6 +41,15 @@ mpl.rcParams["figure.figsize"] = (3.5, 3)
 
 IN_COLAB = "COLAB_GPU" in os.environ
 
+# %% [markdown]
+# ## Setup
+# Let's make use of the files
+#
+# - [figure_2a.csv](figure_2a.csv)
+# - [figure_2b.csv](figure_2b.csv)
+# - [figure_2c.csv](figure_2c.csv)
+# - [figure_2d.csv](figure_2d.csv)
+
 
 # %%
 A_DATA_FILE = "figure_2a.csv"
