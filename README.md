@@ -18,24 +18,24 @@ you can (if you need to) edit in programs like Inkscape or Adobe Illustrator.
 
 ## Time and Place
 
-- **Prerequisites**: 
-    - Bring your laptop
-    - a Google account (for Colab), 
-    - or a GitHub account (for Codespaces).
-- **Date**: Wednesday, 19th November 2025, 10:00 to 14:00
-- **Location**: Building 208 - room 011 - ALC2
+- **Prerequisites**:
+  - Bring your laptop
+  - a Google account (for Colab),
+  - or a GitHub account (for Codespaces).
+- **Date**: Wednesday, 25th November 2026, 9:00 to 12:30
+- **Location**: Building 324 (DTU Compute) - room 040
 
 ## Agenda
 
 | Time          | Agenda Item                                                                                               |
 | ------------- | --------------------------------------------------------------------------------------------------------- |
-| 10.00 – 10.15 | Hello, coffee and setup                                                                                   |
-| 10.15 – 10.45 | General considerations on handling plots created by scripts for publication <br> (size, saving plot data) |
-| 10.45 – 11.15 | Matplotlib and seaborn basics                                                                             |
-| 11.15 – 11.30 | Break                                                                                                     |
-| 11.30 – 12.00 | Interactive plotly plots                                                                                  |
-| 12.00 – 12.30 | Lunch break                                                                                               |
-| 12.30 – 14.00 | Advanced plots, editing with LLMs and your questions                                                      |
+| 9.00 – 9.15   | Arrival with coffee and croissants                                                                        |
+| 9.15 – 9.45   | General considerations on handling plots created by scripts for publication <br> (size, saving plot data) |
+| 9.45 – 10.15  | Matplotlib and seaborn basics                                                                             |
+| 10.15 – 10.30 | Break                                                                                                     |
+| 10.30 – 11.00 | Interactive plotly plots                                                                                  |
+| 11.00 – 11.15 | Lunch break                                                                                               |
+| 11.15 – 12.30 | Advanced plots, VueCore, editing with LLMs and your questions                                             |
 
 ## How to use material
 
