@@ -40,7 +40,7 @@ you can (if you need to) edit in programs like Inkscape or Adobe Illustrator.
 ## How to use material
 
 There are two main ways we intend to use the material provided as executable notebooks:
-Colab and GitHub Codespaces.
+Colab and GitHub Codespaces. However, local setup is also possible.
 
 These hints on writing basic Markdown syntax might be helpful:
 [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
@@ -77,7 +77,12 @@ Please have a look at the (video) tutorials before the course:
 
 ### Local or elsewhere
 
-Get the repository and install the requirements from `requirements.txt`.
+Get the repository and install the requirements from `requirements.txt`. Best is to use a
+virtual environment (venv) to avoid conflicts with other Python packages you may have
+installed. If you need instructions on how to setup a virtual environment, see the
+[Python virtual
+environment](https://biosustain.github.io/dsp_notes/python/virutal_environment.html)
+notes on the dsp_notes.
 
 ```bash
 git clone https://github.com/biosustain/dsp_workshop_dataviz_python.git
