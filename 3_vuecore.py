@@ -3,7 +3,9 @@
 # - implements at the moment not too many figures
 # - will be used to define plotting functions for certain analysis types in our
 #   core analysis library
-# - at the moment only support the plotly backend
+# - at the moment the basic plots in vuecore only support the plotly backend
+# - more complex analysis plots are available as static and interactive plots:
+#   in the namespace `vuecore.static` and `vuecore.interactive`
 #
 #
 # Colab specific setup:
@@ -14,7 +16,8 @@ import os
 IN_COLAB = "COLAB_GPU" in os.environ
 
 if IN_COLAB:
-    # !pip install vuecore
+    # %pip install acore vuecore
+    print("Done installing acore and vuecore in colab")
 
 # %% [markdown]
 # Import libraries
@@ -24,6 +27,7 @@ import os
 import pathlib
 
 import pandas as pd
+import vuecore
 from vuecore.plots.basic.histogram import create_histogram_plot
 
 IN_COLAB = "COLAB_GPU" in os.environ
@@ -72,3 +76,82 @@ fig
 
 # %%
 type(fig)
+
+
+# %% [markdown]
+# ## Decomposition plots (PCA)
+#
+# Dimensionality reduction results (PCA, t-SNE, UMAP) from `acore` can be plotted
+# directly with `vuecore.dimensionality_reduction`, as a static (matplotlib) or an
+# interactive (plotly) figure. The proteins are the features, the samples are the
+# observations, so we need the wide format (samples as rows) and a `group` column.
+
+# %%
+from acore.exploratory_analysis.decomposition import run_pca
+from vuecore.dimensionality_reduction import (
+    get_embedding_plot_interactive,
+    get_embedding_plot_static,
+)
+
+# %%
+df_wide = pd.read_csv(fname, index_col=0)
+df_wide["group"] = df_wide.index.str.split("_").str[0]  # DMSO or Suf
+df_wide[["group"]]
+
+# %% [markdown]
+# `run_pca` returns the components, loadings and explained variance, and the
+# axis names (including explained variance). Proteins with missing values are
+# dropped per default.
+
+# %%
+pca_results, pca_annotation = run_pca(df_wide, group="group")
+pca_results[0]
+
+# %% [markdown]
+# Static version (matplotlib figure):
+
+# %%
+fig_static = get_embedding_plot_static(
+    pca_results,
+    pca_annotation,
+    group="group",
+    title="PCA of protein intensities",
+)
+
+# %% [markdown]
+# Interactive version (plotly figure) - hover over the samples. The loadings of
+# the proteins contributing most are added as arrows (biplot).
+
+# %%
+fig_interactive = get_embedding_plot_interactive(
+    pca_results,
+    pca_annotation,
+    group="group",
+    title="PCA of protein intensities",
+)
+fig_interactive
+
+
+# %% [markdown]
+# ## Current main namespace of `vuecore` and its submodules
+#
+# > This will be updated over time.
+
+# %%
+import inspect
+import types
+
+for n in (n for n in dir(vuecore) if not n.startswith("_")):
+    o = getattr(vuecore, n)
+    kind = (
+        "module"
+        if isinstance(o, types.ModuleType)
+        else "class" if inspect.isclass(o) else "func" if callable(o) else "value"
+    )
+    _doc = (inspect.getdoc(o) or '').split(chr(10))[0][:70] if kind != 'value' else ''
+    print(
+        f"{kind:<7}{n:<30}{_doc}"
+    )
+
+
+# %%
