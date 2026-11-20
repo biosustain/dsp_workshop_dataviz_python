@@ -16,35 +16,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-new-tab-link.css?v=d87cb1ac" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1_3_seaborn';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,34 +57,30 @@
     <link rel="prev" title="Seaborn (intro with proteomics data)" href="1_2_seaborn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -87,7 +88,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,15 +95,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -112,7 +156,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -151,21 +196,16 @@
           
           
           
-          <a href="https://github.com/biosustain/dsp_workshop_dataviz_python" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/biosustain/dsp_workshop_dataviz_python" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -213,9 +253,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -344,7 +389,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -358,25 +403,24 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
   </button>
-`);
-</script>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -398,7 +442,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recreating-the-figure-from-the-sulforaphane-paper">Recreating the Figure from the sulforaphane Paper</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">0. Preliminaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dependencies">0.1 Load Dependencies</a></li>
@@ -459,16 +503,16 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 <h3>0.1 Load Dependencies<a class="headerlink" href="#load-dependencies" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.lines</span> <span class="k">as</span> <span class="nn">mlines</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">auc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mlines</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultipleLocator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">auc</span>
 
 <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;pdf.fonttype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ps.fonttype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
@@ -1096,7 +1140,7 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bb9b4efb2a2062f0d3f342fb5c487f4bef3e2d0cd1f505580931df9cec6303cd.png" src="_images/bb9b4efb2a2062f0d3f342fb5c487f4bef3e2d0cd1f505580931df9cec6303cd.png" />
+<img alt="_images/f6f3ddb001fdea630a9eef937d85473504796c83c865eee2f4bf309c57687bb2.png" src="_images/f6f3ddb001fdea630a9eef937d85473504796c83c865eee2f4bf309c57687bb2.png" />
 </div>
 </div>
 <p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
@@ -1119,7 +1163,7 @@ We can also remove the shaded area by setting <code class="docutils literal notr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/483b454793dc9cd73a0ea77b4585c93d7e6b8a782353238d540220bca1df3fc5.png" src="_images/483b454793dc9cd73a0ea77b4585c93d7e6b8a782353238d540220bca1df3fc5.png" />
+<img alt="_images/3ad303343b222272d9663488a8ff74fa2dfdbb99042220fcbfbbdbb0e7894466.png" src="_images/3ad303343b222272d9663488a8ff74fa2dfdbb99042220fcbfbbdbb0e7894466.png" />
 </div>
 </div>
 <p>If we have multiple variable values with different colors or marker shapes, Seaborn will also automatically plot a legend and put it where it thinks it fits best.</p>
@@ -1141,7 +1185,7 @@ We can also remove the shaded area by setting <code class="docutils literal notr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/74e94bf8bb94cc5d9ddadf3aedd577389d39911350ccb2c72218ed2f326b2b97.png" src="_images/74e94bf8bb94cc5d9ddadf3aedd577389d39911350ccb2c72218ed2f326b2b97.png" />
+<img alt="_images/21cdf5636da472564e82d50f9fcd19ca68f0649d186722c8f5457ea3f22fd84d.png" src="_images/21cdf5636da472564e82d50f9fcd19ca68f0649d186722c8f5457ea3f22fd84d.png" />
 </div>
 </div>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">palette</span></code> colors we can also adjust the colors to our liking.</p>
@@ -1160,7 +1204,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4fd1a86e1ee9b012ee035f3f29e1e0be2e34082fe0ae5a895e8efc59bdf33ad.png" src="_images/b4fd1a86e1ee9b012ee035f3f29e1e0be2e34082fe0ae5a895e8efc59bdf33ad.png" />
+<img alt="_images/b6d9245cc9e9a29caa1f619cc016a3ef41cc6a6196ab1ec1109c9f748ec735c1.png" src="_images/b6d9245cc9e9a29caa1f619cc016a3ef41cc6a6196ab1ec1109c9f748ec735c1.png" />
 </div>
 </div>
 </section>
@@ -1341,7 +1385,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" src="_images/440fddd4f420f332bd17901809087dc578b5612a981ea9f6e2cab5fdd932db38.png" />
+<img alt="_images/c29fcd777af1758fa0f2ea1af293e784585b59771795cb279199474bdfe61cf1.png" src="_images/c29fcd777af1758fa0f2ea1af293e784585b59771795cb279199474bdfe61cf1.png" />
 </div>
 </div>
 <p>A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is ordered in the categories sequence we defined earlier.</p>
@@ -1356,7 +1400,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" src="_images/3606864c784d71a541a146db3ef51b2771d0221702baed9f9dcd502ce4fed79a.png" />
+<img alt="_images/6f1d9f253850cd99ac9cfe9b1d4e59e01d229b4d3ee1131d662f9fd135b0028d.png" src="_images/6f1d9f253850cd99ac9cfe9b1d4e59e01d229b4d3ee1131d662f9fd135b0028d.png" />
 </div>
 </div>
 <p>We can switch <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to change the orientation of the barplot if we wish.</p>
@@ -1372,7 +1416,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e7624d6eb0214898c4c21e7c8afda90772434a90355a18ff0733ca7a4728ae9b.png" src="_images/e7624d6eb0214898c4c21e7c8afda90772434a90355a18ff0733ca7a4728ae9b.png" />
+<img alt="_images/0d2c939de131feb8e1aa72a6c8595e920a3288b1056f5c75e9f79bf9d1df7248.png" src="_images/0d2c939de131feb8e1aa72a6c8595e920a3288b1056f5c75e9f79bf9d1df7248.png" />
 </div>
 </div>
 <p>However, we can see that our legend obstructs the view of part of the data. Can we do better?
@@ -1389,7 +1433,7 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/df7e53c1d642d782b8c630e1c70fecc019be944fa15ed5d3aabdb05a8e95b2f9.png" src="_images/df7e53c1d642d782b8c630e1c70fecc019be944fa15ed5d3aabdb05a8e95b2f9.png" />
+<img alt="_images/a2f5d1a2b8fee650f4d15076785c9db2fa58b74a2ccb790dc947a04a8b268940.png" src="_images/a2f5d1a2b8fee650f4d15076785c9db2fa58b74a2ccb790dc947a04a8b268940.png" />
 </div>
 </div>
 <p>There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of them to recreate the plot at the beginning of this notebook.</p>
@@ -1548,7 +1592,7 @@ We can see that the plot has both lines as well as dots with some errorbars on i
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7d2dbd3c6f93a9da0fd1defe5fede6fe2a630ed63e997eb6db45872815c5eb32.png" src="_images/7d2dbd3c6f93a9da0fd1defe5fede6fe2a630ed63e997eb6db45872815c5eb32.png" />
+<img alt="_images/4991793b073c6682dc1dec89e3bb86e31d01344308decb1f2a60bd9754521ad5.png" src="_images/4991793b073c6682dc1dec89e3bb86e31d01344308decb1f2a60bd9754521ad5.png" />
 </div>
 </div>
 <p>We can also see that there are little ‘caps’ on the errorbars. These are some special arguments which we specify using a dictionary passing it to the <code class="docutils literal notranslate"><span class="pre">err_kws</span></code> argument.</p>
@@ -1572,7 +1616,7 @@ We can see that the plot has both lines as well as dots with some errorbars on i
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bec9014a2f6228d54f63fff7600744587d204a9486cf7073756a32fb0053b5be.png" src="_images/bec9014a2f6228d54f63fff7600744587d204a9486cf7073756a32fb0053b5be.png" />
+<img alt="_images/bcc1592299e21476c156174fbfc7cb0d833cd9568354d77e86a2c68bebb1ed28.png" src="_images/bcc1592299e21476c156174fbfc7cb0d833cd9568354d77e86a2c68bebb1ed28.png" />
 </div>
 </div>
 <p>Let us add dots too, called markers in matplotlib syntax. We specify <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code> (which is also the default) as small dots.
@@ -1600,7 +1644,7 @@ We also set the width of the marker edge to zero, but you can specify that as yo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4218bc82f5ea7d60e8832f9006ed916a4bae4c1d906bb5a09ca6a07aa328fd2a.png" src="_images/4218bc82f5ea7d60e8832f9006ed916a4bae4c1d906bb5a09ca6a07aa328fd2a.png" />
+<img alt="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" src="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" />
 </div>
 </div>
 <p>This is all. But, before we move on, it is good practice to also specify the <code class="docutils literal notranslate"><span class="pre">axes</span></code> element. By default, Seaborn uses the last one that was specified (here the first line), but it is better to be explicit.</p>
@@ -1628,7 +1672,7 @@ We also set the width of the marker edge to zero, but you can specify that as yo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4218bc82f5ea7d60e8832f9006ed916a4bae4c1d906bb5a09ca6a07aa328fd2a.png" src="_images/4218bc82f5ea7d60e8832f9006ed916a4bae4c1d906bb5a09ca6a07aa328fd2a.png" />
+<img alt="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" src="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" />
 </div>
 </div>
 <p>Next, we make the x- and y-axis prettier and more readable.</p>
@@ -1669,7 +1713,7 @@ We set the limits to what is shown in the figure</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4dedb9dd57caa9096f47b8a6650bfa4026b95aef2c9e01d084c319d694a83ea6.png" src="_images/4dedb9dd57caa9096f47b8a6650bfa4026b95aef2c9e01d084c319d694a83ea6.png" />
+<img alt="_images/b9237b19a3137d713524088e87d353b860dd377a97a0a5538232cd3f8733a685.png" src="_images/b9237b19a3137d713524088e87d353b860dd377a97a0a5538232cd3f8733a685.png" />
 </div>
 </div>
 <p><strong>2.2.2 Specify Axis Labels</strong></p>
@@ -1712,7 +1756,7 @@ Note also that we make use of LaTeX rendering for the y-axis to make the ‘600�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/36d01c8f336f4968a7685c1028e3434e7d3500083b07ba3c3e8dc82db8e21847.png" src="_images/36d01c8f336f4968a7685c1028e3434e7d3500083b07ba3c3e8dc82db8e21847.png" />
+<img alt="_images/938008a93492017e04c1728c381ad21e5304234e9efa63623b92257fe0af4ef2.png" src="_images/938008a93492017e04c1728c381ad21e5304234e9efa63623b92257fe0af4ef2.png" />
 </div>
 </div>
 <p><strong>2.2.3 Change Axis Tick Sizes</strong></p>
@@ -1757,7 +1801,7 @@ We will make the ticks wider and longer.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bfcc25794ece89bbe125637a3db304a54c9aba51ed1723a5fd6b9f936b8b200d.png" src="_images/bfcc25794ece89bbe125637a3db304a54c9aba51ed1723a5fd6b9f936b8b200d.png" />
+<img alt="_images/40b44e3897205a9008d8001a8e6545f748a8b82992b573d9f6733face2fed51d.png" src="_images/40b44e3897205a9008d8001a8e6545f748a8b82992b573d9f6733face2fed51d.png" />
 </div>
 </div>
 <p>We can see though that, beside the <em>major</em> tick lines, there are also some <em>minor</em> ones.
@@ -1804,7 +1848,7 @@ To set them, we make use of Matplotlib’s ticker locators (setting the location
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4b3583cc5b47177d6806b7d77f9ecb5bd25fe6772d43f111201eaaa528ed7a5b.png" src="_images/4b3583cc5b47177d6806b7d77f9ecb5bd25fe6772d43f111201eaaa528ed7a5b.png" />
+<img alt="_images/3bbaeb0e671df996224b6dd230f1a8a18ef206eb419241c0bfa3fc4556a4da89.png" src="_images/3bbaeb0e671df996224b6dd230f1a8a18ef206eb419241c0bfa3fc4556a4da89.png" />
 </div>
 </div>
 <p>We have set the major ticks for the x- and y-axis, and can now do the same for the minor ones.</p>
@@ -1851,7 +1895,7 @@ To set them, we make use of Matplotlib’s ticker locators (setting the location
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e185fba5305e103f0a6dce1e338e6fcc12e3ed08b033d8d7e7381e31962b53dc.png" src="_images/e185fba5305e103f0a6dce1e338e6fcc12e3ed08b033d8d7e7381e31962b53dc.png" />
+<img alt="_images/31745e09bfed9e2293f3627ef01dade4680eaa58532d1c8e3af1e7582efa9040.png" src="_images/31745e09bfed9e2293f3627ef01dade4680eaa58532d1c8e3af1e7582efa9040.png" />
 </div>
 </div>
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">.set_tick_params()</span></code> call specifies the major ones, so we have to use the <code class="docutils literal notranslate"><span class="pre">which</span></code> argument to specify wether we want to adjust the major or minor ticks.
@@ -1901,7 +1945,7 @@ We make the minor ticks a bit smaller than the major ones.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8ef5063ba95dce870ee8c751099c02ce9d659a0e2a1281bcd1b5c8e02617282e.png" src="_images/8ef5063ba95dce870ee8c751099c02ce9d659a0e2a1281bcd1b5c8e02617282e.png" />
+<img alt="_images/66b0dc099cfca38ae4acfcd919e86b828ed0cac3e900d0a4074b35b969108ecb.png" src="_images/66b0dc099cfca38ae4acfcd919e86b828ed0cac3e900d0a4074b35b969108ecb.png" />
 </div>
 </div>
 <p>We should also increase the fontsize of the tick labels.
@@ -1953,7 +1997,7 @@ We use <code class="docutils literal notranslate"><span class="pre">ax.tick_para
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb8b4f9608156802ea1a500e142700236e0244338cf9958677ba9c4916170375.png" src="_images/cb8b4f9608156802ea1a500e142700236e0244338cf9958677ba9c4916170375.png" />
+<img alt="_images/6eee94c9f5b1b48f393102f711341a5ae08df8ddbe657c7ac91047abd64553ed.png" src="_images/6eee94c9f5b1b48f393102f711341a5ae08df8ddbe657c7ac91047abd64553ed.png" />
 </div>
 </div>
 <p>Finally, we will also change the whole axis-lines. We can see that only the left and bottom one are plotted.
@@ -2009,7 +2053,7 @@ In Matplotlib, they are defined as “spines”, and we set them as follows in a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/10c0028ceabf2463117a2c08bf9910e9158d5f1f6ecf8f65928068b5ae5e2959.png" src="_images/10c0028ceabf2463117a2c08bf9910e9158d5f1f6ecf8f65928068b5ae5e2959.png" />
+<img alt="_images/0b7a6d5d333e391634e1d743c5d87fa344ebff063aaf737f3680a297c690269f.png" src="_images/0b7a6d5d333e391634e1d743c5d87fa344ebff063aaf737f3680a297c690269f.png" />
 </div>
 </div>
 </section>
@@ -2071,7 +2115,7 @@ In Matplotlib, they are defined as “spines”, and we set them as follows in a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1ea50d82f4bb6489f874b2414f570a79cfd02cec7b1e8e20bec71a6b4c0b1215.png" src="_images/1ea50d82f4bb6489f874b2414f570a79cfd02cec7b1e8e20bec71a6b4c0b1215.png" />
+<img alt="_images/28cc699280a315c16a28df2e290329a73de419f0683fc9635938c3780d700d64.png" src="_images/28cc699280a315c16a28df2e290329a73de419f0683fc9635938c3780d700d64.png" />
 </div>
 </div>
 <p>Oops, the new legend does not have any title. But that is fine, we should specify it ourselves anyway, again making use of   LaTeX.
@@ -2135,7 +2179,7 @@ Let’s also remove the frame around the legend.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/765e04acef666742b49914285cee609c8108512f034ed293ee40d509d40f7984.png" src="_images/765e04acef666742b49914285cee609c8108512f034ed293ee40d509d40f7984.png" />
+<img alt="_images/4afc63188926f1a87bd77e08ef13964e3d51b911b0c01b9fc8e7dbd351649d12.png" src="_images/4afc63188926f1a87bd77e08ef13964e3d51b911b0c01b9fc8e7dbd351649d12.png" />
 </div>
 </div>
 <p>We should increase the fontsize too of the legend. The <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> argument however only affects the variable labels. For the title, we set our call to <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> to a variable, access the title property and adjust its fontsize afterwards.</p>
@@ -2200,7 +2244,7 @@ Let’s also remove the frame around the legend.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/901bafd4f843aed426e183e090b202a312d9444de3f53671345f93a65ef64960.png" src="_images/901bafd4f843aed426e183e090b202a312d9444de3f53671345f93a65ef64960.png" />
+<img alt="_images/59a3d629e35ba93d0c33ec6f47b2cad24328561fa60b147fe4473e403fc00e11.png" src="_images/59a3d629e35ba93d0c33ec6f47b2cad24328561fa60b147fe4473e403fc00e11.png" />
 </div>
 </div>
 <p><strong>2.3.2 Advanced Legend Customization</strong></p>
@@ -2273,7 +2317,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f05f1cb0bdfa3603fc24b625256a554bd17bdf2ea601363ffd876565e403cd3c.png" src="_images/f05f1cb0bdfa3603fc24b625256a554bd17bdf2ea601363ffd876565e403cd3c.png" />
+<img alt="_images/c9382e1764b6cd681ec6bda87050f3e5743c7a5d2eda72e101de6239892415f8.png" src="_images/c9382e1764b6cd681ec6bda87050f3e5743c7a5d2eda72e101de6239892415f8.png" />
 </div>
 </div>
 <p>The size looks better, but now are labels are gone. We could set the <code class="docutils literal notranslate"><span class="pre">labels</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> call or the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument inside each call of <code class="docutils literal notranslate"><span class="pre">mline.Line2D</span></code> inside the loop, either is fine. We use the latter to loop through our dictionary with colors so we can set the corresponding color at the same time.</p>
@@ -2342,7 +2386,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b53906baafb2a934902a8d62208d5eee700c23518aca182dc56e2d5d3f2ec23a.png" src="_images/b53906baafb2a934902a8d62208d5eee700c23518aca182dc56e2d5d3f2ec23a.png" />
+<img alt="_images/a3be910a1c88fdac022ea9f360b0291605c8b65dc9e2e72837b334e586c79612.png" src="_images/a3be910a1c88fdac022ea9f360b0291605c8b65dc9e2e72837b334e586c79612.png" />
 </div>
 </div>
 <p>Now we are finished with the plot in the upper left, we can just give it a title too. We can copy and paste the code to do the same for the lineplot with aerobic data.</p>
@@ -2414,7 +2458,7 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8878f9e0a377975e7dba11c795213574286ca10685d7b0f35ab2c907672f249f.png" src="_images/8878f9e0a377975e7dba11c795213574286ca10685d7b0f35ab2c907672f249f.png" />
+<img alt="_images/d249b96a6085587cb4614586417d42b36cde55509507e662549d11442882d4ae.png" src="_images/d249b96a6085587cb4614586417d42b36cde55509507e662549d11442882d4ae.png" />
 </div>
 </div>
 </section>
@@ -2650,14 +2694,14 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c7538aebb4b666735e735fa7fb5669e3525cd395999d8f2f09cf36d2d84b649.png" src="_images/6c7538aebb4b666735e735fa7fb5669e3525cd395999d8f2f09cf36d2d84b649.png" />
+<img alt="_images/090195d3aa014366aa230d546a71b075b07deb85e78669a8c8857152f6fd0b37.png" src="_images/090195d3aa014366aa230d546a71b075b07deb85e78669a8c8857152f6fd0b37.png" />
 </div>
 </div>
 <p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
 For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many we have (minus one).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_significance</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_significance</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">x_left</span><span class="p">,</span> <span class="n">x_right</span><span class="p">),</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
             <span class="p">[</span><span class="n">x_left</span><span class="p">,</span> <span class="n">x_left</span><span class="p">],</span>
@@ -2759,7 +2803,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4c1815c3be889990943cab6338fecb14d4451100b2de061bb07769efab7f7129.png" src="_images/4c1815c3be889990943cab6338fecb14d4451100b2de061bb07769efab7f7129.png" />
+<img alt="_images/c666fb4e6e4ee34f94523ec9b962ad4161fcef1fd996b741991346d28e7c76cb.png" src="_images/c666fb4e6e4ee34f94523ec9b962ad4161fcef1fd996b741991346d28e7c76cb.png" />
 </div>
 </div>
 </section>
@@ -2770,7 +2814,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 Below, we define functions to draw the two types of plots we have. Note that we removed the legend from the right plot type, as it is not drawn there in the paper figure. As such, we set the <code class="docutils literal notranslate"><span class="pre">legend</span></code> argument to <code class="docutils literal notranslate"><span class="pre">False</span></code> in the <code class="docutils literal notranslate"><span class="pre">.pointplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">.stripplot()</span></code> calls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_lineplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">xlims</span><span class="p">,</span> <span class="n">ylims</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_lineplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">xlims</span><span class="p">,</span> <span class="n">ylims</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
         <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">condition</span><span class="p">],</span>
         <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time_h&quot;</span><span class="p">,</span>
@@ -2832,7 +2876,7 @@ Below, we define functions to draw the two types of plots we have. Note that we 
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;bold&quot;</span><span class="p">})</span>
 
 
-<span class="k">def</span> <span class="nf">plot_categorical_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">ylims</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_categorical_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">ylims</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span>
         <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">condition</span><span class="p">],</span>
         <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sfn_conc_mumolar&quot;</span><span class="p">,</span>
@@ -2899,7 +2943,7 @@ We can call it without any further plot functions just to see what the grid look
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/35b628ad4c64edf681f73b48a5581e912a2ae83819132849ed85b1a17cb8a435.png" src="_images/35b628ad4c64edf681f73b48a5581e912a2ae83819132849ed85b1a17cb8a435.png" />
+<img alt="_images/7545668a22b0580eac25c7c1a3bd620be4c78083c6d693062cbb7c42013482b1.png" src="_images/7545668a22b0580eac25c7c1a3bd620be4c78083c6d693062cbb7c42013482b1.png" />
 </div>
 </div>
 <p>If we have more than one subplot, <code class="docutils literal notranslate"><span class="pre">ax</span></code> will be a NumPy array of as many <code class="docutils literal notranslate"><span class="pre">axes</span></code> objects as our grid is large (in this case 2 x 2 = 4).
@@ -2925,7 +2969,7 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c3f6803795d448556953a7dc24ad7f7f73a6b010c8947a5b1d0fed80c21fae4.png" src="_images/6c3f6803795d448556953a7dc24ad7f7f73a6b010c8947a5b1d0fed80c21fae4.png" />
+<img alt="_images/1349847eb2755fdc9735e2e5df57c2c4471c52c890c4c98beea6c9866929e60a.png" src="_images/1349847eb2755fdc9735e2e5df57c2c4471c52c890c4c98beea6c9866929e60a.png" />
 </div>
 </div>
 <p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
@@ -2954,7 +2998,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bf9112d6b7113897606cc7b89beddba40fc0a2be38eea43cc17b6e4476f9237f.png" src="_images/bf9112d6b7113897606cc7b89beddba40fc0a2be38eea43cc17b6e4476f9237f.png" />
+<img alt="_images/1b24b9efdf95c2a0bf16cad4c9ab90e1998548ba38cf8b413ca24d21485dcbb3.png" src="_images/1b24b9efdf95c2a0bf16cad4c9ab90e1998548ba38cf8b413ca24d21485dcbb3.png" />
 </div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">hspace</span></code> to add horizontal spacing between our subplots in our gridspec.</p>
@@ -2978,7 +3022,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bc3cc11f3d9331a0a0c702859eba88534107fd0b16e81f9203ad6541aa2be519.png" src="_images/bc3cc11f3d9331a0a0c702859eba88534107fd0b16e81f9203ad6541aa2be519.png" />
+<img alt="_images/04b91121d12f281184747a18bf8ef76ee219a8dad0137e2091d99ed08f8e1735.png" src="_images/04b91121d12f281184747a18bf8ef76ee219a8dad0137e2091d99ed08f8e1735.png" />
 </div>
 </div>
 <p>We now add in our plotting functions from before where we define each <code class="docutils literal notranslate"><span class="pre">axes</span></code> via the standard <code class="docutils literal notranslate"><span class="pre">fig.add_subplot()</span></code> call - only now we add an element of our gridspec to it.</p>
@@ -3008,7 +3052,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/400fc0a266bf2d8257a5e3c22ec871978b3f01a6fddb1acf4dae2c3e9fa9d12c.png" src="_images/400fc0a266bf2d8257a5e3c22ec871978b3f01a6fddb1acf4dae2c3e9fa9d12c.png" />
+<img alt="_images/1c6c86b4c1b762433b22ad3019764f87f54633f7e6706a022a46e430e0f128e4.png" src="_images/1c6c86b4c1b762433b22ad3019764f87f54633f7e6706a022a46e430e0f128e4.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
@@ -3063,7 +3107,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7a55949e133f9447a19a5590dbdfe39763e3c9655ffe404ac88431ab2024af1f.png" src="_images/7a55949e133f9447a19a5590dbdfe39763e3c9655ffe404ac88431ab2024af1f.png" />
+<img alt="_images/79668178a5466267640e72ec5826ee74889757740c47ba5c7f832ec420d8c827.png" src="_images/79668178a5466267640e72ec5826ee74889757740c47ba5c7f832ec420d8c827.png" />
 </div>
 </div>
 </section>
@@ -3106,15 +3150,17 @@ Note that for these arguments, the start is at the lower left corner. We show be
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recreating-the-figure-from-the-sulforaphane-paper">Recreating the Figure from the sulforaphane Paper</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">0. Preliminaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dependencies">0.1 Load Dependencies</a></li>
@@ -3187,8 +3233,8 @@ By Henry Webel
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>
