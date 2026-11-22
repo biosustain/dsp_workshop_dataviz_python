@@ -505,7 +505,7 @@ you can (if you need to) edit in programs like Inkscape or Adobe Illustrator.</p
 <section id="how-to-use-material">
 <h2>How to use material<a class="headerlink" href="#how-to-use-material" title="Link to this heading">#</a></h2>
 <p>There are two main ways we intend to use the material provided as executable notebooks:
-Colab and GitHub Codespaces.</p>
+Colab and GitHub Codespaces. However, local setup is also possible.</p>
 <p>These hints on writing basic Markdown syntax might be helpful:
 <a class="reference external" href="https://guides.github.com/features/mastering-markdown/" rel="noreferrer" target="_blank">Mastering Markdown</a></p>
 <section id="google-colab">
@@ -536,12 +536,14 @@ the <strong>top right</strong>: 🚀 (grey rocket if available)</p>
 </section>
 <section id="local-or-elsewhere">
 <h3>Local or elsewhere<a class="headerlink" href="#local-or-elsewhere" title="Link to this heading">#</a></h3>
-<p>Get the repository and install the requirements from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<p>Get the repository and install the requirements from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Best is to use a
+virtual environment (venv) to avoid conflicts with other Python packages you may have
+installed. If you need instructions on how to setup a virtual environment, see the
+<a class="reference external" href="https://biosustain.github.io/dsp_notes/python/virutal_environment.html" rel="noreferrer" target="_blank">Python virtual
+environment</a>
+notes on the dsp_notes.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/biosustain/dsp_workshop_dataviz_python.git
 <span class="nb">cd</span><span class="w"> </span>dsp_workshop_dataviz_python
-<span class="c1"># create an environment, e.g. using venv</span>
-<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># on Windows use `venv\Scripts\activate`</span>
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
