@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt -r requirements_docs.txt
+          pip install -r requirements_docs.txt
 
       # Pull the shared about page from its single source of truth (dsp_notes)
       - name: Fetch shared about page
