@@ -95,7 +95,10 @@ pip install -r requirements.txt
 ## Local build of website
 
 ```bash
-pip install -r requirements.txt
+# check that about.md is up-to-date (part of workflow)
+curl -fsSL -o about.md https://raw.githubusercontent.com/biosustain/dsp_notes/main/about.md
+# install requirements
+pip install -r requirements_docs.txt
 sphinx-build -nW --keep-going -b html .  _build
 open _build/index.html
 ```
