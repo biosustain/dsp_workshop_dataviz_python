@@ -7,3 +7,5 @@ vuecore
 seaborn
 scikit-learn
 kaleido
+jupytext
+jupyter

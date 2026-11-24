@@ -55,12 +55,16 @@ ax = sns.barplot(
 # - You can customize the plot further using Matplotlib functions.
 
 # %%
-_ = ax.set_xticklabels(
+_ = plt.setp(
     ax.get_xticklabels(),
     rotation=45,
     horizontalalignment="right",
 )
-ax.get_figure().tight_layout()
+# Axis objects focused implementation:
+# for label in ax.get_xticklabels():
+#     label.set(rotation=45, horizontalalignment="right")
+# once the figure is created one, we have to display it manually
+ax.get_figure()
 
 # %% [markdown]
 # ### Style the plot as in ggplot2

@@ -6,12 +6,14 @@
 
 # %%
 import os
+
 import plotly.express as px
 
 IN_COLAB = "COLAB_GPU" in os.environ
 
 if IN_COLAB:
-    # !pip install kaleido
+    # %pip install kaleido
+    pass
 
 # %% [markdown]
 # ## Line Plot
