@@ -25,9 +25,9 @@ jobs:
           pip install -r requirements_docs.txt
 
       # Pull the shared about page from its single source of truth (dsp_notes)
-      - name: Fetch shared about page
-        run: |
-          curl -fsSL -o about.md https://raw.githubusercontent.com/biosustain/dsp_notes/main/about.md
+      # - name: Fetch shared about page
+      #   run: |
+      #     curl -fsSL -o about.md https://raw.githubusercontent.com/biosustain/dsp_notes/main/about.md
 
       - name: Build the site
         run: |
