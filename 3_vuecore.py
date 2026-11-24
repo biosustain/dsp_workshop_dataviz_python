@@ -14,7 +14,8 @@ import os
 IN_COLAB = "COLAB_GPU" in os.environ
 
 if IN_COLAB:
-    # !pip install vuecore
+    # %pip install vuecore
+    pass
 
 # %% [markdown]
 # Import libraries
