@@ -675,12 +675,10 @@
     <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;.5&quot;</span><span class="p">,</span>
     <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d363da5a0609bdc4f38800e51ff01d121accd8f99427ddd93548d75aed1baf32.png" src="_images/d363da5a0609bdc4f38800e51ff01d121accd8f99427ddd93548d75aed1baf32.png" />
 <img alt="_images/d363da5a0609bdc4f38800e51ff01d121accd8f99427ddd93548d75aed1baf32.png" src="_images/d363da5a0609bdc4f38800e51ff01d121accd8f99427ddd93548d75aed1baf32.png" />
 </div>
 </div>
@@ -692,20 +690,21 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span>
     <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
     <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># Axis objects focused implementation:</span>
+<span class="c1"># for label in ax.get_xticklabels():</span>
+<span class="c1">#     label.set(rotation=45, horizontalalignment=&quot;right&quot;)</span>
+<span class="c1"># once the figure is created one, we have to display it manually</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2682/3272659636.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator. Otherwise, ticks may be mislabeled.
-  _ = ax.set_xticklabels(
-</pre></div>
-</div>
+<img alt="_images/04438bc01742fa8282808f907628d018c3130809f69a5ea4d2d6bc64b13365e4.png" src="_images/04438bc01742fa8282808f907628d018c3130809f69a5ea4d2d6bc64b13365e4.png" />
 </div>
 </div>
 </section>
@@ -719,7 +718,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/067e19463b7b95c276031d1737517dfc819584c5b6b2cc7940118faab6d9a167.png" src="_images/067e19463b7b95c276031d1737517dfc819584c5b6b2cc7940118faab6d9a167.png" />
+<img alt="_images/71349edeb745051752a8fa9e49953482fb0a32e29ff6b32da213d9e2485f9465.png" src="_images/71349edeb745051752a8fa9e49953482fb0a32e29ff6b32da213d9e2485f9465.png" />
 </div>
 </div>
 <p>The end.</p>
