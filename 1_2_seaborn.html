@@ -690,20 +690,21 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span>
     <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
     <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># Axis objects focused implementation:</span>
+<span class="c1"># for label in ax.get_xticklabels():</span>
+<span class="c1">#     label.set(rotation=45, horizontalalignment=&quot;right&quot;)</span>
+<span class="c1"># once the figure is created one, we have to display it manually</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3386/3272659636.py:1: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator. Otherwise, ticks may be mislabeled.
-  _ = ax.set_xticklabels(
-</pre></div>
-</div>
+<img alt="_images/04438bc01742fa8282808f907628d018c3130809f69a5ea4d2d6bc64b13365e4.png" src="_images/04438bc01742fa8282808f907628d018c3130809f69a5ea4d2d6bc64b13365e4.png" />
 </div>
 </div>
 </section>
@@ -717,7 +718,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ef9739c3f1cffc8b50fc3c524494c48ec7f4168225b5cfbfd98847f40adb3f48.png" src="_images/ef9739c3f1cffc8b50fc3c524494c48ec7f4168225b5cfbfd98847f40adb3f48.png" />
+<img alt="_images/f3bfb4ac8ab54122e41ccf3c052dab50688ab6c1465b2147100deb49f0ba09bb.png" src="_images/f3bfb4ac8ab54122e41ccf3c052dab50688ab6c1465b2147100deb49f0ba09bb.png" />
 </div>
 </div>
 <p>The end.</p>
