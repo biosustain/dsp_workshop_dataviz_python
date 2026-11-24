@@ -1,12 +1,25 @@
+# ---
+# jupyter:
+#   jupytext:
+#     cell_metadata_filter: -all
+#     formats: ipynb,py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.19.3
+# ---
+
 # %% [markdown]
 # # VueCore
-# - implements at the moment not too many figures
-# - will be used to define plotting functions for certain analysis types in our
-#   core analysis library
-# - at the moment the basic plots in vuecore only support the plotly backend
-# - more complex analysis plots are available as static and interactive plots:
-#   in the namespace `vuecore.static` and `vuecore.interactive`
-#
+# - implements at the moment some core acore analysis plots, see the analysis section
+# - in the docs: [vuecore](https://vuecore.readthedocs.io)
+# - will be used to define plotting functions for every analysis types in our core
+#   analysis library, [acore](https://analytics-core.readthedocs.io)
+# - at the moment the basic plots in vuecore only support the plotly backend, while
+#   analysis plots can be generated as static (matplotlib) or interactive (plotly) plots
+# - all complex analysis plots are available as static and interactive plots: in the
+#   namespace `vuecore.static` and `vuecore.interactive`
 #
 # Colab specific setup:
 
