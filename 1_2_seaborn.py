@@ -49,6 +49,7 @@ ax = sns.barplot(
     edgecolor=".5",
     facecolor=(0, 0, 0, 0),
 )
+ax.get_figure()
 
 # %% [markdown]
 # ### Customizing the Plot
