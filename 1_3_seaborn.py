@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.19.7
+#       jupytext_version: 1.19.3
 #   kernelspec:
 #     display_name: fmg
 #     language: python
@@ -154,8 +154,8 @@ sns.lineplot(
     data=df_anaer,
     x="time_h",
     y="bact_growth_od600",
-    hue="sfn_conc_mumolar",
-    errorbar=None,
+    hue="sfn_conc_mumolar",  # NEW: one color per SFN concentration
+    errorbar=None,  # NEW: drop the shaded confidence interval
 )
 
 plt.show()
@@ -172,7 +172,7 @@ sns.lineplot(
     y="bact_growth_od600",
     hue="sfn_conc_mumolar",
     errorbar=None,
-    palette=SFN_COLORS,
+    palette=SFN_COLORS,  # NEW: custom colors
 )
 
 plt.show()
@@ -187,8 +187,11 @@ plt.show()
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
 
-sns.scatterplot(
-    data=df_anaer, x="time_h", y="bact_growth_od600", hue="sfn_conc_mumolar"
+sns.scatterplot(  # CHANGED: scatterplot instead of lineplot
+    data=df_anaer,
+    x="time_h",
+    y="bact_growth_od600",
+    hue="sfn_conc_mumolar",
 )
 
 plt.show()
@@ -216,7 +219,11 @@ plt.show()
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
 
-sns.barplot(data=df_auc_anaer, y="sfn_conc_mumolar", x="auc")
+sns.barplot(
+    data=df_auc_anaer,
+    y="sfn_conc_mumolar",
+    x="auc",
+)  # CHANGED: x and y swapped -> horizontal bars
 
 plt.show()
 
@@ -229,7 +236,12 @@ plt.show()
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
 
-sns.barplot(data=df_auc_anaer, x="sfn_conc_mumolar", y="auc", hue="replicate")
+sns.barplot(
+    data=df_auc_anaer,
+    x="sfn_conc_mumolar",
+    y="auc",
+    hue="replicate",
+)  # NEW: hue="replicate" -> side-by-side bars
 
 plt.show()
 
@@ -240,8 +252,15 @@ plt.show()
 # %%
 fig, ax = plt.subplots(figsize=(7, 4))
 
-sns.barplot(data=df_auc_anaer, x="sfn_conc_mumolar", y="auc", hue="replicate")
-ax.legend(loc="upper center", bbox_to_anchor=[0.5, 1.2], ncol=3)
+sns.barplot(
+    data=df_auc_anaer,
+    x="sfn_conc_mumolar",
+    y="auc",
+    hue="replicate",
+)
+ax.legend(
+    loc="upper center", bbox_to_anchor=[0.5, 1.2], ncol=3
+)  # NEW: legend moved above the plot, 3 columns
 
 plt.show()
 
@@ -273,8 +292,8 @@ sns.lineplot(
     x="time_h",
     y="bact_growth_od600",
     hue="sfn_conc_mumolar",
-    errorbar="sd",
-    err_style="bars",
+    errorbar="sd",  # CHANGED: errorbar None -> "sd"
+    err_style="bars",  # NEW: draw errorbars instead of a shaded area
     palette=SFN_COLORS,
 )
 
@@ -293,7 +312,7 @@ sns.lineplot(
     hue="sfn_conc_mumolar",
     errorbar="sd",
     err_style="bars",
-    err_kws={"capsize": 4},
+    err_kws={"capsize": 4},  # NEW: caps on the errorbars
     palette=SFN_COLORS,
 )
 
@@ -314,9 +333,9 @@ sns.lineplot(
     errorbar="sd",
     err_style="bars",
     err_kws={"capsize": 4},
-    markers=True,
-    marker="o",
-    markeredgewidth=0,
+    markers=True,  # NEW: markers on
+    marker="o",  # NEW: dot marker
+    markeredgewidth=0,  # NEW: no marker edge
     palette=SFN_COLORS,
 )
 
@@ -340,7 +359,7 @@ sns.lineplot(
     marker="o",
     markeredgewidth=0,
     palette=SFN_COLORS,
-    ax=ax,
+    ax=ax,  # NEW: draw explicitly on our axes
 )
 
 plt.show()
@@ -378,10 +397,10 @@ sns.lineplot(
 )
 
 # set x-axis properties
-ax.set_xlim(0, 25)
+ax.set_xlim(0, 25)  # NEW: x-axis limits
 
 # set y-axis properties
-ax.set_ylim(0, 1.0)
+ax.set_ylim(0, 1.0)  # NEW: y-axis limits
 
 plt.show()
 
@@ -413,11 +432,13 @@ sns.lineplot(
 
 # set x-axis properties
 ax.set_xlim(0, 25)
-ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
+ax.set_xlabel(
+    "Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10
+)  # NEW: x-axis label (bold, size 15, padded)
 
 # set y-axis properties
 ax.set_ylim(0, 1.0)
-ax.set_ylabel(
+ax.set_ylabel(  # NEW: y-axis label (LaTeX subscript)
     "Bacterial growth ($\\text{OD}_{600}$)",
     fontdict={"size": 15, "weight": "bold"},
     labelpad=10,
@@ -453,12 +474,12 @@ sns.lineplot(
 
 # set x-axis properties
 ax.set_xlim(0, 25)
-ax.xaxis.set_tick_params(width=2, length=10)
+ax.xaxis.set_tick_params(width=2, length=10)  # NEW: thicker/longer x ticks
 ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
 
 # set y-axis properties
 ax.set_ylim(0, 1.0)
-ax.yaxis.set_tick_params(width=2, length=10)
+ax.yaxis.set_tick_params(width=2, length=10)  # NEW: thicker/longer y ticks
 ax.set_ylabel(
     "Bacterial growth ($\\text{OD}_{600}$)",
     fontdict={"size": 15, "weight": "bold"},
@@ -493,13 +514,13 @@ sns.lineplot(
 
 # set x-axis properties
 ax.set_xlim(0, 25)
-ax.xaxis.set_major_locator(MultipleLocator(10))
+ax.xaxis.set_major_locator(MultipleLocator(10))  # NEW: major x tick every 10
 ax.xaxis.set_tick_params(width=2, length=10)
 ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
 
 # set y-axis properties
 ax.set_ylim(0, 1.0)
-ax.yaxis.set_major_locator(MultipleLocator(0.5))
+ax.yaxis.set_major_locator(MultipleLocator(0.5))  # NEW: major y tick every 0.5
 ax.yaxis.set_tick_params(width=2, length=10)
 ax.set_ylabel(
     "Bacterial growth ($\\text{OD}_{600}$)",
@@ -534,14 +555,14 @@ sns.lineplot(
 # set x-axis properties
 ax.set_xlim(0, 25)
 ax.xaxis.set_major_locator(MultipleLocator(10))
-ax.xaxis.set_minor_locator(MultipleLocator(1))
+ax.xaxis.set_minor_locator(MultipleLocator(1))  # NEW: minor x tick every 1
 ax.xaxis.set_tick_params(width=2, length=10)
 ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
 
 # set y-axis properties
 ax.set_ylim(0, 1.0)
 ax.yaxis.set_major_locator(MultipleLocator(0.5))
-ax.yaxis.set_minor_locator(MultipleLocator(0.05))
+ax.yaxis.set_minor_locator(MultipleLocator(0.05))  # NEW: minor y tick every 0.05
 ax.yaxis.set_tick_params(width=2, length=10)
 ax.set_ylabel(
     "Bacterial growth ($\\text{OD}_{600}$)",
@@ -578,16 +599,20 @@ sns.lineplot(
 ax.set_xlim(0, 25)
 ax.xaxis.set_major_locator(MultipleLocator(10))
 ax.xaxis.set_minor_locator(MultipleLocator(1))
-ax.xaxis.set_tick_params(which="major", width=2, length=10)
-ax.xaxis.set_tick_params(which="minor", width=1, length=5)
+ax.xaxis.set_tick_params(
+    which="major", width=2, length=10
+)  # CHANGED: which="major" (ticks as before)
+ax.xaxis.set_tick_params(which="minor", width=1, length=5)  # NEW: smaller minor ticks
 ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
 
 # set y-axis properties
 ax.set_ylim(0, 1.0)
 ax.yaxis.set_major_locator(MultipleLocator(0.5))
 ax.yaxis.set_minor_locator(MultipleLocator(0.05))
-ax.yaxis.set_tick_params(which="major", width=2, length=10)
-ax.yaxis.set_tick_params(which="minor", width=1, length=5)
+ax.yaxis.set_tick_params(
+    which="major", width=2, length=10
+)  # CHANGED: which="major" (ticks as before)
+ax.yaxis.set_tick_params(which="minor", width=1, length=5)  # NEW: smaller minor ticks
 ax.set_ylabel(
     "Bacterial growth ($\\text{OD}_{600}$)",
     fontdict={"size": 15, "weight": "bold"},
@@ -625,7 +650,7 @@ ax.xaxis.set_major_locator(MultipleLocator(10))
 ax.xaxis.set_minor_locator(MultipleLocator(1))
 ax.xaxis.set_tick_params(which="major", width=2, length=10)
 ax.xaxis.set_tick_params(which="minor", width=1, length=5)
-ax.tick_params(axis="x", labelsize=15)
+ax.tick_params(axis="x", labelsize=15)  # NEW: bigger x tick labels
 ax.set_xlabel("Time (h)", fontdict={"size": 15, "weight": "bold"}, labelpad=10)
 
 # set y-axis properties
@@ -634,7 +659,7 @@ ax.yaxis.set_major_locator(MultipleLocator(0.5))
 ax.yaxis.set_minor_locator(MultipleLocator(0.05))
 ax.yaxis.set_tick_params(which="major", width=2, length=10)
 ax.yaxis.set_tick_params(which="minor", width=1, length=5)
-ax.tick_params(axis="y", labelsize=15)
+ax.tick_params(axis="y", labelsize=15)  # NEW: bigger y tick labels
 ax.set_ylabel(
     "Bacterial growth ($\\text{OD}_{600}$)",
     fontdict={"size": 15, "weight": "bold"},
@@ -689,7 +714,9 @@ ax.set_ylabel(
 )
 
 # adjust the "frame" of the plot
-for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
+for pos, lw in zip(
+    ["bottom", "left", "top", "right"], [2, 2, 0, 0]
+):  # NEW: spine widths (hide top/right)
     ax.spines[pos].set_linewidth(lw)
 
 plt.show()
@@ -749,7 +776,9 @@ for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
     ax.spines[pos].set_linewidth(lw)
 
 # make a customized legend
-ax.legend(loc="right", bbox_to_anchor=[1.5, 0.5])
+ax.legend(
+    loc="right", bbox_to_anchor=[1.5, 0.5]
+)  # NEW: legend to the right of the plot
 
 plt.show()
 
@@ -804,10 +833,10 @@ for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
 
 # make a customized legend
 ax.legend(
-    title="SFN Concentration ($\\mu$M)",
+    title="SFN Concentration ($\\mu$M)",  # NEW: legend title
     loc="right",
     bbox_to_anchor=[1.5, 0.5],
-    frameon=False,
+    frameon=False,  # NEW: no legend frame
 )
 
 plt.show()
@@ -862,13 +891,13 @@ for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
 
 # make a customized legend
 lgnd = ax.legend(
-    fontsize=15,
+    fontsize=15,  # NEW: legend label font size
     title="SFN Concentration ($\\mu$M)",
     loc="right",
     bbox_to_anchor=[1.5, 0.5],
     frameon=False,
 )
-lgnd.get_title().set_fontsize(15)
+lgnd.get_title().set_fontsize(15)  # NEW: legend title font size
 
 plt.show()
 
@@ -930,7 +959,7 @@ for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
 
 # make a customized legend
 lgnd = ax.legend(
-    handles=[
+    handles=[  # NEW: manual legend handles (bigger markers/lines)
         mlines.Line2D([], [], marker="o", markersize=10, linewidth=4)
         for _ in SFN_COLORS.items()
     ],
@@ -995,7 +1024,9 @@ for pos, lw in zip(["bottom", "left", "top", "right"], [2, 2, 0, 0]):
 # make a customized legend
 lgnd = ax.legend(
     handles=[
-        mlines.Line2D([], [], color=c, marker="o", markersize=10, linewidth=4, label=l)
+        mlines.Line2D(
+            [], [], color=c, marker="o", markersize=10, linewidth=4, label=l
+        )  # CHANGED: handles now have color=c and label=l from SFN_COLORS
         for l, c in SFN_COLORS.items()
     ],
     fontsize=15,
@@ -1071,7 +1102,7 @@ lgnd = ax.legend(
 lgnd.get_title().set_fontsize(15)
 
 # lastly, set the title
-ax.set_title("Anaerobic", fontdict={"size": 15, "weight": "bold"})
+ax.set_title("Anaerobic", fontdict={"size": 15, "weight": "bold"})  # NEW: plot title
 
 plt.show()
 
@@ -1245,7 +1276,7 @@ lgnd = ax.legend(
 lgnd.get_title().set_fontsize(15)
 
 # indicate statistical significances
-plot_significance([(0, 5)], [12.5], labels=["*"], ax=ax)
+plot_significance([(0, 5)], [12.5], labels=["*"], ax=ax)  # NEW: significance bar
 
 # lastly, set the title
 ax.set_title("Anaerobic", fontdict={"size": 15, "weight": "bold"})
@@ -1422,8 +1453,12 @@ plt.show()
 # %%
 fig = plt.figure(figsize=(20, 18))
 
-gs_line = fig.add_gridspec(nrows=2, ncols=1, right=0.5)
-gs_cat = fig.add_gridspec(nrows=2, ncols=1, left=0.7)
+gs_line = fig.add_gridspec(
+    nrows=2, ncols=1, right=0.5
+)  # NEW: right=0.5 -> left plots end at half the figure width
+gs_cat = fig.add_gridspec(
+    nrows=2, ncols=1, left=0.7
+)  # NEW: left=0.7 -> right plots start at 70% of figure width
 
 for r, cond in enumerate(["Anaerobic", "Aerobic"]):
     for c in range(2):
@@ -1441,7 +1476,9 @@ plt.show()
 # %%
 fig = plt.figure(figsize=(20, 18))
 
-gs_line = fig.add_gridspec(nrows=2, ncols=1, right=0.5, hspace=0.5)
+gs_line = fig.add_gridspec(
+    nrows=2, ncols=1, right=0.5, hspace=0.5
+)  # NEW: hspace -> vertical spacing between subplots
 gs_cat = fig.add_gridspec(nrows=2, ncols=1, left=0.7)
 
 for r, cond in enumerate(["Anaerobic", "Aerobic"]):
@@ -1460,8 +1497,12 @@ plt.show()
 # %%
 fig = plt.figure(figsize=(20, 18))
 
-gs_line = fig.add_gridspec(nrows=2, ncols=1, right=0.5, hspace=0.4)
-gs_cat = fig.add_gridspec(nrows=2, ncols=1, left=0.7, hspace=0.4)
+gs_line = fig.add_gridspec(
+    nrows=2, ncols=1, right=0.5, hspace=0.4
+)  # CHANGED: hspace 0.5 -> 0.4
+gs_cat = fig.add_gridspec(
+    nrows=2, ncols=1, left=0.7, hspace=0.4
+)  # NEW: same hspace for the right gridspec
 
 for r, cond in enumerate(["Anaerobic", "Aerobic"]):
     if r == 0:
@@ -1486,7 +1527,7 @@ plt.show()
 # Let us finish the remainding elements of the figure and with it, this chapter.
 
 # %%
-letter_list = ["A.", "B.", "C.", "D."]
+letter_list = ["A.", "B.", "C.", "D."]  # NEW: panel letters
 
 fig = plt.figure(figsize=(20, 18))
 
@@ -1498,7 +1539,10 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
     if r == 0:
         cat_lims = (10, 13)
     else:
-        cat_lims = (13, 18.5)
+        cat_lims = (
+            13,
+            18.5,
+        )  # CHANGED: y limit 17 -> 18.5 to fit all significance bars
     for c in range(2):
         if c == 0:
             ax = fig.add_subplot(gs_line[r])
@@ -1509,16 +1553,18 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
             plot_categorical_plot(data_auc, cond, cat_lims, ax)
 
             if r == 0:
-                plot_significance([(0, 5)], [12.5], labels=["*"], ax=ax)
-            else:
                 plot_significance(
+                    [(0, 5)], [12.5], labels=["*"], ax=ax
+                )  # NEW: significance bars for each panel
+            else:
+                plot_significance(  # NEW: several significance bars with different labels
                     [(3, 5), (2, 5), (1, 5), (0, 5)],
                     [16.8, 17.2, 17.6, 18.0],
                     labels=["**", "*", "**", "**"],
                     ax=ax,
                 )
 
-        ax.text(
+        ax.text(  # NEW: panel letter placed in axes coordinates
             -0.1,
             1.1,
             letter_list[count],
@@ -1528,5 +1574,5 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
         )
         count += 1
 
-fig.savefig("brokkoli_full_plot.png", dpi=300, bbox_inches="tight")
+fig.savefig("brokkoli_full_plot.png", dpi=300, bbox_inches="tight")  # NEW: save figure
 plt.show()
