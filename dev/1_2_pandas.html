@@ -469,8 +469,10 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-for-data-to-plot">
 <h1>Pandas (for data to plot)<a class="headerlink" href="#pandas-for-data-to-plot" title="Link to this heading">#</a></h1>
-<p>The standard data manipulation framework in Python (many others make use of at least part of its functionalities or are compatible with it)</p>
-<p>We are not going in-depth - we are just showing some basic functionalities which are important for plotting.</p>
+<p>The standard data manipulation framework in Python (many others make use
+of at least part of its functionalities or are compatible with it)</p>
+<p>We are not going in-depth - we are just showing some basic
+functionalities which are important for plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -588,8 +590,8 @@
 </table>
 </div></div></div>
 </div>
-<p>You could also omit .head() and it will automatically shorten the output based
-on your rendering settings.</p>
+<p>You could also omit .head() and it will automatically shorten the output
+based on your rendering settings.</p>
 <blockquote>
 <div><p>These settings are controlled by pandas display options, such as
 <code class="docutils literal notranslate"><span class="pre">pd.options.display.max_rows</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.options.display.max_columns</span></code>.</p>
@@ -732,10 +734,10 @@ on your rendering settings.</p>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> are the general input/output functions (among some more).
-Meaning: they work for other common files too (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>) and some more domain-specific
-files that are however in a (somewhat) tabular format (e.g. <code class="docutils literal notranslate"><span class="pre">.vcf</span></code>).
-In other words - as long as it looks like a table, you can read /write to it,
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> are the general input/output functions
+(among some more). Meaning: they work for other common files too (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>) and
+some more domain-specific files that are however in a (somewhat) tabular format (e.g.
+<code class="docutils literal notranslate"><span class="pre">.vcf</span></code>). In other words - as long as it looks like a table, you can read /write to it,
 regardless of the file extension.</p>
 <p>To demonstrate, let us save it to a <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file. The difference is that it is
 <strong>tab</strong>-separated values instead of <strong>comma</strong>-separated values in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p>
@@ -746,9 +748,9 @@ regardless of the file extension.</p>
 </div>
 </div>
 </div>
-<p>It can make sense to omit the index column, as Pandas automatically creates
-one when you read it, even if it already exists.
-(Otherwise you specify e.g. <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> when reading it - try it out to see the difference).</p>
+<p>It can make sense to omit the index column, as Pandas automatically
+creates one when you read it, even if it already exists. (Otherwise you specify e.g.
+<code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> when reading it - try it out to see the difference).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -827,8 +829,8 @@ one when you read it, even if it already exists.
 </table>
 </div></div></div>
 </div>
-<p>You can also read/write zipped file. Pandas will try to detect it automatically,
-but you can specify it yourself:</p>
+<p>You can also read/write zipped file. Pandas will try to detect it
+automatically, but you can specify it yourself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;fake_data.tsv.gz&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
@@ -842,9 +844,9 @@ but you can specify it yourself:</p>
 <h2>2. Data Manipulation<a class="headerlink" href="#data-manipulation" title="Link to this heading">#</a></h2>
 <section id="rename">
 <h3>2.1 Rename<a class="headerlink" href="#rename" title="Link to this heading">#</a></h3>
-<p>The column names are written in a human-readable format, with spaces and brackets.
-It can be a good practice however to write them in a more programming-friendly way.
-We can easily do it by using a dictionary with the syntax
+<p>The column names are written in a human-readable format, with spaces and
+brackets. It can be a good practice however to write them in a more
+programming-friendly way. We can easily do it by using a dictionary with the syntax
 <code class="docutils literal notranslate"><span class="pre">{&lt;old-name&gt;:</span> <span class="pre">&lt;new-name&gt;}</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1117,8 +1119,8 @@ We can easily do it by using a dictionary with the syntax
 </section>
 <section id="filtering-by-conditions">
 <h3>2.2 Filtering by Conditions<a class="headerlink" href="#filtering-by-conditions" title="Link to this heading">#</a></h3>
-<p>As we can see, we have data for aerobic and anaerobic conditions. If we are only
-interested in looking at e.g. the aerobic data, we can do it like this:</p>
+<p>As we can see, we have data for aerobic and anaerobic conditions. If we
+are only interested in looking at e.g. the aerobic data, we can do it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_aerobic</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Aerobic&quot;</span><span class="p">]</span>
@@ -1246,8 +1248,8 @@ interested in looking at e.g. the aerobic data, we can do it like this:</p>
 <p>234 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>We can also filter by multiple conditions. For example, get all anaerobic data from
-DMSO, where the OD600 is below a value of 0.4:</p>
+<p>We can also filter by multiple conditions. For example, get all anaerobic
+data from DMSO, where the OD600 is below a value of 0.4:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_multi_condition</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
@@ -1389,13 +1391,12 @@ DMSO, where the OD600 is below a value of 0.4:</p>
 </section>
 <section id="adding-data-by-conditions">
 <h3>2.3 Adding Data By Conditions<a class="headerlink" href="#adding-data-by-conditions" title="Link to this heading">#</a></h3>
-<p>Part of data transformation is adding in new variables based on other columns in the
-table. This can be also just for plotting. For example, we could wish to color our
-plot on whether our bacteria are in their stationary phase or not. Then, we would add
-a variable called <code class="docutils literal notranslate"><span class="pre">is_stationary()</span></code> that we use to subset parts of our data for
-plotting (we will show how later with seaborn). We use NumPy for this purpose with
-the syntax
-<code class="docutils literal notranslate"><span class="pre">(&lt;condition(s)&gt;,</span> <span class="pre">&lt;output-if-true&gt;,</span> <span class="pre">&lt;output-if-false&gt;)</span></code>.</p>
+<p>Part of data transformation is adding in new variables based on other
+columns in the table. This can be also just for plotting. For example, we could wish to
+color our plot on whether our bacteria are in their stationary phase or not. Then, we
+would add a variable called <code class="docutils literal notranslate"><span class="pre">is_stationary()</span></code> that we use to subset parts of our data
+for plotting (we will show how later with seaborn). We use NumPy for this purpose with
+the syntax <code class="docutils literal notranslate"><span class="pre">(&lt;condition(s)&gt;,</span> <span class="pre">&lt;output-if-true&gt;,</span> <span class="pre">&lt;output-if-false&gt;)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_stationary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bact_growth_od600&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
@@ -1538,11 +1539,11 @@ the syntax
 </section>
 <section id="aggregating-data">
 <h3>2.4 Aggregating Data<a class="headerlink" href="#aggregating-data" title="Link to this heading">#</a></h3>
-<p>Maybe we are more interested in the maximum or average OD or alike in our experiment.
-We could just use <code class="docutils literal notranslate"><span class="pre">.max()</span></code> for example but it would give us the maximum value across
-all variables. If however we wish to distinguish between different cases
-(like anaerobic/aerobic), then it makes sense to group our data first.
-Here, we show how to aggregate across all replicates:</p>
+<p>Maybe we are more interested in the maximum or average OD or alike in our
+experiment. We could just use <code class="docutils literal notranslate"><span class="pre">.max()</span></code> for example but it would give us the maximum
+value across all variables. If however we wish to distinguish between different cases
+(like anaerobic/aerobic), then it makes sense to group our data first. Here, we show
+how to aggregate across all replicates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rep_agg</span> <span class="o">=</span> <span class="p">(</span>
@@ -1662,9 +1663,9 @@ Here, we show how to aggregate across all replicates:</p>
 <p>156 rows × 4 columns</p>
 </div></div></div>
 </div>
-<p>We put our command in brackets so we can write it out in multiple lines to show it
-better. We also reset the index at the end to transform the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> object back into
-a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object.</p>
+<p>We put our command in brackets so we can write it out in multiple lines
+to show it better. We also reset the index at the end to transform the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>
+object back into a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object.</p>
 <p>We can also aggregate multiple things at once:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1841,10 +1842,11 @@ a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</spa
 </section>
 <section id="adding-data-by-aggregation">
 <h3>2.5 Adding Data by Aggregation<a class="headerlink" href="#adding-data-by-aggregation" title="Link to this heading">#</a></h3>
-<p>Previously, we just added the <code class="docutils literal notranslate"><span class="pre">is_stationary</span></code> variable based on a guess. We could also
-do it more programmatically. We do it here in two steps:</p>
+<p>Previously, we just added the <code class="docutils literal notranslate"><span class="pre">is_stationary</span></code> variable based on a guess.
+We could also do it more programmatically. We do it here in two steps:</p>
 <ol class="arabic simple">
-<li><p>Adding a column indicating the maximum OD600 for that condition-sfn-replicate, minus a tolerance</p></li>
+<li><p>Adding a column indicating the maximum OD600 for that condition-sfn-replicate, minus
+a tolerance</p></li>
 <li><p>Conditioning on that new column</p></li>
 </ol>
 <div class="cell docutils container">
@@ -2003,17 +2005,11 @@ do it more programmatically. We do it here in two steps:</p>
 <p>468 rows × 7 columns</p>
 </div></div></div>
 </div>
-<p>That tolerance could also be calculated in a similar way, e.g. based on the standard
-deviation (we leave that as an exercise if you want to try it out yourself).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your turn</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are many more useful transformations, but we end here by having shown some that
-you could already use in more advanced plots.</p>
+<p>That tolerance could also be calculated in a similar way, e.g. based on
+the standard deviation (we leave that as an exercise if you want to try it out
+yourself).</p>
+<p>There are many more useful transformations, but we end here by having
+shown some that you could already use in more advanced plots.</p>
 </section>
 </section>
 </section>

@@ -488,14 +488,16 @@
 <section id="recreating-the-figure-from-the-sulforaphane-paper">
 <h2>Recreating the Figure from the sulforaphane Paper<a class="headerlink" href="#recreating-the-figure-from-the-sulforaphane-paper" title="Link to this heading">#</a></h2>
 <p>Uses the data from <a class="reference internal" href="data/README.html"><span class="std std-doc">PXD04621</span></a> - using simulated data which looks
-similar to the original data
-(<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1756464623002451" rel="noreferrer" target="_blank">Marshall et. al. 2023)</a>).</p>
+similar to the original data (<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1756464623002451" rel="noreferrer" target="_blank">Marshall et. al.
+2023)</a>).</p>
 <ul class="simple">
 <li><p><a class="reference download internal" download="" href="_downloads/ee89c9ca47fbbffaa8e2f8e61b8a2871/fake_growth_data.csv"><span class="xref download myst">fake_growth_data.csv</span></a></p></li>
 </ul>
 <p><img alt="figure_2" src="https://ars.els-cdn.com/content/image/1-s2.0-S1756464623002451-gr2.jpg" /></p>
-<p>Take a look at this picture - do you think it is simple or complicated?
-It is not trivial to recreate it in Python - but don’t worry, we will guide through all steps and tricks on making an (almost) exact copy of that picture in this notebook (at least from our knowledge). Let’s get started.</p>
+<p>Take a look at this picture - do you think it is simple or complicated? It is not
+trivial to recreate it in Python - but don’t worry, we will guide through all steps and
+tricks on making an (almost) exact copy of that picture in this notebook (at least from
+our knowledge). Let’s get started.</p>
 </section>
 <section id="preliminaries">
 <h2>0. Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading">#</a></h2>
@@ -544,9 +546,10 @@ It is not trivial to recreate it in Python - but don’t worry, we will guide th
 </div>
 </div>
 </div>
-<p>Apart from importing some libraries and modules, we also define a color palette for the plot.
-The palette can either be a list or a dictionary where <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;:</span> <span class="pre">&lt;value&gt;</span></code> refers to some variable and its corresponding color we want to assign to it.
-Note that if you select certain variable values in the seaborn plots (more below), the values must match <strong>exactly</strong> the dictionary keys, or else Seaborn will throw an error.</p>
+<p>Apart from importing some libraries and modules, we also define a color
+palette for the plot. The palette can either be a list or a dictionary where <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;:</span> <span class="pre">&lt;value&gt;</span></code> refers to some variable and its corresponding color we want to assign to it.
+Note that if you select certain variable values in the seaborn plots (more below), the
+values must match <strong>exactly</strong> the dictionary keys, or else Seaborn will throw an error.</p>
 </section>
 <section id="load-the-data">
 <h3>0.2 Load the Data<a class="headerlink" href="#load-the-data" title="Link to this heading">#</a></h3>
@@ -688,9 +691,13 @@ Note that if you select certain variable values in the seaborn plots (more below
 </section>
 <section id="aggregate-data">
 <h3>0.3 Aggregate Data<a class="headerlink" href="#aggregate-data" title="Link to this heading">#</a></h3>
-<p>We can see on the plots on the right hand side that there is a new variable not in our dataset.
-We will use the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> function to aggregate our data appropriately. <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> uses some function that is applied on each element of an iterable, e.g. each row/column of a dataframe by default. It can also be however each group of a grouped dataframe.
-We will make use of this to group our dataframe by condition, SFN, and replicate, and thus calculate the area under the curve for each replicate using scikit-learn’s <code class="docutils literal notranslate"><span class="pre">auc()</span></code> function.</p>
+<p>We can see on the plots on the right hand side that there is a new
+variable not in our dataset. We will use the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> function to aggregate our data
+appropriately. <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> uses some function that is applied on each element of an
+iterable, e.g. each row/column of a dataframe by default. It can also be however each
+group of a grouped dataframe. We will make use of this to group our dataframe by
+condition, SFN, and replicate, and thus calculate the area under the curve for each
+replicate using scikit-learn’s <code class="docutils literal notranslate"><span class="pre">auc()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_auc</span> <span class="o">=</span> <span class="p">(</span>
@@ -992,15 +999,19 @@ We will make use of this to group our dataframe by condition, SFN, and replicate
 </table>
 </div></div></div>
 </div>
-<p>We also set the SFN column in the aggregated dataframe to be categorical, meaning there are defined categories (in a defined order if we wish so). There some useful properties for this, e.g. counting the categories in some subgroups even if some categories are missing.
-However, here we mainly use it do define a set order of our SFN variables.</p>
+<p>We also set the SFN column in the aggregated dataframe to be categorical,
+meaning there are defined categories (in a defined order if we wish so). There some
+useful properties for this, e.g. counting the categories in some subgroups even if some
+categories are missing. However, here we mainly use it do define a set order of our SFN
+variables.</p>
 </section>
 </section>
 <section id="seaborn-basics">
 <h2>1. Seaborn Basics<a class="headerlink" href="#seaborn-basics" title="Link to this heading">#</a></h2>
 <section id="continuous-plots">
 <h3>1.1 Continuous Plots<a class="headerlink" href="#continuous-plots" title="Link to this heading">#</a></h3>
-<p>Let us start with making a simple lineplot. First, we subset our data to only use the anaerobic part to start recreating the upper left plot.</p>
+<p>Let us start with making a simple lineplot. First, we subset our data to
+only use the anaerobic part to start recreating the upper left plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anaer</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Anaerobic&quot;</span><span class="p">]</span>
@@ -1128,7 +1139,9 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 <p>234 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>Now, making the plot is quite simple. Seaborn expects the data in a <code class="docutils literal notranslate"><span class="pre">.DataFrame</span></code> format, and we can use <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to specify what data relation we want to plot (note that for some plots like histograms, we do not need to specify <code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
+<p>Now, making the plot is quite simple. Seaborn expects the data in a
+<code class="docutils literal notranslate"><span class="pre">.DataFrame</span></code> format, and we can use <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to specify what data relation we want
+to plot (note that for some plots like histograms, we do not need to specify <code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1140,12 +1153,15 @@ However, here we mainly use it do define a set order of our SFN variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4f8dd242f046542de88757fc9f64efd6d08bd426b38ecc1e11b4169531490ef.png" src="_images/b4f8dd242f046542de88757fc9f64efd6d08bd426b38ecc1e11b4169531490ef.png" />
+<img alt="_images/099b25d91bb4d7e032639f00e6a77150c7c058e50190f3619f101db2404a71e4.png" src="_images/099b25d91bb4d7e032639f00e6a77150c7c058e50190f3619f101db2404a71e4.png" />
 </div>
 </div>
-<p>We can see a line yes, but the shaded area (a confidence interval) indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we want to see the OD600 for each SFN separately?
-To do this, we can specify the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument in the function call, which corresponds to plotting each variable value with a different color. Note that Seaborn expects the data in long format for this.
-We can also remove the shaded area by setting <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>We can see a line yes, but the shaded area (a confidence interval)
+indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we
+want to see the OD600 for each SFN separately? To do this, we can specify the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+argument in the function call, which corresponds to plotting each variable value with a
+different color. Note that Seaborn expects the data in long format for this. We can
+also remove the shaded area by setting <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1166,7 +1182,9 @@ We can also remove the shaded area by setting <code class="docutils literal notr
 <img alt="_images/3ad303343b222272d9663488a8ff74fa2dfdbb99042220fcbfbbdbb0e7894466.png" src="_images/3ad303343b222272d9663488a8ff74fa2dfdbb99042220fcbfbbdbb0e7894466.png" />
 </div>
 </div>
-<p>If we have multiple variable values with different colors or marker shapes, Seaborn will also automatically plot a legend and put it where it thinks it fits best.</p>
+<p>If we have multiple variable values with different colors or marker
+shapes, Seaborn will also automatically plot a legend and put it where it thinks it
+fits best.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1189,8 +1207,10 @@ We can also remove the shaded area by setting <code class="docutils literal notr
 </div>
 </div>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">palette</span></code> colors we can also adjust the colors to our liking.</p>
-<p>We can also plot a scatterplot instead, though since we have defined timepoints, it is not going to be very useful here.
-Note that <code class="docutils literal notranslate"><span class="pre">.scatterplot()</span></code> does not have an <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> argument. You should check each plotting function’s documentation to see which argument’s are accepted.</p>
+<p>We can also plot a scatterplot instead, though since we have defined
+timepoints, it is not going to be very useful here. Note that <code class="docutils literal notranslate"><span class="pre">.scatterplot()</span></code> does not
+have an <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> argument. You should check each plotting function’s documentation to
+see which argument’s are accepted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1376,7 +1396,8 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 </table>
 </div></div></div>
 </div>
-<p>After having shown two plots for continuous data, let us move on to categorical plots where we plot the aggregated dataframe with the area under the curve.</p>
+<p>After having shown two plots for continuous data, let us move on to
+categorical plots where we plot the aggregated dataframe with the area under the curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1391,7 +1412,9 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 <img alt="_images/c29fcd777af1758fa0f2ea1af293e784585b59771795cb279199474bdfe61cf1.png" src="_images/c29fcd777af1758fa0f2ea1af293e784585b59771795cb279199474bdfe61cf1.png" />
 </div>
 </div>
-<p>A classical plot to show categories is the barplot which also shows an errorbar by default. We can also see that the x-axis is ordered in the categories sequence we defined earlier.</p>
+<p>A classical plot to show categories is the barplot which also shows an
+errorbar by default. We can also see that the x-axis is ordered in the categories
+sequence we defined earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1410,8 +1433,10 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 <img alt="_images/6f1d9f253850cd99ac9cfe9b1d4e59e01d229b4d3ee1131d662f9fd135b0028d.png" src="_images/6f1d9f253850cd99ac9cfe9b1d4e59e01d229b4d3ee1131d662f9fd135b0028d.png" />
 </div>
 </div>
-<p>We can switch <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to change the orientation of the barplot if we wish.</p>
-<p>We can again define a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable to look deeper into our data. Here we can plot for each SFN category the replicates side-by-side</p>
+<p>We can switch <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to change the orientation of the barplot if we
+wish.</p>
+<p>We can again define a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable to look deeper into our data. Here
+we can plot for each SFN category the replicates side-by-side</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1431,8 +1456,12 @@ Note that <code class="docutils literal notranslate"><span class="pre">.scatterp
 <img alt="_images/0d2c939de131feb8e1aa72a6c8595e920a3288b1056f5c75e9f79bf9d1df7248.png" src="_images/0d2c939de131feb8e1aa72a6c8595e920a3288b1056f5c75e9f79bf9d1df7248.png" />
 </div>
 </div>
-<p>However, we can see that our legend obstructs the view of part of the data. Can we do better?
-Yes! Let’s move our legend somewhere else. We explicitely call <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> which automatically fetches all elements (we will show later how to define them manually to customize the legend). Then, we set the location using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>, where the latter uses figure coordinates (in the order x, y) and also set <code class="docutils literal notranslate"><span class="pre">ncol</span></code> to show the replicate colors in one line.</p>
+<p>However, we can see that our legend obstructs the view of part of the
+data. Can we do better? Yes! Let’s move our legend somewhere else. We explicitely call
+<code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> which automatically fetches all elements (we will show later how to
+define them manually to customize the legend). Then, we set the location using <code class="docutils literal notranslate"><span class="pre">loc</span></code>
+and <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>, where the latter uses figure coordinates (in the order x, y) and
+also set <code class="docutils literal notranslate"><span class="pre">ncol</span></code> to show the replicate colors in one line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1455,7 +1484,9 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 <img alt="_images/a2f5d1a2b8fee650f4d15076785c9db2fa58b74a2ccb790dc947a04a8b268940.png" src="_images/a2f5d1a2b8fee650f4d15076785c9db2fa58b74a2ccb790dc947a04a8b268940.png" />
 </div>
 </div>
-<p>There are many more plots Seaborn supports and many more customization options. Next, we will focus on some of them to recreate the plot at the beginning of this notebook.</p>
+<p>There are many more plots Seaborn supports and many more customization
+options. Next, we will focus on some of them to recreate the plot at the beginning of
+this notebook.</p>
 </section>
 </section>
 <section id="advanced-plotting">
@@ -1590,8 +1621,10 @@ Yes! Let’s move our legend somewhere else. We explicitely call <code class="do
 </div>
 <section id="more-lineplot-arguments">
 <h3>2.1 More Lineplot Arguments<a class="headerlink" href="#more-lineplot-arguments" title="Link to this heading">#</a></h3>
-<p>As a first step, we will show all arguments needed in the <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> function.
-We can see that the plot has both lines as well as dots with some errorbars on it. By default, <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> draws a 95 % confidence interval as a shaded area. We can change that to use errorbars indicating standard deviation (<code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>) instead.</p>
+<p>As a first step, we will show all arguments needed in the <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code>
+function. We can see that the plot has both lines as well as dots with some errorbars
+on it. By default, <code class="docutils literal notranslate"><span class="pre">.lineplot()</span></code> draws a 95 % confidence interval as a shaded area. We
+can change that to use errorbars indicating standard deviation (<code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>) instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1614,7 +1647,9 @@ We can see that the plot has both lines as well as dots with some errorbars on i
 <img alt="_images/4991793b073c6682dc1dec89e3bb86e31d01344308decb1f2a60bd9754521ad5.png" src="_images/4991793b073c6682dc1dec89e3bb86e31d01344308decb1f2a60bd9754521ad5.png" />
 </div>
 </div>
-<p>We can also see that there are little ‘caps’ on the errorbars. These are some special arguments which we specify using a dictionary passing it to the <code class="docutils literal notranslate"><span class="pre">err_kws</span></code> argument.</p>
+<p>We can also see that there are little ‘caps’ on the errorbars. These are
+some special arguments which we specify using a dictionary passing it to the <code class="docutils literal notranslate"><span class="pre">err_kws</span></code>
+argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1638,8 +1673,10 @@ We can see that the plot has both lines as well as dots with some errorbars on i
 <img alt="_images/bcc1592299e21476c156174fbfc7cb0d833cd9568354d77e86a2c68bebb1ed28.png" src="_images/bcc1592299e21476c156174fbfc7cb0d833cd9568354d77e86a2c68bebb1ed28.png" />
 </div>
 </div>
-<p>Let us add dots too, called markers in matplotlib syntax. We specify <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code> (which is also the default) as small dots.
-We also set the width of the marker edge to zero, but you can specify that as you want (including the color of the edge which is white by default).</p>
+<p>Let us add dots too, called markers in matplotlib syntax. We specify
+<code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code> (which is also the default) as small dots. We also set the width of the marker
+edge to zero, but you can specify that as you want (including the color of the edge
+which is white by default).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1666,7 +1703,9 @@ We also set the width of the marker edge to zero, but you can specify that as yo
 <img alt="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" src="_images/877af9b5811adaee4ea365cecef3b109e271967d48b93b93bced634d1fd9724f.png" />
 </div>
 </div>
-<p>This is all. But, before we move on, it is good practice to also specify the <code class="docutils literal notranslate"><span class="pre">axes</span></code> element. By default, Seaborn uses the last one that was specified (here the first line), but it is better to be explicit.</p>
+<p>This is all. But, before we move on, it is good practice to also specify
+the <code class="docutils literal notranslate"><span class="pre">axes</span></code> element. By default, Seaborn uses the last one that was specified (here the
+first line), but it is better to be explicit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1699,7 +1738,9 @@ We also set the width of the marker edge to zero, but you can specify that as yo
 <section id="customizing-the-axes-labels-ticks-etc">
 <h3>2.2 Customizing the Axes - Labels, Ticks, Etc.<a class="headerlink" href="#customizing-the-axes-labels-ticks-etc" title="Link to this heading">#</a></h3>
 <p><strong>2.2.1 Plot Limits</strong></p>
-<p>By default, Matplotlib/Seaborn draws the plotting area based on the minimumun and maximum of what was specified, including some margin. We can set this explicitely using <code class="docutils literal notranslate"><span class="pre">ax.set_xlim()</span></code> for the x-axis (and correspondingly for the y-axis).
+<p>By default, Matplotlib/Seaborn draws the plotting area based on the
+minimumun and maximum of what was specified, including some margin. We can set this
+explicitely using <code class="docutils literal notranslate"><span class="pre">ax.set_xlim()</span></code> for the x-axis (and correspondingly for the y-axis).
 We set the limits to what is shown in the figure</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1736,8 +1777,11 @@ We set the limits to what is shown in the figure</p>
 </div>
 </div>
 <p><strong>2.2.2 Specify Axis Labels</strong></p>
-<p>We renamed the columns in the beginning to be better for programming, but they might not be necessarily optimal for being read in a graphic. We will change that now by explicitely setting the axis labels.
-Note also that we make use of LaTeX rendering for the y-axis to make the ‘600’ in OD600 lowercase. The <code class="docutils literal notranslate"><span class="pre">labelpad</span></code> argument indicates the padding space between the actual axis and the label.</p>
+<p>We renamed the columns in the beginning to be better for programming, but
+they might not be necessarily optimal for being read in a graphic. We will change that
+now by explicitely setting the axis labels. Note also that we make use of LaTeX
+rendering for the y-axis to make the ‘600’ in OD600 lowercase. The <code class="docutils literal notranslate"><span class="pre">labelpad</span></code> argument
+indicates the padding space between the actual axis and the label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1781,8 +1825,9 @@ Note also that we make use of LaTeX rendering for the y-axis to make the ‘600�
 </div>
 </div>
 <p><strong>2.2.3 Change Axis Tick Sizes</strong></p>
-<p>We have changed the labels now and made them bigger too, so we should to the same to the ticks (the lines and numbers marking the data points).
-We will make the ticks wider and longer.</p>
+<p>We have changed the labels now and made them bigger too, so we should to
+the same to the ticks (the lines and numbers marking the data points). We will make the
+ticks wider and longer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1825,9 +1870,13 @@ We will make the ticks wider and longer.</p>
 <img alt="_images/40b44e3897205a9008d8001a8e6545f748a8b82992b573d9f6733face2fed51d.png" src="_images/40b44e3897205a9008d8001a8e6545f748a8b82992b573d9f6733face2fed51d.png" />
 </div>
 </div>
-<p>We can see though that, beside the <em>major</em> tick lines, there are also some <em>minor</em> ones.
-We also see that the frequency of the ticks in the plot is different. The major ticks on the x-axis seem to be in intervals of 10, while the minor ones in intervals of 1.
-To set them, we make use of Matplotlib’s ticker locators (setting the location of ticks). We use the <code class="docutils literal notranslate"><span class="pre">ax.&lt;axis&gt;.set_&lt;kind&gt;_locator()</span></code> function and pass to it an object of the <code class="docutils literal notranslate"><span class="pre">ticker</span></code> module, here <code class="docutils literal notranslate"><span class="pre">MultipleLocator</span></code> that specifies in what intervals the ticks shall be drawn.</p>
+<p>We can see though that, beside the <em>major</em> tick lines, there are also
+some <em>minor</em> ones. We also see that the frequency of the ticks in the plot is
+different. The major ticks on the x-axis seem to be in intervals of 10, while the minor
+ones in intervals of 1. To set them, we make use of Matplotlib’s ticker locators
+(setting the location of ticks). We use the <code class="docutils literal notranslate"><span class="pre">ax.&lt;axis&gt;.set_&lt;kind&gt;_locator()</span></code> function
+and pass to it an object of the <code class="docutils literal notranslate"><span class="pre">ticker</span></code> module, here <code class="docutils literal notranslate"><span class="pre">MultipleLocator</span></code> that specifies
+in what intervals the ticks shall be drawn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1872,7 +1921,8 @@ To set them, we make use of Matplotlib’s ticker locators (setting the location
 <img alt="_images/3bbaeb0e671df996224b6dd230f1a8a18ef206eb419241c0bfa3fc4556a4da89.png" src="_images/3bbaeb0e671df996224b6dd230f1a8a18ef206eb419241c0bfa3fc4556a4da89.png" />
 </div>
 </div>
-<p>We have set the major ticks for the x- and y-axis, and can now do the same for the minor ones.</p>
+<p>We have set the major ticks for the x- and y-axis, and can now do the
+same for the minor ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1919,8 +1969,9 @@ To set them, we make use of Matplotlib’s ticker locators (setting the location
 <img alt="_images/31745e09bfed9e2293f3627ef01dade4680eaa58532d1c8e3af1e7582efa9040.png" src="_images/31745e09bfed9e2293f3627ef01dade4680eaa58532d1c8e3af1e7582efa9040.png" />
 </div>
 </div>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">.set_tick_params()</span></code> call specifies the major ones, so we have to use the <code class="docutils literal notranslate"><span class="pre">which</span></code> argument to specify wether we want to adjust the major or minor ticks.
-We make the minor ticks a bit smaller than the major ones.</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">.set_tick_params()</span></code> call specifies the major ones, so we
+have to use the <code class="docutils literal notranslate"><span class="pre">which</span></code> argument to specify wether we want to adjust the major or minor
+ticks. We make the minor ticks a bit smaller than the major ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1973,8 +2024,10 @@ We make the minor ticks a bit smaller than the major ones.</p>
 <img alt="_images/66b0dc099cfca38ae4acfcd919e86b828ed0cac3e900d0a4074b35b969108ecb.png" src="_images/66b0dc099cfca38ae4acfcd919e86b828ed0cac3e900d0a4074b35b969108ecb.png" />
 </div>
 </div>
-<p>We should also increase the fontsize of the tick labels.
-We use <code class="docutils literal notranslate"><span class="pre">ax.tick_params()</span></code> for this below. We could also use <code class="docutils literal notranslate"><span class="pre">ax.set_xticks()</span></code>, but we would also need to specify what our ticks are in that case. One of the solutions for the exercises shows how to do that.</p>
+<p>We should also increase the fontsize of the tick labels. We use
+<code class="docutils literal notranslate"><span class="pre">ax.tick_params()</span></code> for this below. We could also use <code class="docutils literal notranslate"><span class="pre">ax.set_xticks()</span></code>, but we would
+also need to specify what our ticks are in that case. One of the solutions for the
+exercises shows how to do that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2025,8 +2078,10 @@ We use <code class="docutils literal notranslate"><span class="pre">ax.tick_para
 <img alt="_images/6eee94c9f5b1b48f393102f711341a5ae08df8ddbe657c7ac91047abd64553ed.png" src="_images/6eee94c9f5b1b48f393102f711341a5ae08df8ddbe657c7ac91047abd64553ed.png" />
 </div>
 </div>
-<p>Finally, we will also change the whole axis-lines. We can see that only the left and bottom one are plotted.
-In Matplotlib, they are defined as “spines”, and we set them as follows in a for-loop, specifying the linewidth (2 for left/bottom and 0 for right/top to make the latter ones invisible).</p>
+<p>Finally, we will also change the whole axis-lines. We can see that only
+the left and bottom one are plotted. In Matplotlib, they are defined as “spines”, and
+we set them as follows in a for-loop, specifying the linewidth (2 for left/bottom and 0
+for right/top to make the latter ones invisible).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2087,7 +2142,8 @@ In Matplotlib, they are defined as “spines”, and we set them as follows in a
 <section id="customizing-the-legend">
 <h3>2.3 Customizing the Legend<a class="headerlink" href="#customizing-the-legend" title="Link to this heading">#</a></h3>
 <p><strong>2.3.1 Basic Legend Customization</strong></p>
-<p>The legend can also receive some attention. First, let us move it to a better location, e.g. to the right of the plot like in the paper.</p>
+<p>The legend can also receive some attention. First, let us move it to a
+better location, e.g. to the right of the plot like in the paper.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2147,8 +2203,9 @@ In Matplotlib, they are defined as “spines”, and we set them as follows in a
 <img alt="_images/28cc699280a315c16a28df2e290329a73de419f0683fc9635938c3780d700d64.png" src="_images/28cc699280a315c16a28df2e290329a73de419f0683fc9635938c3780d700d64.png" />
 </div>
 </div>
-<p>Oops, the new legend does not have any title. But that is fine, we should specify it ourselves anyway, again making use of   LaTeX.
-Let’s also remove the frame around the legend.</p>
+<p>Oops, the new legend does not have any title. But that is fine, we should
+specify it ourselves anyway, again making use of   LaTeX. Let’s also remove the frame
+around the legend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2211,7 +2268,10 @@ Let’s also remove the frame around the legend.</p>
 <img alt="_images/4afc63188926f1a87bd77e08ef13964e3d51b911b0c01b9fc8e7dbd351649d12.png" src="_images/4afc63188926f1a87bd77e08ef13964e3d51b911b0c01b9fc8e7dbd351649d12.png" />
 </div>
 </div>
-<p>We should increase the fontsize too of the legend. The <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> argument however only affects the variable labels. For the title, we set our call to <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> to a variable, access the title property and adjust its fontsize afterwards.</p>
+<p>We should increase the fontsize too of the legend. The <code class="docutils literal notranslate"><span class="pre">fontsize</span></code>
+argument however only affects the variable labels. For the title, we set our call to
+<code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> to a variable, access the title property and adjust its fontsize
+afterwards.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2277,10 +2337,18 @@ Let’s also remove the frame around the legend.</p>
 </div>
 </div>
 <p><strong>2.3.2 Advanced Legend Customization</strong></p>
-<p>We can see that our legend markers are a bit too small. This might be a problem if we would further increase the size of the whole plot. Hence, it would make sense to specify their size too, right?
-However, this is less trivial to do than most other things shown so far. But, we will show one way to do it which should suffice for most cases.</p>
-<p>What we need to do is specify the <code class="docutils literal notranslate"><span class="pre">handles</span></code> of our legend. The legend has two primary attributes: handles and labels (i.e., the markers for the variables and their names).
-We make use of the fact that the legend handles/markers are essentially the same type of object as what is drawn in the main plot area. In the case of a lineplot, they are 2-dimensional lines, i.e. <code class="docutils literal notranslate"><span class="pre">Line2D</span></code> objects. We create those in a list comprehension (essentially a loop) with empty data (emtpy lists) and specify a larger markersize and linewidth than <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> used.</p>
+<p>We can see that our legend markers are a bit too small. This might be a
+problem if we would further increase the size of the whole plot. Hence, it would make
+sense to specify their size too, right? However, this is less trivial to do than most
+other things shown so far. But, we will show one way to do it which should suffice for
+most cases.</p>
+<p>What we need to do is specify the <code class="docutils literal notranslate"><span class="pre">handles</span></code> of our legend. The legend has
+two primary attributes: handles and labels (i.e., the markers for the variables and
+their names). We make use of the fact that the legend handles/markers are essentially
+the same type of object as what is drawn in the main plot area. In the case of a
+lineplot, they are 2-dimensional lines, i.e. <code class="docutils literal notranslate"><span class="pre">Line2D</span></code> objects. We create those in a
+list comprehension (essentially a loop) with empty data (emtpy lists) and specify a
+larger markersize and linewidth than <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2349,7 +2417,10 @@ We make use of the fact that the legend handles/markers are essentially the same
 <img alt="_images/c9382e1764b6cd681ec6bda87050f3e5743c7a5d2eda72e101de6239892415f8.png" src="_images/c9382e1764b6cd681ec6bda87050f3e5743c7a5d2eda72e101de6239892415f8.png" />
 </div>
 </div>
-<p>The size looks better, but now are labels are gone. We could set the <code class="docutils literal notranslate"><span class="pre">labels</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> call or the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument inside each call of <code class="docutils literal notranslate"><span class="pre">mline.Line2D</span></code> inside the loop, either is fine. We use the latter to loop through our dictionary with colors so we can set the corresponding color at the same time.</p>
+<p>The size looks better, but now are labels are gone. We could set the
+<code class="docutils literal notranslate"><span class="pre">labels</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> call or the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument inside each call of
+<code class="docutils literal notranslate"><span class="pre">mline.Line2D</span></code> inside the loop, either is fine. We use the latter to loop through our
+dictionary with colors so we can set the corresponding color at the same time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2420,7 +2491,9 @@ We make use of the fact that the legend handles/markers are essentially the same
 <img alt="_images/a3be910a1c88fdac022ea9f360b0291605c8b65dc9e2e72837b334e586c79612.png" src="_images/a3be910a1c88fdac022ea9f360b0291605c8b65dc9e2e72837b334e586c79612.png" />
 </div>
 </div>
-<p>Now we are finished with the plot in the upper left, we can just give it a title too. We can copy and paste the code to do the same for the lineplot with aerobic data.</p>
+<p>Now we are finished with the plot in the upper left, we can just give it
+a title too. We can copy and paste the code to do the same for the lineplot with
+aerobic data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -2658,7 +2731,10 @@ We make use of the fact that the legend handles/markers are essentially the same
 </table>
 </div></div></div>
 </div>
-<p>We now turn our attention to the plot on the upper right, using the aggregated data. We skip most steps here as they are similar. We only note that we are using a stripplot to visualize categorical data with dots and also a pointplot to show some errorbars.</p>
+<p>We now turn our attention to the plot on the upper right, using the
+aggregated data. We skip most steps here as they are similar. We only note that we are
+using a stripplot to visualize categorical data with dots and also a pointplot to show
+some errorbars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -2725,11 +2801,15 @@ We make use of the fact that the legend handles/markers are essentially the same
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fa882e25ed85f025cf50707a4c7ef24488662afdebf53313c0e26dd4a3cf4c5d.png" src="_images/fa882e25ed85f025cf50707a4c7ef24488662afdebf53313c0e26dd4a3cf4c5d.png" />
+<img alt="_images/a13b600a2b4e009c11c3460285b1ed6f09ce4af8fb0a43287e1fbecc11396867.png" src="_images/a13b600a2b4e009c11c3460285b1ed6f09ce4af8fb0a43287e1fbecc11396867.png" />
 </div>
 </div>
-<p>We will now show one way to plot the significance bars. We made a small function to do that. What it does is just plot some lines and also add some text above the line (the significance star). What we define is just where we want our significance bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code> argument).
-For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many we have (minus one).</p>
+<p>We will now show one way to plot the significance bars. We made a small
+function to do that. What it does is just plot some lines and also add some text above
+the line (the significance star). What we define is just where we want our significance
+bar to start (the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument) and between which x-indices to span it over (the <code class="docutils literal notranslate"><span class="pre">xs</span></code>
+argument). For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how
+many we have (minus one).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_significance</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -2764,7 +2844,8 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 </div>
-<p>Hence, if we want the bar to span between 20 and DMSO (first and last), we specify <code class="docutils literal notranslate"><span class="pre">xs</span></code> as <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">5)</span></code>.</p>
+<p>Hence, if we want the bar to span between 20 and DMSO (first and last),
+we specify <code class="docutils literal notranslate"><span class="pre">xs</span></code> as <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">5)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -2834,7 +2915,7 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/758a99d58a7870804e1a11d567ee9199e152c5aa1378c4b1520bb893a9de0e61.png" src="_images/758a99d58a7870804e1a11d567ee9199e152c5aa1378c4b1520bb893a9de0e61.png" />
+<img alt="_images/c93cabed545892e9f858ca9c9726eb9b58416161c4d3bfd4b267c078d5b33db7.png" src="_images/c93cabed545892e9f858ca9c9726eb9b58416161c4d3bfd4b267c078d5b33db7.png" />
 </div>
 </div>
 </section>
@@ -2842,7 +2923,10 @@ For categorical data, the x-axis coordinates are 0, 1, 2, … all up to how many
 <section id="figure-composition">
 <h2>3. Figure Composition<a class="headerlink" href="#figure-composition" title="Link to this heading">#</a></h2>
 <p>Now, we can create the final plot consisting of all the 4 subplots.
-Below, we define functions to draw the two types of plots we have. Note that we removed the legend from the right plot type, as it is not drawn there in the paper figure. As such, we set the <code class="docutils literal notranslate"><span class="pre">legend</span></code> argument to <code class="docutils literal notranslate"><span class="pre">False</span></code> in the <code class="docutils literal notranslate"><span class="pre">.pointplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">.stripplot()</span></code> calls.</p>
+Below, we define functions to draw the two types of plots we have. Note that we removed
+the legend from the right plot type, as it is not drawn there in the paper figure. As
+such, we set the <code class="docutils literal notranslate"><span class="pre">legend</span></code> argument to <code class="docutils literal notranslate"><span class="pre">False</span></code> in the <code class="docutils literal notranslate"><span class="pre">.pointplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">.stripplot()</span></code>
+calls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_lineplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">xlims</span><span class="p">,</span> <span class="n">ylims</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
@@ -2962,9 +3046,9 @@ Below, we define functions to draw the two types of plots we have. Note that we 
 </div>
 <section id="default-using-subplots">
 <h3>3.1 Default using <code class="docutils literal notranslate"><span class="pre">.subplots()</span></code><a class="headerlink" href="#default-using-subplots" title="Link to this heading">#</a></h3>
-<p>The easiest way to do a grid is to make use of subplots. One way is to use the oneliner
-<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=&lt;number-of-rows&gt;,</span> <span class="pre">ncols=&lt;number-of-columns&gt;)</span></code>, creating a grid of equally spaced subplots.
-We can call it without any further plot functions just to see what the grid looks like.</p>
+<p>The easiest way to do a grid is to make use of subplots. One way is to
+use the oneliner <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=&lt;number-of-rows&gt;,</span> <span class="pre">ncols=&lt;number-of-columns&gt;)</span></code>, creating a grid of equally spaced subplots. We can call it
+without any further plot functions just to see what the grid looks like.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -2977,8 +3061,9 @@ We can call it without any further plot functions just to see what the grid look
 <img alt="_images/7545668a22b0580eac25c7c1a3bd620be4c78083c6d693062cbb7c42013482b1.png" src="_images/7545668a22b0580eac25c7c1a3bd620be4c78083c6d693062cbb7c42013482b1.png" />
 </div>
 </div>
-<p>If we have more than one subplot, <code class="docutils literal notranslate"><span class="pre">ax</span></code> will be a NumPy array of as many <code class="docutils literal notranslate"><span class="pre">axes</span></code> objects as our grid is large (in this case 2 x 2 = 4).
-We can iterate through some containers and populate the grid as we show below.</p>
+<p>If we have more than one subplot, <code class="docutils literal notranslate"><span class="pre">ax</span></code> will be a NumPy array of as many
+<code class="docutils literal notranslate"><span class="pre">axes</span></code> objects as our grid is large (in this case 2 x 2 = 4). We can iterate through
+some containers and populate the grid as we show below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -3000,15 +3085,21 @@ We can iterate through some containers and populate the grid as we show below.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/099a77769c0d33bb8177ae8b26bdb62a54f47082ee81fdfc8e32e6c346979856.png" src="_images/099a77769c0d33bb8177ae8b26bdb62a54f47082ee81fdfc8e32e6c346979856.png" />
+<img alt="_images/208140f21cc177c9bb66c1c799351ed0116a93bd46f3319b4ab61ee9ccd9722d.png" src="_images/208140f21cc177c9bb66c1c799351ed0116a93bd46f3319b4ab61ee9ccd9722d.png" />
 </div>
 </div>
-<p>That looks somewhat close to the real plot. However, we can see that the legends are obscured by the categorical plots on the right. A better way would be to specify the spacing for each sub-plotting area in the grid. We will show how to do that in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
+<p>That looks somewhat close to the real plot. However, we can see that the
+legends are obscured by the categorical plots on the right. A better way would be to
+specify the spacing for each sub-plotting area in the grid. We will show how to do that
+in the last section using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code>.</p>
 </section>
 <section id="advanced-composition-using-gridspec">
 <h3>3.2 Advanced Composition using <code class="docutils literal notranslate"><span class="pre">Gridspec</span></code><a class="headerlink" href="#advanced-composition-using-gridspec" title="Link to this heading">#</a></h3>
-<p>Gridspec allows us to specify the boundaries of our plotting areas. We define two Gridspec areas here: one for the left plot, one for the right. The Gridspec’s make use of <strong>figure</strong> coordinates, where we specify the <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">top</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">bottom</span></code> arguments.
-Note that for these arguments, the start is at the lower left corner. We show below again for empty plots how the grid looks now.</p>
+<p>Gridspec allows us to specify the boundaries of our plotting areas. We
+define two Gridspec areas here: one for the left plot, one for the right. The
+Gridspec’s make use of <strong>figure</strong> coordinates, where we specify the <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>,
+<code class="docutils literal notranslate"><span class="pre">top</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">bottom</span></code> arguments. Note that for these arguments, the start is at the
+lower left corner. We show below again for empty plots how the grid looks now.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
@@ -3036,7 +3127,8 @@ Note that for these arguments, the start is at the lower left corner. We show be
 <img alt="_images/1b24b9efdf95c2a0bf16cad4c9ab90e1998548ba38cf8b413ca24d21485dcbb3.png" src="_images/1b24b9efdf95c2a0bf16cad4c9ab90e1998548ba38cf8b413ca24d21485dcbb3.png" />
 </div>
 </div>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">hspace</span></code> to add horizontal spacing between our subplots in our gridspec.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">hspace</span></code> to add horizontal spacing between our subplots in our
+gridspec.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
@@ -3062,7 +3154,9 @@ Note that for these arguments, the start is at the lower left corner. We show be
 <img alt="_images/04b91121d12f281184747a18bf8ef76ee219a8dad0137e2091d99ed08f8e1735.png" src="_images/04b91121d12f281184747a18bf8ef76ee219a8dad0137e2091d99ed08f8e1735.png" />
 </div>
 </div>
-<p>We now add in our plotting functions from before where we define each <code class="docutils literal notranslate"><span class="pre">axes</span></code> via the standard <code class="docutils literal notranslate"><span class="pre">fig.add_subplot()</span></code> call - only now we add an element of our gridspec to it.</p>
+<p>We now add in our plotting functions from before where we define each
+<code class="docutils literal notranslate"><span class="pre">axes</span></code> via the standard <code class="docutils literal notranslate"><span class="pre">fig.add_subplot()</span></code> call - only now we add an element of our
+gridspec to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
@@ -3093,11 +3187,12 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a943fa0c5be19232d186d44737b0a8e2fd608cbb3c60e44278e3b54046f80c0.png" src="_images/2a943fa0c5be19232d186d44737b0a8e2fd608cbb3c60e44278e3b54046f80c0.png" />
+<img alt="_images/b63e0fb7eef0844cefb5d8468dc2fdd71b0f6f294b3e275825e74d98b731b31f.png" src="_images/b63e0fb7eef0844cefb5d8468dc2fdd71b0f6f294b3e275825e74d98b731b31f.png" />
 </div>
 </div>
 <p>Using Gridspec, we can have a large variety of possible figure layouts.</p>
-<p>Let us finish the remainding elements of the figure and with it, this chapter.</p>
+<p>Let us finish the remainding elements of the figure and with it, this
+chapter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A.&quot;</span><span class="p">,</span> <span class="s2">&quot;B.&quot;</span><span class="p">,</span> <span class="s2">&quot;C.&quot;</span><span class="p">,</span> <span class="s2">&quot;D.&quot;</span><span class="p">]</span>  <span class="c1"># NEW: panel letters</span>
@@ -3153,7 +3248,7 @@ Note that for these arguments, the start is at the lower left corner. We show be
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2278be33f7b6609bffd295297feab6b63f30927a9aa2fa93fb3bb796f5cff706.png" src="_images/2278be33f7b6609bffd295297feab6b63f30927a9aa2fa93fb3bb796f5cff706.png" />
+<img alt="_images/63ba5cd52a30d340401fbc70d1019d998a77250f18659240d94ccc7eb779934f.png" src="_images/63ba5cd52a30d340401fbc70d1019d998a77250f18659240d94ccc7eb779934f.png" />
 </div>
 </div>
 </section>
