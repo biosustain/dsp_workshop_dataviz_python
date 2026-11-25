@@ -162,5 +162,9 @@ for n in (n for n in dir(vuecore) if not n.startswith("_")):
     _doc = (inspect.getdoc(o) or "").split(chr(10))[0][:70] if kind != "value" else ""
     print(f"{kind:<7}{n:<30}{_doc}")
 
+# %% [markdown]
+# Check if there are differences in the latest vuecore version:
 
 # %%
+print("Vuecore version:", vuecore.__version__)
+
