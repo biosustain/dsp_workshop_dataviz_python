@@ -17,8 +17,8 @@ import seaborn as sns
 
 IN_COLAB = "COLAB_GPU" in os.environ
 
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['ps.fonttype'] = 42
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
 
 # %% [markdown]
 # ## Proteomics data example
@@ -60,10 +60,9 @@ _ = plt.setp(
     rotation=45,
     horizontalalignment="right",
 )
-# Axis objects focused implementation:
-# for label in ax.get_xticklabels():
-#     label.set(rotation=45, horizontalalignment="right")
-# once the figure is created one, we have to display it manually
+# Axis objects focused implementation: for label in ax.get_xticklabels():
+# label.set(rotation=45, horizontalalignment="right") once the figure is created one, we
+#     have to display it manually
 ax.get_figure()
 
 # %% [markdown]

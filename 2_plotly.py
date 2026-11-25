@@ -33,16 +33,15 @@ fig = px.line(x=[1, 2, 3, 4], y=[1, 4, 2, 3])
 # %% [markdown]
 # The plotly Figure object offers many methods to update the
 # [`Figure`](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html).
-# There is no
-# separate axes object. The underlying data can be seen as a dictionary containing
-# data and the layout to apply (as a json).
+# There is no separate axes object. The underlying data can be seen as a dictionary
+# containing data and the layout to apply (as a json).
 
 # %%
 dir(fig)
 
 # %% [markdown]
-# Explore the most common function types intended for users
-# using the first word as the indicator
+# Explore the most common function types intended for users using the first
+# word as the indicator
 
 # %%
 from collections import Counter
@@ -82,8 +81,8 @@ px.histogram(df)
 # ## Set the default template to ggplot2
 # - Similar to seaborn's style settings
 # - Other templates: `'ggplot2'`, `'seaborn'`, `'simple_white'`, `'plotly'`,
-#   `'plotly_white'`, `'plotly_dark'`, `'presentation'`, `'xgridoff'`,
-#   `'ygridoff'`, `'gridon'`, `'none'`
+#   `'plotly_white'`, `'plotly_dark'`, `'presentation'`, `'xgridoff'`, `'ygridoff'`,
+#   `'gridon'`, `'none'`
 #
 # Check the [templates](https://plotly.com/python/templates/).
 
@@ -96,14 +95,13 @@ fig
 
 # %% [markdown]
 # ## Save a static image
-# - either directly from the interactive figure using the :camera:
-#   icon (first from the left)
+# - either directly from the interactive figure using the :camera: icon (first from the
+#   left)
 # - or programmatically as shown below setting width and height in dots per inch (DPI)
 
-# %%
-# Plotly's write_image uses pixels for width and height.
-# To specify inches or centimeters, convert to pixels using the DPI (dots per inch).
-# Example: 1 inch = 2.54 cm; pixels = inches * dpi
+# %% Plotly's write_image uses pixels for width and height. To specify inches or
+# centimeters, convert to pixels using the DPI (dots per inch). Example: 1 inch = 2.54
+# cm; pixels = inches * dpi
 
 dpi = 150  # you can change this value as needed
 

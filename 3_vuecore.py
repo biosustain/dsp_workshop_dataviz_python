@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     cell_metadata_filter: -all
+#     cell_metadata_filter: title,-all
 #     formats: ipynb,py:percent
 #     text_representation:
 #       extension: .py
@@ -66,9 +66,7 @@ df = (
 )
 df
 
-# %%
-# to be continued
-# Generate the advanced histogram plot
+# %% to be continued Generate the advanced histogram plot
 fig = create_histogram_plot(
     data=df,
     x="Intensity",
@@ -112,9 +110,9 @@ df_wide["group"] = df_wide.index.str.split("_").str[0]  # DMSO or Suf
 df_wide[["group"]]
 
 # %% [markdown]
-# `run_pca` returns the components, loadings and explained variance, and the
-# axis names (including explained variance). Proteins with missing values are
-# dropped per default.
+# `run_pca` returns the components, loadings and explained variance, and
+# the axis names (including explained variance). Proteins with missing values are dropped
+# per default.
 
 # %%
 pca_results, pca_annotation = run_pca(df_wide, group="group")
@@ -132,8 +130,8 @@ fig_static = get_embedding_plot_static(
 )
 
 # %% [markdown]
-# Interactive version (plotly figure) - hover over the samples. The loadings of
-# the proteins contributing most are added as arrows (biplot).
+# Interactive version (plotly figure) - hover over the samples. The
+# loadings of the proteins contributing most are added as arrows (biplot).
 
 # %%
 fig_interactive = get_embedding_plot_interactive(
@@ -161,10 +159,12 @@ for n in (n for n in dir(vuecore) if not n.startswith("_")):
         if isinstance(o, types.ModuleType)
         else "class" if inspect.isclass(o) else "func" if callable(o) else "value"
     )
-    _doc = (inspect.getdoc(o) or '').split(chr(10))[0][:70] if kind != 'value' else ''
-    print(
-        f"{kind:<7}{n:<30}{_doc}"
-    )
+    _doc = (inspect.getdoc(o) or "").split(chr(10))[0][:70] if kind != "value" else ""
+    print(f"{kind:<7}{n:<30}{_doc}")
 
+# %% [markdown]
+# Check if there are differences in the latest vuecore version:
 
 # %%
+print("Vuecore version:", vuecore.__version__)
+

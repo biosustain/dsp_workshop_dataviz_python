@@ -2,9 +2,10 @@
 # # Python Function Introduction and an Inch-Centimeter Converter
 # This example notebook is to illustrate how to create functions in Python.
 # We will create a simple function that converts inches to centimeters and vice versa,
-# a task you will sometimes need to do when reading journal instructions for figure 
+# a task you will sometimes need to do when reading journal instructions for figure
 # submission. Matplotlib, and thus Seaborn, use inches for figure size specifications,
 # while many journals ask for figure sizes in centimeters.
+
 
 # %%
 def inch_to_cm(inches):
@@ -12,14 +13,16 @@ def inch_to_cm(inches):
     cm = inches * 2.54
     return cm
 
+
 def cm_to_inch(cm):
     """Convert centimeters to inches."""
     inches = cm / 2.54
     return inches
 
+
 # %% [markdown]
 # ## Example Usage
-# > For guidance, Nature's standard figure sizes are 89 mm wide (single column) 
+# > For guidance, Nature's standard figure sizes are 89 mm wide (single column)
 # > and 183 mm wide (double column). The full depth of a Nature page is 247 mm.
 # > Figures can also be a column-and-a-half where necessary (120–136 mm).
 #
@@ -32,10 +35,10 @@ page_depth_cm = 24.7  # in cm
 col_and_a_half_cm = 13.6  # in cm
 
 # %%
-single_column_inch = cm_to_inch(single_column_cm) # 3.5 inches
-double_column_inch = cm_to_inch(double_column_cm) # 7.2 inches
-page_depth_inch = cm_to_inch(page_depth_cm)    # 9.72 inches
-col_and_a_half_inch = cm_to_inch(col_and_a_half_cm) # 5.35 inches
+single_column_inch = cm_to_inch(single_column_cm)  # 3.5 inches
+double_column_inch = cm_to_inch(double_column_cm)  # 7.2 inches
+page_depth_inch = cm_to_inch(page_depth_cm)  # 9.72 inches
+col_and_a_half_inch = cm_to_inch(col_and_a_half_cm)  # 5.35 inches
 
 # Print the results
 print(f"Single column width: {single_column_inch:.2f} inches")

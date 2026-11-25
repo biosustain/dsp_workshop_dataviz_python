@@ -34,7 +34,7 @@ you can (if you need to) edit in programs like Inkscape or Adobe Illustrator.
 | 9.45 – 10.15  | Matplotlib and seaborn basics                                                                             |
 | 10.15 – 10.30 | Break                                                                                                     |
 | 10.30 – 11.00 | Interactive plotly plots                                                                                  |
-| 11.00 – 11.15 | Lunch break                                                                                               |
+| 11.00 – 11.15 | Break                                                                                               |
 | 11.15 – 12.30 | Advanced plots, VueCore, editing with LLMs and your questions                                             |
 
 ## How to use material

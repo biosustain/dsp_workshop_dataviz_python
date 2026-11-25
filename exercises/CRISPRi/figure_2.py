@@ -31,12 +31,12 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['ps.fonttype'] = 42
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
 
 # global font size (can be set via environment variable FONT_SIZE)
 FONT_SIZE = 9
-mpl.rcParams['font.size'] = FONT_SIZE
+mpl.rcParams["font.size"] = FONT_SIZE
 mpl.rcParams["figure.figsize"] = (3.5, 3)
 
 IN_COLAB = "COLAB_GPU" in os.environ
@@ -449,7 +449,9 @@ ax1.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=FONT_SIZE)
 ax1.xaxis.set_tick_params(width=2, length=10)
 ax1.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=FONT_SIZE)
 ax1.yaxis.set_tick_params(width=2, length=10)
-ax2.set_yticks(range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=FONT_SIZE)
+ax2.set_yticks(
+    range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=FONT_SIZE
+)
 ax2.yaxis.set_tick_params(width=2, length=10)
 
 # adjust the "frame" of the plot
@@ -708,7 +710,9 @@ def figure_c(c_data: pd.DataFrame, ax: plt.Axes):
     ax.set_ylim(0, 0.8)
 
     # define frequency and size of ticks and their labels
-    ax.set_xticks(range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=FONT_SIZE)
+    ax.set_xticks(
+        range(5, 26, 5), list(range(5, 26, 5))[:-1] + [""], fontsize=FONT_SIZE
+    )
     ax.xaxis.set_tick_params(width=2, length=10)
     y_tick_labels = np.round(np.linspace(0.1, 0.8, 8), 1)
     ax.set_yticks(y_tick_labels, y_tick_labels.tolist()[:-1] + [""], fontsize=FONT_SIZE)
@@ -779,7 +783,9 @@ def figure_d(d_data: pd.DataFrame, ax: plt.Axes):
     # define frequency and size of ticks and their labels
     ax.set_xticks(range(5, 25, 5), range(5, 25, 5), fontsize=FONT_SIZE)
     ax.xaxis.set_tick_params(width=2, length=10)
-    ax.set_yticks(range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=FONT_SIZE)
+    ax.set_yticks(
+        range(1, 10, 1), list(range(1, 10, 1))[:-1] + [""], fontsize=FONT_SIZE
+    )
     ax.yaxis.set_tick_params(width=2, length=10)
     ax2.set_yticks(
         range(20, 141, 20), list(range(20, 141, 20))[:-1] + [""], fontsize=FONT_SIZE
@@ -888,9 +894,8 @@ plt.show()
 # ```
 # meaning that setting to `fontsize=None` or `fontsize='medium'` result in using `FONT_SIZE`, i.e. 9 points.
 # If you prefer exact point sizes in integer, you can also do this manually, e.g. using
-# `fontsize=FONT_SIZE - 1` for tick labels, `fontsize=FONT_SIZE + 1` for axis labels, 
+# `fontsize=FONT_SIZE - 1` for tick labels, `fontsize=FONT_SIZE + 1` for axis labels,
 # and `fontsize=FONT_SIZE + 5` for titles (you need to play with it).
 # </details>
 
 # %%
-

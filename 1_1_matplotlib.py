@@ -1,6 +1,7 @@
 # %% [markdown]
 # # Matplotlib
-# - A comprehensive library for creating static, animated, and interactive visualizations in Python.
+# - A comprehensive library for creating static, animated, and interactive visualizations
+#   in Python.
 # - Built on NumPy arrays and designed to work with the broader SciPy stack.
 #
 # Inspiration for plots and overviews
@@ -26,8 +27,8 @@ ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
 plt.show()  # Show the figure.
 
 # %% [markdown]
-# ![Figure, Axes and axis](assets/figure_axes_axis.png)
-# ![Anatomy of a matplotlib figure](https://matplotlib.org/stable/_images/anatomy.png)
+# ![Figure, Axes and axis](assets/figure_axes_axis.png) ![Anatomy of a
+# matplotlib figure](https://matplotlib.org/stable/_images/anatomy.png)
 
 # %%
 fig, ax = plt.subplots()  # Create a figure containing a single Axes.
