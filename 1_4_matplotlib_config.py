@@ -15,7 +15,8 @@ print(
     matplotlib.font_manager.font_scalings
 )  # Shows the scaling factors for each size keyword
 
-# %% [markdown] Find the full list of rcParams you can modify See the documentation
+# %% [markdown]
+# Find the full list of rcParams you can modify See the documentation
 # [here] and specifically
 # [`rcParams`](https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.rcParams).
 
@@ -23,7 +24,8 @@ print(
 matplotlib.rcParams["font.size"] = 14  # Set a new default font size
 
 
-# %% [markdown] See them all below:
+# %% [markdown]
+# See them all below:
 
 # %%
 matplotlib.rcParams

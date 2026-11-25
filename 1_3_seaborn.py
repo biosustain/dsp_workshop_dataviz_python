@@ -73,7 +73,8 @@ SFN_COLORS = {
     "2.5": "#FEEB86",
 }
 
-# %% [markdown] Apart from importing some libraries and modules, we also define a color
+# %% [markdown]
+# Apart from importing some libraries and modules, we also define a color
 # palette for the plot. The palette can either be a list or a dictionary where `<key>:
 # <value>` refers to some variable and its corresponding color we want to assign to it.
 # Note that if you select certain variable values in the seaborn plots (more below), the
@@ -97,7 +98,8 @@ data
 # %% [markdown]
 # ### 0.3 Aggregate Data
 
-# %% [markdown] We can see on the plots on the right hand side that there is a new
+# %% [markdown]
+# We can see on the plots on the right hand side that there is a new
 # variable not in our dataset. We will use the `.apply()` function to aggregate our data
 # appropriately. `.apply()` uses some function that is applied on each element of an
 # iterable, e.g. each row/column of a dataframe by default. It can also be however each
@@ -121,7 +123,8 @@ data_auc["sfn_conc_mumolar"] = pd.Categorical(
 )
 data_auc
 
-# %% [markdown] We also set the SFN column in the aggregated dataframe to be categorical,
+# %% [markdown]
+# We also set the SFN column in the aggregated dataframe to be categorical,
 # meaning there are defined categories (in a defined order if we wish so). There some
 # useful properties for this, e.g. counting the categories in some subgroups even if some
 # categories are missing. However, here we mainly use it do define a set order of our SFN
@@ -133,14 +136,16 @@ data_auc
 # %% [markdown]
 # ### 1.1 Continuous Plots
 
-# %% [markdown] Let us start with making a simple lineplot. First, we subset our data to
+# %% [markdown]
+# Let us start with making a simple lineplot. First, we subset our data to
 # only use the anaerobic part to start recreating the upper left plot.
 
 # %%
 df_anaer = data[data["condition"] == "Anaerobic"]
 df_anaer
 
-# %% [markdown] Now, making the plot is quite simple. Seaborn expects the data in a
+# %% [markdown]
+# Now, making the plot is quite simple. Seaborn expects the data in a
 # `.DataFrame` format, and we can use `x` and `y` to specify what data relation we want
 # to plot (note that for some plots like histograms, we do not need to specify `y`).
 
@@ -151,7 +156,8 @@ sns.lineplot(data=df_anaer, x="time_h", y="bact_growth_od600")
 
 plt.show()
 
-# %% [markdown] We can see a line yes, but the shaded area (a confidence interval)
+# %% [markdown]
+# We can see a line yes, but the shaded area (a confidence interval)
 # indicates, that Seaborn aggregated across all SFN conditions and replicates. Maybe we
 # want to see the OD600 for each SFN separately? To do this, we can specify the `hue`
 # argument in the function call, which corresponds to plotting each variable value with a
@@ -171,7 +177,8 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] If we have multiple variable values with different colors or marker
+# %% [markdown]
+# If we have multiple variable values with different colors or marker
 # shapes, Seaborn will also automatically plot a legend and put it where it thinks it
 # fits best.
 
@@ -189,9 +196,11 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] Using the `palette` colors we can also adjust the colors to our liking.
+# %% [markdown]
+# Using the `palette` colors we can also adjust the colors to our liking.
 
-# %% [markdown] We can also plot a scatterplot instead, though since we have defined
+# %% [markdown]
+# We can also plot a scatterplot instead, though since we have defined
 # timepoints, it is not going to be very useful here. Note that `.scatterplot()` does not
 # have an `errorbar` argument. You should check each plotting function's documentation to
 # see which argument's are accepted.
@@ -215,7 +224,8 @@ plt.show()
 df_auc_anaer = data_auc[data_auc["condition"] == "Anaerobic"]
 df_auc_anaer
 
-# %% [markdown] After having shown two plots for continuous data, let us move on to
+# %% [markdown]
+# After having shown two plots for continuous data, let us move on to
 # categorical plots where we plot the aggregated dataframe with the area under the curve.
 
 # %%
@@ -225,7 +235,8 @@ sns.barplot(data=df_auc_anaer, x="sfn_conc_mumolar", y="auc")
 
 plt.show()
 
-# %% [markdown] A classical plot to show categories is the barplot which also shows an
+# %% [markdown]
+# A classical plot to show categories is the barplot which also shows an
 # errorbar by default. We can also see that the x-axis is ordered in the categories
 # sequence we defined earlier.
 
@@ -240,10 +251,12 @@ sns.barplot(
 
 plt.show()
 
-# %% [markdown] We can switch `x` and `y` to change the orientation of the barplot if we
+# %% [markdown]
+# We can switch `x` and `y` to change the orientation of the barplot if we
 # wish.
 
-# %% [markdown] We can again define a `hue` variable to look deeper into our data. Here
+# %% [markdown]
+# We can again define a `hue` variable to look deeper into our data. Here
 # we can plot for each SFN category the replicates side-by-side
 
 # %%
@@ -258,7 +271,8 @@ sns.barplot(
 
 plt.show()
 
-# %% [markdown] However, we can see that our legend obstructs the view of part of the
+# %% [markdown]
+# However, we can see that our legend obstructs the view of part of the
 # data. Can we do better? Yes! Let's move our legend somewhere else. We explicitely call
 # `ax.legend()` which automatically fetches all elements (we will show later how to
 # define them manually to customize the legend). Then, we set the location using `loc`
@@ -280,14 +294,16 @@ ax.legend(
 
 plt.show()
 
-# %% [markdown] There are many more plots Seaborn supports and many more customization
+# %% [markdown]
+# There are many more plots Seaborn supports and many more customization
 # options. Next, we will focus on some of them to recreate the plot at the beginning of
 # this notebook.
 
 # %% [markdown]
 # ## 2. Advanced Plotting
 
-# %% [markdown] We will focus again on the left upper plot for now.
+# %% [markdown]
+# We will focus again on the left upper plot for now.
 
 # %%
 df_anaer = data[data["condition"] == "Anaerobic"]
@@ -296,7 +312,8 @@ df_anaer
 # %% [markdown]
 # ### 2.1 More Lineplot Arguments
 
-# %% [markdown] As a first step, we will show all arguments needed in the `.lineplot()`
+# %% [markdown]
+# As a first step, we will show all arguments needed in the `.lineplot()`
 # function. We can see that the plot has both lines as well as dots with some errorbars
 # on it. By default, `.lineplot()` draws a 95 % confidence interval as a shaded area. We
 # can change that to use errorbars indicating standard deviation (`"sd"`) instead.
@@ -316,7 +333,8 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] We can also see that there are little 'caps' on the errorbars. These are
+# %% [markdown]
+# We can also see that there are little 'caps' on the errorbars. These are
 # some special arguments which we specify using a dictionary passing it to the `err_kws`
 # argument.
 
@@ -336,7 +354,8 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] Let us add dots too, called markers in matplotlib syntax. We specify
+# %% [markdown]
+# Let us add dots too, called markers in matplotlib syntax. We specify
 # `"o"` (which is also the default) as small dots. We also set the width of the marker
 # edge to zero, but you can specify that as you want (including the color of the edge
 # which is white by default).
@@ -360,7 +379,8 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] This is all. But, before we move on, it is good practice to also specify
+# %% [markdown]
+# This is all. But, before we move on, it is good practice to also specify
 # the `axes` element. By default, Seaborn uses the last one that was specified (here the
 # first line), but it is better to be explicit.
 
@@ -384,14 +404,17 @@ sns.lineplot(
 
 plt.show()
 
-# %% [markdown] Next, we make the x- and y-axis prettier and more readable.
+# %% [markdown]
+# Next, we make the x- and y-axis prettier and more readable.
 
 # %% [markdown]
 # ### 2.2 Customizing the Axes - Labels, Ticks, Etc.
 
-# %% [markdown] **2.2.1 Plot Limits**
+# %% [markdown]
+# **2.2.1 Plot Limits**
 
-# %% [markdown] By default, Matplotlib/Seaborn draws the plotting area based on the
+# %% [markdown]
+# By default, Matplotlib/Seaborn draws the plotting area based on the
 # minimumun and maximum of what was specified, including some margin. We can set this
 # explicitely using `ax.set_xlim()` for the x-axis (and correspondingly for the y-axis).
 # We set the limits to what is shown in the figure
@@ -423,9 +446,11 @@ ax.set_ylim(0, 1.0)  # NEW: y-axis limits
 
 plt.show()
 
-# %% [markdown] **2.2.2 Specify Axis Labels**
+# %% [markdown]
+# **2.2.2 Specify Axis Labels**
 
-# %% [markdown] We renamed the columns in the beginning to be better for programming, but
+# %% [markdown]
+# We renamed the columns in the beginning to be better for programming, but
 # they might not be necessarily optimal for being read in a graphic. We will change that
 # now by explicitely setting the axis labels. Note also that we make use of LaTeX
 # rendering for the y-axis to make the '600' in OD600 lowercase. The `labelpad` argument
@@ -466,9 +491,11 @@ ax.set_ylabel(  # NEW: y-axis label (LaTeX subscript)
 
 plt.show()
 
-# %% [markdown] **2.2.3 Change Axis Tick Sizes**
+# %% [markdown]
+# **2.2.3 Change Axis Tick Sizes**
 
-# %% [markdown] We have changed the labels now and made them bigger too, so we should to
+# %% [markdown]
+# We have changed the labels now and made them bigger too, so we should to
 # the same to the ticks (the lines and numbers marking the data points). We will make the
 # ticks wider and longer.
 
@@ -507,7 +534,8 @@ ax.set_ylabel(
 
 plt.show()
 
-# %% [markdown] We can see though that, beside the *major* tick lines, there are also
+# %% [markdown]
+# We can see though that, beside the *major* tick lines, there are also
 # some *minor* ones. We also see that the frequency of the ticks in the plot is
 # different. The major ticks on the x-axis seem to be in intervals of 10, while the minor
 # ones in intervals of 1. To set them, we make use of Matplotlib's ticker locators
@@ -552,7 +580,8 @@ ax.set_ylabel(
 
 plt.show()
 
-# %% [markdown] We have set the major ticks for the x- and y-axis, and can now do the
+# %% [markdown]
+# We have set the major ticks for the x- and y-axis, and can now do the
 # same for the minor ones.
 
 # %%
@@ -594,7 +623,8 @@ ax.set_ylabel(
 
 plt.show()
 
-# %% [markdown] By default, the `.set_tick_params()` call specifies the major ones, so we
+# %% [markdown]
+# By default, the `.set_tick_params()` call specifies the major ones, so we
 # have to use the `which` argument to specify wether we want to adjust the major or minor
 # ticks. We make the minor ticks a bit smaller than the major ones.
 
@@ -643,7 +673,8 @@ ax.set_ylabel(
 
 plt.show()
 
-# %% [markdown] We should also increase the fontsize of the tick labels. We use
+# %% [markdown]
+# We should also increase the fontsize of the tick labels. We use
 # `ax.tick_params()` for this below. We could also use `ax.set_xticks()`, but we would
 # also need to specify what our ticks are in that case. One of the solutions for the
 # exercises shows how to do that.
@@ -691,7 +722,8 @@ ax.set_ylabel(
 
 plt.show()
 
-# %% [markdown] Finally, we will also change the whole axis-lines. We can see that only
+# %% [markdown]
+# Finally, we will also change the whole axis-lines. We can see that only
 # the left and bottom one are plotted. In Matplotlib, they are defined as "spines", and
 # we set them as follows in a for-loop, specifying the linewidth (2 for left/bottom and 0
 # for right/top to make the latter ones invisible).
@@ -748,9 +780,11 @@ plt.show()
 # %% [markdown]
 # ### 2.3 Customizing the Legend
 
-# %% [markdown] **2.3.1 Basic Legend Customization**
+# %% [markdown]
+# **2.3.1 Basic Legend Customization**
 
-# %% [markdown] The legend can also receive some attention. First, let us move it to a
+# %% [markdown]
+# The legend can also receive some attention. First, let us move it to a
 # better location, e.g. to the right of the plot like in the paper.
 
 # %%
@@ -805,7 +839,8 @@ ax.legend(
 
 plt.show()
 
-# %% [markdown] Oops, the new legend does not have any title. But that is fine, we should
+# %% [markdown]
+# Oops, the new legend does not have any title. But that is fine, we should
 # specify it ourselves anyway, again making use of   LaTeX. Let's also remove the frame
 # around the legend.
 
@@ -864,7 +899,8 @@ ax.legend(
 
 plt.show()
 
-# %% [markdown] We should increase the fontsize too of the legend. The `fontsize`
+# %% [markdown]
+# We should increase the fontsize too of the legend. The `fontsize`
 # argument however only affects the variable labels. For the title, we set our call to
 # `ax.legend()` to a variable, access the title property and adjust its fontsize
 # afterwards.
@@ -926,15 +962,18 @@ lgnd.get_title().set_fontsize(15)  # NEW: legend title font size
 
 plt.show()
 
-# %% [markdown] **2.3.2 Advanced Legend Customization**
+# %% [markdown]
+# **2.3.2 Advanced Legend Customization**
 
-# %% [markdown] We can see that our legend markers are a bit too small. This might be a
+# %% [markdown]
+# We can see that our legend markers are a bit too small. This might be a
 # problem if we would further increase the size of the whole plot. Hence, it would make
 # sense to specify their size too, right? However, this is less trivial to do than most
 # other things shown so far. But, we will show one way to do it which should suffice for
 # most cases.
 
-# %% [markdown] What we need to do is specify the `handles` of our legend. The legend has
+# %% [markdown]
+# What we need to do is specify the `handles` of our legend. The legend has
 # two primary attributes: handles and labels (i.e., the markers for the variables and
 # their names). We make use of the fact that the legend handles/markers are essentially
 # the same type of object as what is drawn in the main plot area. In the case of a
@@ -1003,7 +1042,8 @@ lgnd.get_title().set_fontsize(15)
 
 plt.show()
 
-# %% [markdown] The size looks better, but now are labels are gone. We could set the
+# %% [markdown]
+# The size looks better, but now are labels are gone. We could set the
 # `labels` argument in the `ax.legend()` call or the `label` argument inside each call of
 # `mline.Line2D` inside the loop, either is fine. We use the latter to loop through our
 # dictionary with colors so we can set the corresponding color at the same time.
@@ -1071,7 +1111,8 @@ lgnd.get_title().set_fontsize(15)
 
 plt.show()
 
-# %% [markdown] Now we are finished with the plot in the upper left, we can just give it
+# %% [markdown]
+# Now we are finished with the plot in the upper left, we can just give it
 # a title too. We can copy and paste the code to do the same for the lineplot with
 # aerobic data.
 
@@ -1146,7 +1187,8 @@ plt.show()
 df_auc_anaer = data_auc[data_auc["condition"] == "Anaerobic"]
 df_auc_anaer
 
-# %% [markdown] We now turn our attention to the plot on the upper right, using the
+# %% [markdown]
+# We now turn our attention to the plot on the upper right, using the
 # aggregated data. We skip most steps here as they are similar. We only note that we are
 # using a stripplot to visualize categorical data with dots and also a pointplot to show
 # some errorbars.
@@ -1214,7 +1256,8 @@ ax.set_title("Anaerobic", fontdict={"size": 15, "weight": "bold"})
 plt.show()
 
 
-# %% [markdown] We will now show one way to plot the significance bars. We made a small
+# %% [markdown]
+# We will now show one way to plot the significance bars. We made a small
 # function to do that. What it does is just plot some lines and also add some text above
 # the line (the significance star). What we define is just where we want our significance
 # bar to start (the `y` argument) and between which x-indices to span it over (the `xs`
@@ -1253,7 +1296,8 @@ def plot_significance(xs, y, labels=["*"], height=0.1, ax=None):
         )
 
 
-# %% [markdown] Hence, if we want the bar to span between 20 and DMSO (first and last),
+# %% [markdown]
+# Hence, if we want the bar to span between 20 and DMSO (first and last),
 # we specify `xs` as `(0, 5)`.
 
 # %%
@@ -1325,7 +1369,8 @@ plt.show()
 # %% [markdown]
 # ## 3. Figure Composition
 
-# %% [markdown] Now, we can create the final plot consisting of all the 4 subplots.
+# %% [markdown]
+# Now, we can create the final plot consisting of all the 4 subplots.
 # Below, we define functions to draw the two types of plots we have. Note that we removed
 # the legend from the right plot type, as it is not drawn there in the paper figure. As
 # such, we set the `legend` argument to `False` in the `.pointplot()` and `.stripplot()`
@@ -1449,7 +1494,8 @@ def plot_categorical_plot(data, condition, ylims, ax):
 # %% [markdown]
 # ### 3.1 Default using `.subplots()`
 
-# %% [markdown] The easiest way to do a grid is to make use of subplots. One way is to
+# %% [markdown]
+# The easiest way to do a grid is to make use of subplots. One way is to
 # use the oneliner `fig, ax = plt.subplots(nrows=<number-of-rows>,
 # ncols=<number-of-columns>)`, creating a grid of equally spaced subplots. We can call it
 # without any further plot functions just to see what the grid looks like.
@@ -1459,7 +1505,8 @@ fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(20, 20))
 
 plt.show()
 
-# %% [markdown] If we have more than one subplot, `ax` will be a NumPy array of as many
+# %% [markdown]
+# If we have more than one subplot, `ax` will be a NumPy array of as many
 # `axes` objects as our grid is large (in this case 2 x 2 = 4). We can iterate through
 # some containers and populate the grid as we show below.
 
@@ -1480,7 +1527,8 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
 
 plt.show()
 
-# %% [markdown] That looks somewhat close to the real plot. However, we can see that the
+# %% [markdown]
+# That looks somewhat close to the real plot. However, we can see that the
 # legends are obscured by the categorical plots on the right. A better way would be to
 # specify the spacing for each sub-plotting area in the grid. We will show how to do that
 # in the last section using `Gridspec`.
@@ -1488,7 +1536,8 @@ plt.show()
 # %% [markdown]
 # ### 3.2 Advanced Composition using `Gridspec`
 
-# %% [markdown] Gridspec allows us to specify the boundaries of our plotting areas. We
+# %% [markdown]
+# Gridspec allows us to specify the boundaries of our plotting areas. We
 # define two Gridspec areas here: one for the left plot, one for the right. The
 # Gridspec's make use of **figure** coordinates, where we specify the `left`, `right`,
 # `top`, and/or `bottom` arguments. Note that for these arguments, the start is at the
@@ -1514,7 +1563,8 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
 
 plt.show()
 
-# %% [markdown] We can use `hspace` to add horizontal spacing between our subplots in our
+# %% [markdown]
+# We can use `hspace` to add horizontal spacing between our subplots in our
 # gridspec.
 
 # %%
@@ -1535,7 +1585,8 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
 
 plt.show()
 
-# %% [markdown] We now add in our plotting functions from before where we define each
+# %% [markdown]
+# We now add in our plotting functions from before where we define each
 # `axes` via the standard `fig.add_subplot()` call - only now we add an element of our
 # gridspec to it.
 
@@ -1565,9 +1616,11 @@ for r, cond in enumerate(["Anaerobic", "Aerobic"]):
 
 plt.show()
 
-# %% [markdown] Using Gridspec, we can have a large variety of possible figure layouts.
+# %% [markdown]
+# Using Gridspec, we can have a large variety of possible figure layouts.
 
-# %% [markdown] Let us finish the remainding elements of the figure and with it, this
+# %% [markdown]
+# Let us finish the remainding elements of the figure and with it, this
 # chapter.
 
 # %%

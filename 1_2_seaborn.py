@@ -72,4 +72,5 @@ ax.get_figure()
 with plt.style.context("ggplot"):
     ax = sns.barplot(data=df)
 
-# %% [markdown] The end.
+# %% [markdown]
+# The end.

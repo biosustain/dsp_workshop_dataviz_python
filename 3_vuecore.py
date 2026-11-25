@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     cell_metadata_filter: -all
+#     cell_metadata_filter: title,-all
 #     formats: ipynb,py:percent
 #     text_representation:
 #       extension: .py
@@ -32,7 +32,8 @@ if IN_COLAB:
     # %pip install acore vuecore
     print("Done installing acore and vuecore in colab")
 
-# %% [markdown] Import libraries
+# %% [markdown]
+# Import libraries
 
 # %%
 import os
@@ -81,7 +82,8 @@ fig = create_histogram_plot(
 fig
 
 
-# %% [markdown] For now vuecore is built on top of ploltly:
+# %% [markdown]
+# For now vuecore is built on top of ploltly:
 
 # %%
 type(fig)
@@ -107,7 +109,8 @@ df_wide = pd.read_csv(fname, index_col=0)
 df_wide["group"] = df_wide.index.str.split("_").str[0]  # DMSO or Suf
 df_wide[["group"]]
 
-# %% [markdown] `run_pca` returns the components, loadings and explained variance, and
+# %% [markdown]
+# `run_pca` returns the components, loadings and explained variance, and
 # the axis names (including explained variance). Proteins with missing values are dropped
 # per default.
 
@@ -115,7 +118,8 @@ df_wide[["group"]]
 pca_results, pca_annotation = run_pca(df_wide, group="group")
 pca_results[0]
 
-# %% [markdown] Static version (matplotlib figure):
+# %% [markdown]
+# Static version (matplotlib figure):
 
 # %%
 fig_static = get_embedding_plot_static(
@@ -125,7 +129,8 @@ fig_static = get_embedding_plot_static(
     title="PCA of protein intensities",
 )
 
-# %% [markdown] Interactive version (plotly figure) - hover over the samples. The
+# %% [markdown]
+# Interactive version (plotly figure) - hover over the samples. The
 # loadings of the proteins contributing most are added as arrows (biplot).
 
 # %%
