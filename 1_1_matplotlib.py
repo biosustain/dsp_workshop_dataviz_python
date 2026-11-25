@@ -1,6 +1,7 @@
 # %% [markdown]
 # # Matplotlib
-# - A comprehensive library for creating static, animated, and interactive visualizations in Python.
+# - A comprehensive library for creating static, animated, and interactive visualizations
+#   in Python.
 # - Built on NumPy arrays and designed to work with the broader SciPy stack.
 #
 # Inspiration for plots and overviews
@@ -25,9 +26,8 @@ fig, ax = plt.subplots()  # Create a figure containing a single Axes.
 ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
 plt.show()  # Show the figure.
 
-# %% [markdown]
-# ![Figure, Axes and axis](assets/figure_axes_axis.png)
-# ![Anatomy of a matplotlib figure](https://matplotlib.org/stable/_images/anatomy.png)
+# %% [markdown] ![Figure, Axes and axis](assets/figure_axes_axis.png) ![Anatomy of a
+# matplotlib figure](https://matplotlib.org/stable/_images/anatomy.png)
 
 # %%
 fig, ax = plt.subplots()  # Create a figure containing a single Axes.
@@ -35,8 +35,7 @@ ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
 ax.grid()
 plt.show()
 
-# %% [markdown]
-# Customize ticks
+# %% [markdown] Customize ticks
 # - [Ticker API](https://matplotlib.org/stable/api/ticker_api.html)
 
 # %%
@@ -83,8 +82,7 @@ data = {"X": X, "red_line": Y1, "blue_line": Y2, "circles": Y3}
 data = pd.DataFrame(data)
 data.head()
 
-# %% [markdown]
-# Create the figure without the annotations. Ready to customize!
+# %% [markdown] Create the figure without the annotations. Ready to customize!
 
 # %%
 from matplotlib.ticker import AutoMinorLocator, MultipleLocator

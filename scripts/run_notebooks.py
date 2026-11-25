@@ -74,7 +74,9 @@ def main() -> int:
             continue
         print(f"ok ({time.perf_counter() - start:.1f}s)")
 
-    print(f"\n{len(notebooks) - len(failed)}/{len(notebooks)} notebooks ran successfully.")
+    print(
+        f"\n{len(notebooks) - len(failed)}/{len(notebooks)} notebooks ran successfully."
+    )
     for rel in failed:
         print(f"  failed: {rel}")
     return 1 if failed else 0
